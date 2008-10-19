@@ -1,0 +1,21 @@
+1. 形成基本的项目需求
+    a) 划分项目需要完成的功能块
+    b) 一定程度上划分各个功能块的功能
+    
+2. 学习基础
+    a) Apache + PHP + MySQL 服务器环境的搭建
+        p.s. 安装 phpmyadmin 用于mysql的图形化管理
+    b) 学习 
+            html css
+            javascript
+            php
+            sql (http://sqlzoo.cn)
+        方式：自己编写一个简单的php报名系统
+        要求 
+        I)  用户注册
+        II) 用户登录
+        III)用户信息修改
+        IV) 管理员查询用户信息
+        V)  管理员删除用户信息
+        VI) 用MySQL数据库保存用户信息
+    c) 学习subversion的基本使用
