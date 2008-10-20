@@ -1,0 +1,10 @@
+body {font-size:12px; text-align:center;}
+#title {font-size:20px; font-weight:bold;}
+table{text-align:center; font-size:14px;}
+input.text {border:1px solid #999; width: 120px;}
+#footer {text-align:center; font-size:12px;}
+a{color:blue;text-decoration:none;}
+a:hover{color:red;text-decoration:under-line;}
+.btn{border:1px solid #333;}
+#description{border:1px solid #999; width:300px;height:180px;}
+.msg{border:1px solid #aaf;background-color:#eef;font-color:#000;font-size:14px;}
