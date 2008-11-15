@@ -1,0 +1,31 @@
+ 4. 数据导入/导出(配合Online Judge举行预赛)
+        所有导入导出可以自定义格式
+        可以导出注册队伍数据，方便OnlineJudge导入
+        可以导入预赛排名结果
+        可以导入晋级决赛结果
+        可以导出决赛队伍信息，方便PC^2导入
+        可以导入决赛名次信息，共生成结果
+
+具体要求：
+	1) 导出注册队伍数据，方便online judge导入
+		初赛：信息只需包括队伍编号，及[team_Num],初始排名均为0；
+		决赛：信息包括队伍编号，注册时的密码，预赛解决题目数量，预赛排名
+			  即[Team_Num],[Password],[Front_Solved],[Front_Rank].
+	2)导入预赛排名结果
+			  信息包括：队伍ID,队伍编号，队伍学校，预赛题目解决情况，预赛解决题目数量，罚时，预赛排名。
+			  即[Team_ID],[Team_Num],[College],[Front_Problems],[Front_Solved],[Penalty],[Front_Rank]
+	3)导入晋级决赛结果
+			  信息包括：队伍ID，队伍编号，队伍学校，预赛排名。
+			  即[Team_ID][Team_Num][College][Front_Rank].
+	4)导出决赛队伍信息，方便PC^2导入。
+			  信息包括：队伍ID,队伍编号，队伍学校，预赛解决题目数量，预赛排名。
+			  即[Team_ID],[Team_Num],[College],[Front_Solved],[Front_Rank]。
+	5)导入决赛名次信息，共生成结果.
+			  信息包括：队伍ID,队伍编号，决赛题目解决情况，决赛解决题目数量，罚时，决赛排名。
+			  即[Team_ID],[Team_Num],[Last_Problems],[Last_Solved],[Penalty],[Last_Rank].
+			  如果决赛成绩相同且罚时相同，则由裁判根据预赛成绩判断排名。
+			  按排名从上到下显示队伍信息。
+	
+	注：1.在题目解决情况里面，即[***_Problems]对应的各个题目的状态为xx/y，其中xx为解决该题的时间，y为提交次数，当没有被解决时，显示xx为--。
+		2.在题目解决情况里面，每次提交结果（AC,CE,TLE,WA,RE,MLE,OLE）以及语言（C,C++,Java）要对应记录，但不显示在公告栏（board），只是作为内部数据记录，方便查询。
+			  
