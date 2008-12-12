@@ -11,9 +11,10 @@
 
 2. 队伍表   teams
 队伍编号    team_id int default NULL,
-学校编号    school_id int, # 对应学校表中的school_id
+学校编号    school_id int, # 对应学校表中的school_id, -1代表高中队伍
 队伍名称    team_name char(50),
 队伍密码    password char(50),
+验证码      vcode   char(10),
 邮箱        email   char(50),
 地址        address  char(100),
 邮编        postcode char(20),
@@ -23,14 +24,14 @@
 预赛出题数  pre_solved int,
 预赛罚时    pre_penalty int,
 预赛排名    pre_rank int,
-预赛出题数  pre_solved int,
-预赛罚时    pre_penalty int,
 决赛编号    final_id int default -1,  # id=(-1)表示未晋级
+决赛出题数  final_solved int,
+决赛罚时    final_penalty int,
 宾馆        hotel_id int, # 确定下来的住宿点 对应 hotels 表中的hotel_id,
 宾馆1       hotel_id1 int, # 首选住宿点 对应 hotels 表中的hotel_id,
 宾馆2       hotel_id2 int, # 备选住宿点 对应 hotels 表中的hotel_id,
 住宿附加要求requirement char(100),
-备注        remark  char(1000),
+备注        remark  char(1000)
 
 4. 人员表   members
 人员编号    member_id int,
@@ -54,7 +55,7 @@
 发布时间    pub_time int,
 标题        title char(100),
 内容        content varchar(5000),
-内容编码    content_type int, # 0=plain  1=html  2=ubb
+内容编码    content_type int, # 0=plain  1=html
 优先级      priority int, # 用于通知的排序，优先级高的通知排前(如置顶)
 访问权限    permission int, # 0=注册队伍可见 1=所有浏览者可见
 访问量      views int,
@@ -75,4 +76,3 @@
 在线地图链接online_map_pos char(100), # 存放在线地图记录点链接
 价格信息    price char(500),
 附加信息    addition char(500)
-
