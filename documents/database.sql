@@ -37,7 +37,7 @@ CREATE TABLE `members`(
     `member_name` char(50),
     `member_name_pinyin` char(50),
     `gender` int,
-    `school_id` int， 
+    `school_id` int,  
     `faculty_major` char(50),
     `grade_class` char(50),
     `stu_number` char(50),
@@ -62,7 +62,7 @@ CREATE TABLE `messages`(
     `message_id` int primary key auto_increment,
     `pub_time` int,
     `from_id` int, 
-    `from_id` int, 
+    `to_id` int, 
     `message_content` varchar(1000),
     `read` int DEFAULT 0, 
     `replied` int DEFAULT 0

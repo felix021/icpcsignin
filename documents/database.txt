@@ -40,7 +40,7 @@
 姓名        member_name char(50),
 姓名拼音    member_name_pinyin char(50),
 性别        gender int,
-学校编号    school_id， # 对应学校表中的school_id
+学校编号    school_id, # 对应学校表中的school_id
 院系专业    faculty_major char(50),
 年级班级    grade_class char(50),
 学号        stu_number char(50),
@@ -63,7 +63,7 @@
 信件编号    message_id int,
 发出时间    pub_time int,
 发信人      from_id int, # 对应teams中的team_id， -1表示管理员
-收信人      from_id int, # 对应teams中的team_id， -1表示管理员 -2表示所有队伍
+收信人      to_id int, # 对应teams中的team_id， -1表示管理员 -2表示所有队伍
 内容        message_content var_char(1000),
 是否已经阅读read int, # 0=收件人尚未阅读，1=收件人已经阅读
 是否已经回复replied int, # 0=收件人尚未回复，1=收件人已经回复
