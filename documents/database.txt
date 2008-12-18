@@ -49,7 +49,6 @@
 其他联系方式contact char(100),
 备注        remark char(1000),
 
-
 4. 通知表   articles
 通知编号    article_id int,
 发布时间    pub_time int,
