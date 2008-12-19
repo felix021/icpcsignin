@@ -15,18 +15,18 @@ class team extends table{
     public $telephone;      //电话
     public $contact;        //其他联系方式
 
-    public $valid_for_final;//能否参加决赛
-    public $pre_solved;     //预赛出题数
-    public $pre_penalty;    //预赛罚时
-    public $pre_rank;       //决赛排名
+    public $valid_for_final = 1;//能否参加决赛
+    public $pre_solved = -1;     //预赛出题数
+    public $pre_penalty = -1;    //预赛罚时
+    public $pre_rank = -1;       //决赛排名
 
-    public $final_id;       //决赛编号
-    public $final_solved;   //决赛出题数
-    public $final_penalty;  //决赛罚时
+    public $final_id = -1;       //决赛编号
+    public $final_solved  = -1;  //决赛出题数
+    public $final_penalty = -1;  //决赛罚时
 
-    public $hotel_id;       //住宿点
-    public $hotel_id1;      //首选注册点
-    public $hotel_id2;      //备选注册点
+    public $hotel_id = -1;  //住宿点
+    public $hotel_id1 = -1; //首选注册点
+    public $hotel_id2 = -1; //备选注册点
     public $requirement;    //附加要求
 
     public $remark;         //备注
@@ -130,15 +130,15 @@ class team extends table{
         $telephone	=	$conn->real_escape_string($this->telephone);      
         $contact	=	$conn->real_escape_string($this->contact);        
         $valid_for_final	=	(int)$this->valid_for_final;
-        $pre_solved	=	-1;
-        $pre_penalty=	-1;
-        $pre_rank	=	-1;
-        $final_id	=	-1;
-        $final_solved	=	-1;
-        $final_penalty  =	-1;
-        $hotel_id	=	-1;
-        $hotel_id1	=	-1;
-        $hotel_id2	=	-1;
+        $pre_solved	=	(int)$this->pre_solved;	
+        $pre_penalty=	(int)$this->pre_penalty;
+        $pre_rank	=	(int)$this->pre_rank;	
+        $final_id	=	(int)$this->final_id;	
+        $final_solved	=	(int)$this->final_solved;	
+        $final_penalty	=	(int)$this->final_penalty;  
+        $hotel_id	=	(int)$this->hotel_id;	
+        $hotel_id1	=	(int)$this->hotel_id1;	
+        $hotel_id2	=	(int)$this->hotel_id2;	
         $requirement=	""; //$conn->real_escape_string($this->requirement);    
         $remark	    =	$conn->real_escape_string($this->remark);         
         $query = "INSERT INTO `{tblprefix}_teams` "

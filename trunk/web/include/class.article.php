@@ -8,10 +8,10 @@ class article extends table{
 	public $pub_time;		//发布时间
 	public $title;		    //标题
 	public $content;		//内容
-	public $content_type;	//内容类型 0=plain, 1=html
-	public $priority;		//优先级
-	public $permission;		//访问权限 0=仅登录后可读, 1=开放阅读
-	public $views;		    //访问次数
+	public $content_type=0;	//内容类型 0=plain, 1=html
+	public $priority = 0;	//优先级
+	public $permission = 1;	//访问权限 0=仅登录后可读, 1=开放阅读
+	public $views = 0;	    //访问次数
 
     public $errno; //是否出错(>0为出错)
     public $error; //错误信息

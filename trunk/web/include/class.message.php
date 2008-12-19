@@ -9,8 +9,8 @@ class message extends table{
 	public $from_id;		//发送者id, -1表示管理员
 	public $to_id;		    //接收者id, -1表示管理员，-2表示所有队伍
 	public $message_content;//消息内容
-	public $read;		    //已经阅读
-	public $replied;		//已经回复
+	public $read = 0;	    //已经阅读
+	public $replied = 0;	//已经回复
 
     public $errno; //是否出错(>0为出错)
     public $error; //错误信息
