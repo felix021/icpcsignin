@@ -33,7 +33,7 @@
 住宿附加要求requirement char(100),
 备注        remark  char(1000)
 
-4. 人员表   members
+3. 人员表   members
 人员编号    member_id int,
 人员类型    type int, # 0=教练 1=队员 2=队长
 队伍编号    team_id, # 对应teams表中的team_id

@@ -30,7 +30,7 @@ CREATE TABLE `{$tblprefix}_teams`(
     `hotel_id` int DEFAULT -1, 
     `hotel_id1` int DEFAULT -1, 
     `hotel_id2` int DEFAULT -1,  
-    `requirement` BLOB,
+    `requirement` varchar(1000),
     `remark` varchar(1000)
 );
 
@@ -57,7 +57,7 @@ CREATE TABLE `{$tblprefix}_articles`(
     `article_id` int primary key auto_increment,
     `pub_time` int,
     `title` char(100),
-    `content` varchar(5000),
+    `content` text,
     `content_type` int DEFAULT 1, 
     `priority` int DEFAULT 0, 
     `permission` int DEFAULT 1, 
