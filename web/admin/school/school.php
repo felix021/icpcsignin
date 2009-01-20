@@ -11,39 +11,26 @@ function delschool(id, name){
 <?
 
 $school_name = htmlspecialchars($_GET['school_name']);
-$isOurSchool = isset($_GET['isOurSchool']) ? "checked" : "";
-$isOurCity = isset($_GET['isOurCity']) ? "checked" : "";
-$isUniversity = isset($_GET['isUniversity']) ? "checked" : "";
 echo <<<eot
-<div class="msg" style="margin:25px;text-align:center;">学校管理</div>
+<div class="msg" style="margin:25px;text-align:center;font-size:24px;font-weight:bold;">学校管理</div>
 <form method="get">
-学校名称(中/英文):<input type="text" name="school_name" value="$school_name"/>
-<input type="checkbox" name="isOurSchool" $isOurSchool value="1"/>本校
-<input type="checkbox" name="isOurCity" $isOurCity value="2"/>本市
-<input type="checkbox" name="isUniversity" $isUniversity value="4"/>高校
+学校名称(中/英文) <input type="text" name="school_name" value="$school_name"/>
 <input type="submit" value="筛选"/>
 </form>
 eot;
 
-$query = "SELECT * FROM {tblprefix}_schools WHERE 1 ";
+$query = "SELECT * FROM {tblprefix}_schools";
 if(isset($_GET['school_name'])){
-    unset($isOurSchool);
-    unset($isOurCity);
-    unset($isUniversity);
-    extract($_GET, EXTR_OVERWRITE);
     if(get_magic_quotes_gpc()) 
-        $school_name = stripslashes($school_name);
+        $school_name = stripslashes($_GET['school_name']);
     if(!empty($school_name)) {
         $school_name = $conn->real_escape_string($school_name);
-        $query .= " AND (`school_name_cn` LIKE '%$school_name%' "
-                 ."   OR `school_name_en` LIKE '%$school_name%')";
+        $query .= " WHERE `school_name_cn` LIKE '%$school_name%' "
+                 ."    OR `school_name_en` LIKE '%$school_name%' ";
     }
-    if(isset($isOurSchool)) $query .= " AND (`school_type` & 1 <> 0) ";
-    if(isset($isOurCity)) $query .= " AND (`school_type` & 2 <> 0) ";
-    if(isset($isUniversity)) $query .= " AND (`school_type` & 4 <> 0) ";
 }
 
-echo $query;//exit();
+//echo $query;//exit();
 $res = getQuery($conn, $query);
 
 echo <<<eot
@@ -71,8 +58,8 @@ while($row = $res->fetch_assoc()){
 <form action="updateschool.php" method="post">
 <tr class="$trclass">
 <td>$school_id<input type="hidden" name="school_id" value="$school_id"/></td>
-<td><input type="text" name="school_name_cn" value="$school_name_cn"/></td>
-<td><input type="text" name="school_name_en" value="$school_name_en"/></td>
+<td><input type="text" size="15" name="school_name_cn" value="$school_name_cn"/></td>
+<td><input type="text" size="45" name="school_name_en" value="$school_name_en"/></td>
 <td>
 <input type="checkbox" name="isOurSchool" $isOurSchool value="1"/>本校
 <input type="checkbox" name="isOurCity" $isOurCity value="2"/>本市
@@ -92,8 +79,8 @@ echo <<<eot
 <form action="updateschool.php" method="post">
 <tr class="$trclass">
 <td>新增</td>
-<td><input type="text" name="school_name_cn"/></td>
-<td><input type="text" name="school_name_en"/></td>
+<td><input type="text" size="15" name="school_name_cn"/></td>
+<td><input type="text" size="45" name="school_name_en"/></td>
 <td>
 <input type="checkbox" name="isOurSchool" value="1"/>本校
 <input type="checkbox" name="isOurCity" value="2"/>本市
