@@ -1,0 +1,23 @@
+<?php
+include("include/header.php");
+include("include/classes.php");
+foreach($_POST as &$value){
+    if(get_magic_quotes_gpc()){
+        $value = stripslashes($value);
+    }
+}
+extract($_POST);
+$team_name = $conn->real_escape_string($team_name);
+$password = $conn->real_escape_string($password);
+$query = "SELECT `team_id` FROM {tblprefix}_teams "
+        ." WHERE `team_name`='$team_name' AND `password`='$password'";
+$res = getQuery($conn, $query);
+if($conn->affected_rows == 1){
+    $row = $res->fetch_assoc();
+    $_SESSION['team_id'] = $row['team_id'];
+    header('location: index.php');
+}else{
+    session_destroy();
+    msgbox("队名或密码错误!");
+}
+?>
