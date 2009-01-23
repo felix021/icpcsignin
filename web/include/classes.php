@@ -55,4 +55,6 @@ include_once("$includeDir/class.message.php");
 // 住宿表
 include_once("$includeDir/class.hotel.php");
 
+//其他函数
+include_once("$includeDir/functions.php");
 ?>
