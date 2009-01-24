@@ -62,4 +62,35 @@ function msgbox($msg, $htmlencode = true){
 eot;
     exit();
 }
+
+function select_school($school_id = -1, $type = 0){
+    global $conn;
+    $query = "SELECT * FROM {tblprefix}_schools";
+    if($type > 0){
+        $query .= " WHERE `school_type` = $type";
+    }
+    $query .= " ORDER BY `school_type` DESC";
+    $res = getQuery($conn, $query);
+    $out =  "<select name=\"school_id\">\n";
+    while($row = $res->fetch_assoc()){
+        $id = $row['school_id'];
+        $name = htmlspecialchars($row['school_name_cn']);
+        if($id == $school_id) $selected = "selected=\"selected\"";
+        else $selected = "";
+        $out .= "<option $selected value=\"$id\">$name</option>\n";
+    }
+    $out .= "</select>\n";
+    return $out;
+}
+
+function time2str($timestamp = -1){
+    if($timestamp == -1) $timestamp = time();
+    return date("Y-m-d H:i:s", $timestamp);
+}
+
+function str2time($str){
+    list($Y, $m, $d, $H, $i, $s) = split(" |-|:", $str);
+    return mktime($H, $i, $s, $m, $d, $Y);
+}
+
 ?>
