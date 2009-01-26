@@ -8,8 +8,14 @@ function rndstr($length = 6){
     return $str;
 }
 
+function encodeObject($a){
+    foreach($a as &$v)
+        $v = htmlspecialchars($v);
+}
+
 function msgbox($msg, $htmlencode = true){
-    ob_clean();
+    @ob_clean();
+    @ob_clean();
     if($htmlencode){
         $msg = htmlspecialchars($msg);
     }
@@ -63,21 +69,38 @@ eot;
     exit();
 }
 
-function select_school($school_id = -1, $type = 0){
+function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 0){
     global $conn;
     $query = "SELECT * FROM {tblprefix}_schools";
-    if($type > 0){
-        $query .= " WHERE `school_type` = $type";
+    switch($type){
+    case 1: //高校
+        $query .= " WHERE `school_type` & 4 = 4 ";
+        break;
+    case 2: //非本校高校
+        $query .= " WHERE `school_type` & 1 = 0 AND `school_type` & 4 = 4 ";
+        break;
+    case 3: //高中
+        $query .= " WHERE `school_type` & 4 = 0 ";
+        break;
+    default:
+        ;
     }
     $query .= " ORDER BY `school_type` DESC";
     $res = getQuery($conn, $query);
     $out =  "<select name=\"school_id\">\n";
+    if($force_none == 1 || $school_id <= 0){
+        if($school_id <= 0) $selected = "selected=\"selected\"";
+        $out .= "<option $selected value=\"-1\">请选择学校</option>\n";
+    }
     while($row = $res->fetch_assoc()){
         $id = $row['school_id'];
         $name = htmlspecialchars($row['school_name_cn']);
         if($id == $school_id) $selected = "selected=\"selected\"";
         else $selected = "";
         $out .= "<option $selected value=\"$id\">$name</option>\n";
+    }
+    if($addhigh != 0){
+        $out .= "<option value=\"-1\">高中队伍</option>\n";
     }
     $out .= "</select>\n";
     return $out;
@@ -91,6 +114,11 @@ function time2str($timestamp = -1){
 function str2time($str){
     list($Y, $m, $d, $H, $i, $s) = split(" |-|:", $str);
     return mktime($H, $i, $s, $m, $d, $Y);
+}
+
+
+function sendmail($email, $content, $mode = 0){
+    ;
 }
 
 ?>

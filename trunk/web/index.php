@@ -7,14 +7,6 @@ ooxx1<br/>
 ooxx2<br/>
 ooxx2<br/>
 ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
-ooxx2<br/>
 </div>
 eot;
 

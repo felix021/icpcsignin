@@ -8,6 +8,8 @@ CREATE TABLE `{$tblprefix}_schools`(
     `school_type` int
 );
 
+INSERT INTO `{tblprefix}_schools` VALUES(NULL, "武汉大学", "Wuhan University", 7);
+
 DROP TABLE IF EXISTS `{$tblprefix}_teams`;
 CREATE TABLE `{$tblprefix}_teams`(
     `team_id` int NOT NULL primary key auto_increment,
@@ -84,5 +86,6 @@ CREATE TABLE `{$tblprefix}_hotels`(
     `price` varchar(1000),
     `addition` varchar(1000)
 );
+
 eot;
 ?>
