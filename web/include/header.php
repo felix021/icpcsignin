@@ -10,8 +10,10 @@
     a:hover{color:red;text-decoration:underline;}
     .tre{background-color:#eee;}
     .tro{background-color:#ddd;}
+    .tblhead{padding:2px;color:#fff;background-color:#000;}
     td{text-align:center; padding:2px;}
     body{width:1024px;margin:0;}
+    fieldset{margin:10px;text-align:left;}
     </style>
 </head>
 <body>

@@ -18,6 +18,6 @@ li{
     <li><a href="members.php" target="display">成员管理</a></li>
     <li>队伍管理</li>
     <li>....</li>
-    <li><a href="../team_logout.php" target="top">退出登陆</a></li>
+    <li><a href="../team_logout.php" target="_top">退出登陆</a></li>
 </ul>
 <?php include("../include/footer.php"); ?>

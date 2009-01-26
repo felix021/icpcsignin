@@ -15,7 +15,7 @@ li{
 <ul style="margin-top:60px;">
     <li><a href="display.php" target="display">管理首页</a></li>
     <li><a href="school/school.php" target="display">学校管理</a></li>
-    <li>队伍管理</li>
+    <li><a href="team/index.php" target="display">队伍管理</a></li>
     <li>....</li>
     <li><a href="index.php" target="top">退出登陆</a></li>
 </ul>
