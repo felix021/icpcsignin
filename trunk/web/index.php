@@ -22,6 +22,7 @@ if(isset($_SESSION['team_id'])){
 <a href="team/register.php">注册新队伍!</a>
 </form>
 </div>
+<div><a href="admin/">管理入口</a></div>
 eot;
 }
 

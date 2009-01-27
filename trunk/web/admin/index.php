@@ -40,7 +40,7 @@ try{
 <body>
 <p>{$msg}</p>
 <form method="post">
-password: <input type="password" name="password" size="8"/><br/>
+password(123456): <input type="password" name="password" size="8"/><br/>
 vcode: <input type="text" name="vcode" size="4"/>
 <img id="vcode" src="vcode.php" style="cursor:hand;" onclick="change()"/><br/>
 <input type="submit" value="login"/>

@@ -82,6 +82,9 @@ if($teams_c > 0){
 function editTeam(id){
     window.location = "editteam.php?team_id=" + id;
 }
+function editMembers(id){
+    window.location = "editmembers.php?team_id=" + id;
+}
 function delTeam(id, name){
     if(confirm("确认删除队伍 [" + name + "] 吗?")){
         window.location = "delteam.php?team_id=" + id;
@@ -106,21 +109,27 @@ eot;
         encodeObject($row);
         extract($row, EXTR_OVERWRITE);
         $team_name_slash = htmlspecialchars($team_name);
-        $sch = new school($school_id);
-        $pre = $pre_rank > 0 ? $pre_rank : "";
-        $for_final = $valid_for_final == 1 ? "checked=\"checked\"" : "";
-        $final = $final_rank > 0 ? $final_rank : "";
+        if($school_id == -1) $school_name = "高中队伍";
+        else {
+            $sch = new school($school_id);
+            $school_name = $sch->school_name_cn;
+        }
+        $school_name = htmlspecialchars($school_name);
+        $pre = $pre_rank > 0 ? $pre_rank : "-";
+        $for_final = $valid_for_final == 1 ? "Y" : "N";
+        $final = $final_rank > 0 ? $final_rank : "-";
         echo <<<eot
 <tr class="$trclass">
 <td>$team_id</td>
 <td>$team_name</td>
-<td>{$sch->school_name_cn}</td>
+<td>$school_name</td>
 <td>$email</td>
 <td>$pre</td>
-<td><input type="checkbox" $for_final/></td>
+<td>$for_final</td>
 <td>$final</td>
 <td>
 <input type="button" value="详细" onclick="javascript:editTeam($team_id);"/>
+<input type="button" value="成员" onclick="javascript:editMembers($team_id);"/>
 <input type="button" value="删除" onclick="javascript:delTeam($team_id, '$team_name_slash');"/>
 </td>
 </tr>

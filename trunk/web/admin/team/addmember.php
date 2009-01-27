@@ -1,20 +1,16 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
 
-$team_id = (int)$_SESSION['team_id'];
+$team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
 if($a->errno){
     msgbox($a->error);
 }
-if($a->vcode != ""){
-    msgbox("请先验证邮箱后再进行此操作");
-}
 
 $m = new member;
 
-foreach($_POST as &$value){
-    if(get_magic_quotes_gpc()){
+if(get_magic_quotes_gpc()){
+    foreach($_POST as &$value){
         $value = stripslashes($value);
     }
 }
@@ -22,7 +18,7 @@ extract($_POST, EXTR_OVERWRITE);
 
 $type = (int) $_GET['type'];
 
-$query = "SELECT * FROM {tblprefix}_members WHERE `team_id`={$_SESSION['team_id']} AND `type`={$type}";
+$query = "SELECT * FROM {tblprefix}_members WHERE `team_id`={$_GET['team_id']} AND `type`={$type}";
 $res = getQuery($conn, $query);
 if($type == 0 || $type == 2){
     if($conn->affected_rows >= 1)
@@ -36,7 +32,7 @@ if($type == 0 || $type == 2){
 
 
 $m->type = $type;
-$m->team_id = $_SESSION['team_id'];
+$m->team_id = $_GET['team_id'];
 $m->stu_number = $stu_number;
 $m->member_name = $member_name;
 $m->member_name_pinyin = $member_name_pinyin;
