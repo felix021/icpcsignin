@@ -28,11 +28,12 @@ else
     $school_o = "checked=\"checked\"";
 
 $school_list = select_school($school_id, 2);
+$for_final = $a->valid_for_final == 1 ? "checked=\"checked\"" : "";
 
 echo <<<eot
 <form action="updateteam.php?action=basicinfo" method="post">
 <fieldset style="margin:10px;">
-<legend>队伍信息</legend>
+<legend>队伍基本信息</legend>
 编号: {$a->team_id}<br/>
 队名: {$a->team_name}<br/>
 邮箱: {$a->email}<br/>
@@ -44,7 +45,9 @@ $school_list
 电话: <input type="text" name="telephone" value="{$a->telephone}"/><br/>
 地址: <input type="text" name="address" value="{$a->address}"/><br/>
 邮编: <input type="text" name="postcode" value="{$a->postcode}"/><br/>
-<input type="submit" value="更新基本信息"/>
+<input type="checkbox" name="valid_for_final" $for_final value="1"/>若晋级能前往参加决赛<br/>
+备注: <textarea name="remark" cols="50" rows="3">{$a->remark}</textarea><br/>
+<input type="submit" value="更新"/>
 </form>
 </fieldset>
 

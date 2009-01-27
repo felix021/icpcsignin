@@ -20,6 +20,7 @@ case "basicinfo":
     $a->telephone = $telephone;
     $a->address = $address;
     $a->postcode = $postcode;
+    $a->remark = $remark;
     if($team_type == 1){ //武汉大学队伍
         $a->school_id = 1;
     }else if($team_type == 2){
@@ -31,6 +32,7 @@ case "basicinfo":
     }else{ //高中队伍
         $a->school_id = -1;
     }
+    $a->valid_for_final = $valid_for_final == 1 ? 1 : 0;
 
     if($a->update()){
         msgbox("更新成功!");

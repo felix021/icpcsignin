@@ -1,6 +1,5 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
 
 $team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
@@ -33,7 +32,7 @@ echo "<fieldset>\n<legend>教练信息(非必需)</legend>\n";
 if(!isset($members['coach'])){
     $school_list = select_school($a->school_id);
     echo <<<eot
-<form action="addmember.php?type=0" method="post">
+<form action="addmember.php?type=0&team_id={$a->team_id}" method="post">
 姓名: <input type="text" name="member_name" value="" /><br/>
 姓名拼音: <input type="text" name="member_name_pinyin" value="" /><br/>
 性别: <select name="gender">
@@ -54,7 +53,7 @@ eot;
     $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
     foreach($member as &$value) $value = htmlspecialchars($value);
     echo <<<eot
-<form action="updatemember.php?type=0" method="post">
+<form action="updatemember.php?type=0&team_id={$a->team_id}" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 姓名: <input type="text" name="member_name" value="{$member->member_name}" /><br/>
 姓名拼音: <input type="text" name="member_name_pinyin" value="{$member->member_name_pinyin}" /><br/>
@@ -76,7 +75,7 @@ echo "<fieldset>\n<legend>队长信息(必需)</legend>\n";
 if(!isset($members['master'])){
     $school_list = select_school($a->school_id);
     echo <<<eot
-<form action="addmember.php?type=2" method="post">
+<form action="addmember.php?type=2&team_id={$a->team_id}" method="post">
 学号(非本校队伍可不填): <input type="text" name="stu_number" value="" /> <br/>
 姓名: <input type="text" name="member_name" value="" /><br/>
 姓名拼音: <input type="text" name="member_name_pinyin" value="" /><br/>
@@ -100,7 +99,7 @@ eot;
     $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
     foreach($member as &$value) $value = htmlspecialchars($value);
     echo <<<eot
-<form action="updatemember.php?type=2" method="post">
+<form action="updatemember.php?type=2&team_id={$a->team_id}" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 学号(非本校队伍可不填): <input type="text" name="stu_number" value="{$member->stu_number}" /> <br/>
 姓名: <input type="text" name="member_name" value="{$member->member_name}" /><br/>
@@ -142,7 +141,7 @@ for($i = 0; $i < $member_c; $i++){
     echo <<<eot
 <fieldset>
 <legend>{$member->member_name} [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}');">删除</a>]</legend>
-<form action="updatemember.php?type=1" method="post">
+<form action="updatemember.php?type=1&team_id={$a->team_id}" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 学号(非本校队伍可不填): <input type="text" name="stu_number" value="{$member->stu_number}" /> <br/>
 姓名: <input type="text" name="member_name" value="{$member->member_name}" /><br/>
@@ -167,7 +166,7 @@ if($member_c < 2){
     echo <<<eot
 <fieldset>
 <legend>新增</legend>
-<form action="addmember.php?type=1" method="post">
+<form action="addmember.php?type=1&team_id={$a->team_id}" method="post">
 学号(非本校队伍可不填): <input type="text" name="stu_number" value="" /> <br/>
 姓名: <input type="text" name="member_name" value="" /><br/>
 姓名拼音: <input type="text" name="member_name_pinyin" value="" /><br/>
@@ -188,5 +187,5 @@ eot;
 }
 echo "</fieldset>\n";
 
-include("../include/footer.php");
+include("../footer.php");
 ?>

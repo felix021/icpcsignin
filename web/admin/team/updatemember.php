@@ -1,19 +1,14 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
 
-$team_id = (int)$_SESSION['team_id'];
+$team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
 if($a->errno){
     msgbox($a->error);
 }
-if($a->vcode != ""){
-    msgbox("请先验证邮箱后再进行此操作");
-}
 
-
-foreach($_POST as &$value){
-    if(get_magic_quotes_gpc()){
+if(get_magic_quotes_gpc()){
+    foreach($_POST as &$value){
         $value = stripslashes($value);
     }
 }
@@ -21,7 +16,7 @@ extract($_POST, EXTR_OVERWRITE);
 
 $m = new member($member_id);
 if($m->errno) msgbox($m->error);
-if($m->team_id != $_SESSION['team_id']){
+if($m->team_id != $_GET['team_id']){
     msgbox("错误的成员编号！请不要而已提交，谢谢合作！");
 }
 
@@ -42,5 +37,5 @@ if($m->update()){
     msgbox("更新失败: " . $a->error);
 }
 
-include("../include/footer.php");
+include("../footer.php");
 ?>

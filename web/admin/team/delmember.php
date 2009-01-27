@@ -1,6 +1,5 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
 
 $team_id = (int)$_SESSION['team_id'];
 $a = new team($team_id);

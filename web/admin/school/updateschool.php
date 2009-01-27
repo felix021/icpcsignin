@@ -1,8 +1,9 @@
 <?php
 include("../inc.php");
-foreach($_POST as &$value){
-    if(get_magic_quotes_gpc())
+if(get_magic_quotes_gpc()){
+    foreach($_POST as &$value){
         $value = stripslashes($value);
+    }
 }
 
 extract($_POST);
