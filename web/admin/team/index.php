@@ -108,7 +108,6 @@ eot;
         $trclass = ($i & 1 == 0) ? "tre" : "tro";
         encodeObject($row);
         extract($row, EXTR_OVERWRITE);
-        $team_name_slash = htmlspecialchars($team_name);
         if($school_id == -1) $school_name = "高中队伍";
         else {
             $sch = new school($school_id);
@@ -118,6 +117,7 @@ eot;
         $pre = $pre_rank > 0 ? $pre_rank : "-";
         $for_final = $valid_for_final == 1 ? "Y" : "N";
         $final = $final_rank > 0 ? $final_rank : "-";
+        $team_name_slash = str_replace("'", "\\'", $team_name);
         echo <<<eot
 <tr class="$trclass">
 <td>$team_id</td>

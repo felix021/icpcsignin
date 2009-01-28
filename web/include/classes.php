@@ -5,6 +5,8 @@
 $includeDir = dirname(__FILE__);
 include_once("$includeDir/config.php");
 
+date_default_timezone_set("PRC");
+
 /*
  * 连接数据库
  */

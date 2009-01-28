@@ -3,7 +3,7 @@ include("../inc.php");
 ?>
 <script language="javascript">
 function delschool(id, name){
-    if(confirm("确定要删除编号为"+id+"的学校"+name+"吗?")){
+    if(confirm("确定要删除学校 ["+name+"] 吗?")){
         window.location = "delschool.php?school_id=" + id;
     }
 }
@@ -47,6 +47,7 @@ eot;
 
 $i = 0;
 while($row = $res->fetch_assoc()){
+    encodeObject($row);
     extract($row);
     if($i & 1) $trclass = "tre";
     else $trclass = "tro";
@@ -54,6 +55,7 @@ while($row = $res->fetch_assoc()){
     $isOurSchool = $school_type & 1 ? "checked" : "";
     $isOurCity = $school_type & 2 ? "checked" : "";
     $isUniversity = $school_type & 4 ? "checked" : "";
+    $school_name_cn_slash = str_replace("'", "\\'", $school_name_cn);
     echo <<<eot
 <form action="updateschool.php" method="post">
 <tr class="$trclass">
@@ -67,7 +69,7 @@ while($row = $res->fetch_assoc()){
 </td>
 <td>
 <input type="submit" name="modify" value="修改"/>
-<input type="button" onclick="javascript:delschool($school_id,'$school_name_cn')" value="删除"/>
+<input type="button" onclick="javascript:delschool($school_id,'$school_name_cn_slash')" value="删除"/>
 </td>
 </tr>
 </form>

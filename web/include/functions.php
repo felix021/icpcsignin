@@ -8,9 +8,10 @@ function rndstr($length = 6){
     return $str;
 }
 
-function encodeObject($a){
-    foreach($a as &$v)
-        $v = htmlspecialchars($v);
+function encodeObject(&$a){
+    foreach($a as &$v){
+        $v = htmlspecialchars($v, ENT_COMPAT, "utf-8");
+    }
 }
 
 function msgbox($msg, $htmlencode = true){
@@ -119,6 +120,89 @@ function str2time($str){
 
 function sendmail($email, $content, $mode = 0){
     ;
+}
+
+function ubb2html($str){
+    $str = htmlspecialchars($str, ENT_NOQUOTES);
+    $pattern = array(
+        "/\[b\](.+?)\[\/b\]/is", //1
+        "/\[i\](.+?)\[\/i\]/is", //2
+        "/\[u\](.+?)\[\/u\]/is", //3
+        "/\[sup\](.+?)\[\/sup\]/is", //4
+        "/\[sub\](.+?)\[\/sub\]/is", //5
+        "/\[center\](.+?)\[\/center\]/is", //6
+        "/\[code\](.+?)\[\/code\]/is", //7
+        "/\[quote\](.+?)\[\/quote\]/is", //8
+        "/\[span style=\"(.*?)\"\](.+?)\[\/span\]/is", //9
+        '/\[img\\s+src=\"(.+?)\"\]/is', //10
+        '/\[img\\s+src=\"(.+?)\"\\s+width=\"(.+?)\"\]/is', //11
+        '/\[img\\s+src=\"(.+?)\"\\s+height=\"(.+?)\"\]/is', //12
+        '/\[img\\s+src=\"(.+?)\"\\s+width=\"(.+?)\"\\s+height=\"(.+?)\"\]/is', //13
+        '/\[img\\s+src=\"(.+?)\"\\s+height=\"(.+?)\"\\s+width=\"(.+?)\"\]/is', //14
+        '/\[a\\s+href=\"(.+?)\"\](.+?)\[\/a\]/is', //15
+        );
+    $replace = array(
+        "<b>\\1</b>", //1
+        "<i>\\1</i>", //2
+        "<u>\\1</u>", //3
+        "<sup>\\1</sup>", //4
+        "<sub>\\1</sub>", //5
+        "<center>\\1</center>", //6
+        "<div class=\"code\">\\1</div>", //7
+        "<div class=\"quote\">\\1</div>", //8
+        "<span style=\"\\1\">\\2</span>", //9
+        "<img border=\"0\" src=\"\\1\"/>", //10
+        "<img border=\"0\" src=\"\\1\" width=\"\\2\"/>", //11
+        "<img border=\"0\" src=\"\\1\" height=\"\\2\"/>", //12
+        "<img border=\"0\" src=\"\\1\" width=\"\\2\" height=\"\\3\"/>", //13
+        "<img border=\"0\" src=\"\\1\" width=\"\\3\" height=\"\\2\"/>", //14
+        "<a href=\"\\1\" target=\"_blank\">\\2</a>", //15
+        );
+    $str = preg_replace($pattern, $replace, $str);
+    return $str;
+}
+
+function upload_judge($name){
+    $forbidden_exts = array("php", "php3", "asp", "jpg", "aspx");
+    $pos = strrpos($name, ".");
+    if($pos === false) return true;
+    $ext = substr($name, $pos+1);
+    if(in_array($ext, $forbidden_exts)) return false;
+    return true;
+}
+
+function upload_file($postfile, &$res){
+    if(isset($_FILES[$postfile])){
+        $file = $_FILES[$postfile];
+        $filename = $file['name'];
+        $res[0] = false;
+        $res[1] = $target;
+        $res[2] = $filename;
+        if(upload_judge($filename) == false){
+            $res[3] = "文件扩展名非法!";
+            return false;
+        }
+        $target = dirname(dirname(__FILE__));
+        $target .= "/attachments/$filename";
+        //echo $target;exit();
+        if(file_exists($target)){ 
+            $res[3] = "文件已经存在!";
+            return false;
+        }
+        if(move_uploaded_file($file['tmp_name'], $target) == false){
+            $res[3] = "文件上传失败!";
+            return false;
+        }else{
+            $res[0] = true;
+            $res[3] = "文件上传成功";
+            return true;
+        }
+    }else{
+            $res[1] = "";
+            $res[2] = "";
+            $res[4] = "请指定上传文件";
+            return false;
+    }
 }
 
 ?>
