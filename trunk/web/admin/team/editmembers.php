@@ -51,7 +51,7 @@ eot;
     $school_list = select_school($school_id);
     $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
     $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
-    foreach($member as &$value) $value = htmlspecialchars($value);
+    encodeObject($member);
     echo <<<eot
 <form action="updatemember.php?type=0&team_id={$a->team_id}" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
@@ -97,7 +97,7 @@ eot;
     $school_list = select_school($school_id);
     $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
     $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
-    foreach($member as &$value) $value = htmlspecialchars($value);
+    encodeObject($member);
     echo <<<eot
 <form action="updatemember.php?type=2&team_id={$a->team_id}" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
@@ -136,8 +136,8 @@ for($i = 0; $i < $member_c; $i++){
     $school_list = select_school($school_id);
     $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
     $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
-    foreach($member as &$value) $value = htmlspecialchars($value);
-    $member_name_slash = addslashes($member->member_name);
+    encodeObject($member);
+    $member_name_slash = str_replace("'", "\\'", $member->member_name);
     echo <<<eot
 <fieldset>
 <legend>{$member->member_name} [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}');">删除</a>]</legend>
