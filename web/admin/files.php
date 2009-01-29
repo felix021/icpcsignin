@@ -33,7 +33,7 @@ foreach($dir as &$file){
     $file_slash = str_replace("'", "\\'", $file);
     echo <<<eot
 <tr class="$trclass">
-<td><a href="$fullname">$file</a></td>
+<td><a href="$fullname" target="_blank">$file</a></td>
 <td><input type="button" value="删除" onclick="javascript:delFile('$file_slash');"/></td>
 </tr>
 

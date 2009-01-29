@@ -165,7 +165,7 @@ function ubb2html($str){
 }
 
 function upload_judge($name){
-    $forbidden_exts = array("php", "php3", "asp", "jpg", "aspx");
+    $forbidden_exts = array("php", "php3", "asp", "jsp", "aspx");
     $pos = strrpos($name, ".");
     if($pos === false) return true;
     $ext = substr($name, $pos+1);

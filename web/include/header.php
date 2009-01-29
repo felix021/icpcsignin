@@ -12,7 +12,7 @@ a:hover{color:red;text-decoration:underline;}
 .tro{background-color:#ddd;}
 .tblhead{padding:2px;color:#fff;background-color:#000;}
 td{text-align:center; padding:2px;}
-fieldset{margin:10px;text-align:left;}
+fieldset{margin:10px;text-align:left;padding:5px;}
 .listbar{text-align:center;margin:5px;}
 .listbar a{font-weight:bold;}
 #links{margin:0px;margin-left:15px;padding-left:0;}
