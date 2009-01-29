@@ -175,6 +175,8 @@ function upload_file($postfile, &$res){
     if(isset($_FILES[$postfile])){
         $file = $_FILES[$postfile];
         $filename = $file['name'];
+        $target = dirname(dirname(__FILE__));
+        $target .= "/attachments/$filename";
         $res[0] = false;
         $res[1] = $target;
         $res[2] = $filename;
@@ -182,9 +184,6 @@ function upload_file($postfile, &$res){
             $res[3] = "文件扩展名非法!";
             return false;
         }
-        $target = dirname(dirname(__FILE__));
-        $target .= "/attachments/$filename";
-        //echo $target;exit();
         if(file_exists($target)){ 
             $res[3] = "文件已经存在!";
             return false;
