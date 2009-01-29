@@ -4,7 +4,7 @@ include("../inc.php");
 include("select_priority.php");
 
 echo <<<eot
-<a href="newarticle.php">发布新通知</a><br/>
+<p><a href="newarticle.php">发布新通知</a></p>
 
 eot;
 

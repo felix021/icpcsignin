@@ -15,5 +15,5 @@
     $prebegin = "2008-12-27 13:58:08";
     $finalbegin = "2008-12-27 13:58:08";
 
-    $itemsperpage = 10;
+    $itemsperpage = 3;
 ?>

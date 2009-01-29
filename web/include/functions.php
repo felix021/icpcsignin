@@ -8,9 +8,9 @@ function rndstr($length = 6){
     return $str;
 }
 
-function encodeObject(&$a){
+function encodeObject(&$a, $quote = ENT_COMPAT){
     foreach($a as &$v){
-        $v = htmlspecialchars($v, ENT_COMPAT, "utf-8");
+        $v = htmlspecialchars($v, $quote, "utf-8");
     }
 }
 
@@ -107,9 +107,9 @@ function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 
     return $out;
 }
 
-function time2str($timestamp = -1){
+function time2str($timestamp = -1, $format = "Y-m-d H:i:s"){
     if($timestamp == -1) $timestamp = time();
-    return date("Y-m-d H:i:s", $timestamp);
+    return date($format, $timestamp);
 }
 
 function str2time($str){
@@ -159,7 +159,9 @@ function ubb2html($str){
         "<a href=\"\\1\" target=\"_blank\">\\2</a>", //15
         );
     $str = preg_replace($pattern, $replace, $str);
-    return $str;
+    $str = str_replace("  ", "&nbsp; ", $str);
+    $str = str_replace("  ", " &nbsp;", $str);
+    return nl2br($str);
 }
 
 function upload_judge($name){
