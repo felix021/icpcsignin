@@ -4,11 +4,15 @@ if(!isset($_SESSION['team_id'])) exit();
 
 $a = new team($_SESSION['team_id']);
 
+encodeObject($a);
+
 echo <<<eot
-<fieldset>
-<legend>Team Infomation</legend>
-team_id: {$a->team_id}<br/>
-team_name: {$a->team_name}<br/>
+<div class="textbox">
+<div class="textbox-title" style="text-align:center;">队伍基本信息</div>
+<div class="textbox-content">
+队伍编号: {$a->team_id}<br/>
+队名: {$a->team_name}<br/>
+
 eot;
 
 if(!empty($a->vcode)){
@@ -24,7 +28,9 @@ eot;
 echo <<<eot
 <a href="team/index.php">进入队伍管理界面</a><br/>
 <a href="team_logout.php">注销登陆</a>
-</fieldset>
+
+</div>
+</div>
 eot;
 
 ?>

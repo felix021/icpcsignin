@@ -17,15 +17,14 @@ if($_GET['school_id'] > 0){
 $res = getQuery($conn, $query);
 $row = $res->fetch_array();
 
-$items_per_page = 3;
 $teams_c = (int)$row[0];
-$pages_c = ceil($teams_c / $items_per_page);
+$pages_c = ceil($teams_c / $itemsperpage);
 
 $page = (int)$_GET['page'];
 if($page < 1) $page = 1;
 else if($page > $pages_c) $page = $pages_c;
 
-$start = ($page - 1) * $items_per_page;
+$start = ($page - 1) * $itemsperpage;
 
 $query = "SELECT * FROM `{tblprefix}_teams` ";
 if(!empty($_GET['keyword'])){
@@ -37,7 +36,7 @@ if($_GET['school_id'] > 0){
     else $query .= " AND ";
     $query .= "`school_id`={$_GET['school_id']} ";
 }
-$query .= "ORDER BY `team_id` LIMIT $start,$items_per_page ";
+$query .= "ORDER BY `team_id` LIMIT $start,$itemsperpage ";
 $res = getQuery($conn, $query);
 
 $keyword = htmlspecialchars($_GET['keyword']);
