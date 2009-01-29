@@ -16,8 +16,6 @@ eot;
 include('editor.php');
 
 echo <<<eot
-<br/>
-<input type="submit" value="发布"/>
 </form>
 
 eot;

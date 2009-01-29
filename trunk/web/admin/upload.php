@@ -4,7 +4,7 @@ if(isset($_FILES['userfile'])){
     $res = array();
     if(upload_file('userfile', $res)){
         encodeObject($res);
-        msgbox("文件<a href=\"{$res[1]}\" target=\"_blank\">{$res[2]}</a>上传成功!", false);
+        msgbox("文件<a href=\"../attachments/{$res[2]}\" target=\"_blank\">{$res[2]}</a>上传成功!", false);
     }else{
         encodeObject($res);
         msgbox("无法上传文件: {$res[3]}");

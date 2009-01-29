@@ -26,8 +26,6 @@ eot;
 include('editor.php');
 
 echo <<<eot
-<br/>
-<input type="submit" value="修改"/>
 </form>
 
 eot;

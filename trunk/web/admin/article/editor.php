@@ -209,3 +209,6 @@ function disp(id){
 <input type="button" value="字体&颜色属性" onclick="javascript:addfontcolor()"/>
 </div>
 <textarea name="content" id="content" cols="80" rows="20"><?php echo $content; ?></textarea>
+<br/>
+<input type="submit" value="提交"/>
+<iframe style="scrolling:none;" src="uploadform.html" frameborder="0" width="600" height="25" scrolling="none"></iframe>
