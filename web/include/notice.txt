@@ -1,3 +1,2 @@
 Just a test<br/>
-<a href="mailto:acm@whu.edu.cn">Mailto: acm@whu.edu.cn</a>
-~~~~~~
+Mailto: <a href="mailto:acm@whu.edu.cn">acm@whu.edu.cn</a>

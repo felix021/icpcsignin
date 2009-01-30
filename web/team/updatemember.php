@@ -39,7 +39,7 @@ $m->remark = $remark;
 if($m->update()){
     msgbox("更新成功!");
 }else{
-    msgbox("更新失败: " . $a->error);
+    msgbox("更新失败: " . $m->error);
 }
 
 include("../include/footer.php");

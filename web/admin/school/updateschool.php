@@ -22,7 +22,7 @@ if(isset($modify)){ //修改
     if($a->update()){
         msgbox("更新成功!");
     }else{
-        msgbox($a->error);
+        msgbox("更新失败: ".$a->error);
     }
 
 }else if(isset($add)){ //增加

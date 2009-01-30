@@ -71,7 +71,7 @@
 6. 住宿表   hotels
 宾馆编号    hotel_id int,
 宾馆地址    address char(50),
-电话        telphone char(20),
+电话        telephone char(20),
 在线地图链接online_map_pos char(100), # 存放在线地图记录点链接
 价格信息    price char(500),
 附加信息    addition char(500)
