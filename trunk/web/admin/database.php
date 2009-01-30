@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `{$tblprefix}_hotels`;
 CREATE TABLE `{$tblprefix}_hotels`(
     `hotel_id` int primary key auto_increment,
     `address` char(50),
-    `telphone` char(20),
+    `telephone` char(20),
     `online_map_pos` char(100), 
     `price` varchar(1000),
     `addition` varchar(1000)

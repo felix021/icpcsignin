@@ -17,6 +17,33 @@ class school extends table{
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
 
     /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        $a = strlen($this->school_name_cn);
+        if($a <= 0){
+            $this->error = "未输入学校名(中文)";
+            return false;
+        }
+        if($a > 50){
+            $this->error = "学校名(中文)过长(50字以内)";
+            return false;
+        }
+
+        $a = strlen($this->school_name_en);
+        if($a <= 0){
+            $this->error = "未输入学校名(英文)";
+            return false;
+        }
+        if($a > 200){
+            $this->error = "学校名(英文)过长(200字以内)";
+            return false;
+        }
+
+        return true;
+    }
+
+    /*
      * 根据id读取学校信息
      * 若不存在该学校，则返回false
      */
@@ -61,6 +88,10 @@ class school extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
         $school_name_cn = $conn->real_escape_string($this->school_name_cn);
         $school_name_en = $conn->real_escape_string($this->school_name_en);
         $school_type = (int)$this->school_type;
@@ -84,6 +115,10 @@ class school extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
         $school_name_cn = $conn->real_escape_string($this->school_name_cn);
         $school_name_en = $conn->real_escape_string($this->school_name_en);
         $query = "UPDATE `{tblprefix}_schools` SET "

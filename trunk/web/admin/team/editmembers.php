@@ -48,9 +48,9 @@ if(!isset($members['coach'])){
 eot;
 }else{
     $member = $members['coach'];
-    $school_list = select_school($school_id);
-    $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
-    $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
+    $school_list = select_school($member->school_id);
+    $gender_GG = $member->gender == 1 ? 'selected="selected"' : "";
+    $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
     encodeObject($member);
     echo <<<eot
 <form action="updatemember.php?type=0&team_id={$a->team_id}" method="post">
@@ -94,9 +94,9 @@ if(!isset($members['master'])){
 eot;
 }else{
     $member = $members['master'];
-    $school_list = select_school($school_id);
-    $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
-    $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
+    $school_list = select_school($member->school_id);
+    $gender_GG = $member->gender == 1 ? 'selected="selected"' : "";
+    $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
     encodeObject($member);
     echo <<<eot
 <form action="updatemember.php?type=2&team_id={$a->team_id}" method="post">
@@ -133,9 +133,9 @@ eot;
 echo "<fieldset>\n<legend>队员信息(非必需)</legend>\n";
 for($i = 0; $i < $member_c; $i++){
     $member = $members['member'][$i];
-    $school_list = select_school($school_id);
-    $gender_GG = $a->gender == 1 ? 'selected="selected"' : "";
-    $gender_MM = $a->gender == 0 ? 'selected="selected"' : "";
+    $school_list = select_school($member->school_id);
+    $gender_GG = $member->gender == 1 ? 'selected="selected"' : "";
+    $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
     encodeObject($member);
     $member_name_slash = str_replace("'", "\\'", $member->member_name);
     echo <<<eot

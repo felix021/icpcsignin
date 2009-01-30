@@ -91,6 +91,7 @@ function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 
     $out =  "<select name=\"school_id\">\n";
     if($force_none == 1 || $school_id <= 0){
         if($school_id <= 0) $selected = "selected=\"selected\"";
+        else $selected = "";
         $out .= "<option $selected value=\"-1\">请选择学校</option>\n";
     }
     while($row = $res->fetch_assoc()){

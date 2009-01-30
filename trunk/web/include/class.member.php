@@ -28,6 +28,85 @@ class member extends table{
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
 
     /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        $type = $this->type;
+        if($type < 0 || $type > 2){
+            $this->error = "人员类型错误";
+            return false;
+        }
+        $a = strlen($this->member_name);
+        if($a <= 0){
+            $this->error = "姓名(中文)不能为空!";
+            return false;
+        }
+        if($a > 50){
+            $this->error = "姓名(中文)太长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->member_name_pinyin);
+        if($a <= 0){
+            $this->error = "姓名(拼音)不能为空!";
+            return false;
+        }
+        if($a > 50){
+            $this->error = "姓名(拼音)太长(50字以内)";
+            return false;
+        }
+        $gender = $this->gender;
+        if($gender != 0 && $gender != 1){
+            $this->error = "性别选择错误!";
+            return false;
+        }
+        if($this->school_id <= 0){
+            $this->error = "请选择学校!";
+            return false;
+        }
+        $a = strlen($this->faculty_major);
+        if($a > 50){
+            $this->error = "院系/专业 过长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->grade_class);
+        if($a > 50){
+            $this->error = "年级/班级 过长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->stu_number);
+        if($a > 50){
+            $this->error = "学号 过长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->email);
+        if(!ereg(".+@.+\..+", $this->email)){
+            $this->error = "邮箱地址格式错误";
+            return false;
+        }
+        if($a <= 0){
+            $this->error = "邮箱不能为空";
+            return false;
+        }
+        if($a > 50){
+            $this->error = "邮箱 过长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->contact);
+        if($a > 100){
+            $this->error = "其他联系方式 过长(100字以内)";
+            return false;
+        }
+        $a = strlen($this->remark);
+        if($a > 1000){
+            $this->error = "备注过长(1000字以内)";
+            return false;
+        }
+
+        return true;
+    }
+
+
+    /*
      * 根据id读取成员信息
      * 若不存在该成员，则返回false
      */
@@ -82,6 +161,10 @@ class member extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$member_id	=	(int)$this->member_id;
 		$type   	=	(int)$this->type;
 		$team_id	=	(int)$this->team_id;
@@ -129,6 +212,10 @@ class member extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$member_id	=	(int)$this->member_id;
 		$type   	=	(int)$this->type;
 		$team_id	=	(int)$this->team_id;

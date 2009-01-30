@@ -22,6 +22,42 @@ class article extends table{
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
 
     /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        $a = strlen($this->title);
+        if($a <= 0) {
+            $this->error = "文章标题不能为空!";
+            return false;
+        }
+        if($a > 100) {
+            $this->error = "文章标题不能太长(100字以内)";
+            return false;
+        }
+        $a = strlen($this->content);
+        if($a <= 0){
+            $this->error = "请输入文章内容";
+            return false;
+        }
+        if($a > 5000){
+            $this->error = "文章内容过长(5000字以内)";
+            return false;
+        }
+        $content_type = $this->content_type;
+        if($content_type < 0 || $content_type > 2){
+            $this->error = "错误的文章内容类型: $content_type";
+            return false;
+        }
+        $permission = $this->permission;
+        if($permission < 0 && $permission > 1){
+            $this->error = "错误的文章访问权限: $content_type";
+            return false;
+        }
+
+        return true;
+    }
+
+    /*
      * 根据id读取文章信息
      * 若不存在该文章，则返回false
      */
@@ -70,6 +106,10 @@ class article extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$pub_time		=	(int)$this->pub_time;
 		$title		    =	$conn->real_escape_string($this->title);
 		$content		=	$conn->real_escape_string($this->content);
@@ -104,6 +144,10 @@ class article extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$article_id	=	(int)$this->article_id;
 		$pub_time		=	(int)$this->pub_time;
 		$title		    =	$conn->real_escape_string($this->title);

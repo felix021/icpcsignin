@@ -6,7 +6,7 @@ class hotel extends table{
 
 	public $hotel_id;	    //住宿点编号
 	public $address;		//地址
-	public $telphone;		//联系方式
+	public $telephone;		//联系方式
 	public $online_map_pos;	//在线地图地址
 	public $price;		    //价格信息
 	public $addition;	    //附加信息
@@ -18,6 +18,40 @@ class hotel extends table{
      * 构造函数，如果给出一个有效的id, 则从表中读取该住宿的信息
      */
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
+
+
+    /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        $a = strlen($this->address);
+        if($a > 50){
+            $this->error = "地址过长(50符以内)";
+            return false;
+        }
+        $a = strlen($this->telephone);
+        if($a > 20){
+            $this->error = "电话过长(20符以内)";
+            return false;
+        }
+        $a = strlen($this->online_map_pos);
+        if($a > 100){
+            $this->error = "URL过长(100符以内)";
+            return false;
+        }
+        $a = strlen($this->price);
+        if($a > 500){
+            $this->error = "地址信息过长(500符以内)";
+            return false;
+        }
+        $a = strlen($this->addition);
+        if($a > 500){
+            $this->error = "附加信息过长(500符以内)";
+            return false;
+        }
+        return true;
+    }
+
 
     /*
      * 根据id读取住宿信息
@@ -38,7 +72,7 @@ class hotel extends table{
             $result = $res->fetch_assoc();
 			$this->hotel_id	=	$result['hotel_id'];
 			$this->address	=	$result['address'];
-			$this->telphone	=	$result['telphone'];
+			$this->telephone	=	$result['telephone'];
 			$this->online_map_pos	=	$result['online_map_pos'];
 			$this->price	=	$result['price'];
 			$this->addition	=	$result['addition'];
@@ -66,15 +100,19 @@ class hotel extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$address		=	$conn->real_escape_string($this->address);
-		$telphone		=	$conn->real_escape_string($this->telphone);
+		$telephone		=	$conn->real_escape_string($this->telephone);
 		$online_map_pos	=	$conn->real_escape_string($this->online_map_pos);
 		$price		    =	$conn->real_escape_string($this->price);
 		$addition		=	$conn->real_escape_string($this->addition);
         $query = "INSERT INTO `{tblprefix}_hotels` "
                 ."  VALUES (NULL, "
 				."  '$address', "
-				."  '$telphone', "
+				."  '$telephone', "
 				."  '$online_map_pos', "
 				."  '$price', "
 				."  '$addition') ";
@@ -96,15 +134,19 @@ class hotel extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$hotel_id		=	(int)$this->hotel_id;
 		$address		=	$conn->real_escape_string($this->address);
-		$telphone		=	$conn->real_escape_string($this->telphone);
+		$telephone		=	$conn->real_escape_string($this->telephone);
 		$online_map_pos	=	$conn->real_escape_string($this->online_map_pos);
 		$price		    =	$conn->real_escape_string($this->price);
 		$addition		=	$conn->real_escape_string($this->addition);
         $query = "UPDATE `{tblprefix}_hotels` SET "
 				."  `address`='$address', "
-				."  `telphone`='$telphone', "
+				."  `telephone`='$telephone', "
 				."  `online_map_pos`='$online_map_pos', "
 				."  `price`='$price', "
 				."  `addition`='$addition' "

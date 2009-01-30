@@ -21,6 +21,34 @@ class message extends table{
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
 
     /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        $a = $this->from_id;
+        if($a < -1) {
+            $this->error = "错误的发送者编号";
+            return false;
+        }
+        $a = $this->to_id;
+        if($a < -2) {
+            $this->error = "错误的接收者编号";
+            return false;
+        }
+        $a = strlen($this->message_content);
+        if($a <= 0){
+            $this->error = "未输入消息内容";
+            return false;
+        }
+        if($a > 1000){
+            $this->error = "消息内容过长(1000字以内)";
+            return false;
+        }
+
+        return true;
+    }
+
+
+    /*
      * 根据id读取消息信息
      * 若不存在该消息，则返回false
      */
@@ -68,6 +96,10 @@ class message extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$pub_time	=	(int)$this->pub_time;
 		$from_id	=	(int)$this->from_id;
 		$to_id		=	(int)$this->to_id;
@@ -100,6 +132,10 @@ class message extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
 		$message_id	=	(int)$this->message_id;
 		$pub_time	=	(int)$this->pub_time;
 		$from_id	=	(int)$this->from_id;

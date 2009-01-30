@@ -40,6 +40,87 @@ class team extends table{
     public function __construct($id = -1){ if($id >= 0) $this->getById($id); }
 
     /*
+     * 验证函数 添加用户自定义数据完整性验证
+     */
+    private function validate(){
+        if($this->school_id < -1) {
+            $this->error = "错误的学校编号!";
+            return false;
+        }
+        $a = strlen($this->team_name);
+        if($a <= 0){
+            $this->error = "队名不能为空";
+            return false;
+        }
+        if($a > 50){
+            $this->error = "队名过长(50字以内)";
+            return false;
+        }
+        $a = strlen($this->password);
+        if($a <= 0){
+            $this->error = "密码不能为空";
+            return false;
+        }
+        if($a > 20){
+            $this->error = "密码过长(20字以内)";
+            return false;
+        }
+        if(strlen($this->vcode) > 10) 
+            $this->vode = substr($this->vcode, 0, 6);
+        $email = $this->email;
+        if(!ereg(".+@.+\..+", $email)){
+            $this->error = "邮箱地址格式错误";
+            return false;
+        }else if(strlen($email) > 50){
+            $this->error = "邮箱地址太长(50字以内)";
+            return false;
+        }else if($email == ""){
+            $this->error = "邮箱不能为空";
+            return false;
+        }
+        $telephone = $this->telephone;
+        if(strlen($telephone) > 20){
+            $this->error = "电话太长(20字以内)";
+            return false;
+        }else if($telephone == ""){
+            $this->error = "请填写电话";
+            return false;
+        }
+        if(strlen($this->address) > 100){
+            $this->error = "地址太长(100字以内)";
+            return false;
+        }else if($this->address == ""){
+            $this->error = "请填写地址";
+            return false;
+        }
+        if(strlen($this->postcode) > 20){
+            $this->error = "邮编太长(20字符以内)";
+            return false;
+        }else if($this->postcode == ""){
+            $this->error = "请填写邮编";
+            return false;
+        }
+        $a = strlen($this->contact);
+        if($a > 100){
+            $this->error = "其他联系方式 过长(100字以内)";
+            return false;
+        }
+        $a = strlen($this->requirement);
+        if($a > 100){
+            $this->error = "住宿要求 过长(100字以内)";
+            return false;
+        }
+        $a = strlen($this->remark);
+        if($a > 1000){
+            $this->error = "队伍备注 过长(1000字以内)";
+            return false;
+        }
+
+        return true;
+    }
+
+
+    /*
      * 根据id读取队伍信息
      * 若不存在该队伍，则返回false
      */
@@ -110,6 +191,10 @@ class team extends table{
      */
     public function insert(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
         $team_name = $conn->real_escape_string(preg_quote($this->team_name));
         $query = "SELECT `team_id` FROM `{tblprefix}_teams`"
                 ." WHERE `team_name` REGEXP '^$team_name$'";
@@ -122,7 +207,7 @@ class team extends table{
         $school_id	=	(int)$this->school_id;      
         $team_name	=	$conn->real_escape_string($this->team_name);      
         $password	=	$conn->real_escape_string($this->password);      
-        $this->vcode = $this->rndstr(); //生成随机验证码
+        $this->vcode=   $this->rndstr(); //生成随机验证码
         $vcode	    =	$conn->real_escape_string($this->vcode);          
         $email	    =	$conn->real_escape_string($this->email);          
         $address	=	$conn->real_escape_string($this->address);        
@@ -182,6 +267,10 @@ class team extends table{
      */
     public function update(){
         global $conn;
+        if($this->validate() == false){
+            $this->errno = 1;
+            return false;
+        }
         $school_id	=	(int)$this->school_id;      
         $team_name	=	$conn->real_escape_string($this->team_name);      
         $password	=	$conn->real_escape_string($this->password);      
