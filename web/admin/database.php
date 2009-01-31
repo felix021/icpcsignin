@@ -8,7 +8,7 @@ CREATE TABLE `{$tblprefix}_schools`(
     `school_type` int
 );
 
-INSERT INTO `{tblprefix}_schools` VALUES(NULL, "武汉大学", "Wuhan University", 7);
+INSERT INTO `{$tblprefix}_schools` VALUES(NULL, "武汉大学", "Wuhan University", 7);
 
 DROP TABLE IF EXISTS `{$tblprefix}_teams`;
 CREATE TABLE `{$tblprefix}_teams`(
