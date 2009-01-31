@@ -235,4 +235,35 @@ function cutstr($str, $length = 60){
 
 }
 
+function get_listbar(&$page, $items, $items_per_page, $href, $query = ""){
+    $pages_c = ceil($items / $items_per_page);
+    if($page < 1) $page = 1;
+    else if($page > $pages_c) $page = $pages_c;
+    $start = ($page - 1) * $items_per_page;
+    $out = <<<eot
+<span class="listbar">
+<a href="{$href}?{$query}">首页</a>
+eot;
+    if($page > 1){
+        $pre_page = $page - 1;
+        $out .= " <a href=\"{$href}?page={$pre_page}&{$query}\">&lt;&lt;</a> \n";
+    }else{
+        $out .= " &lt;&lt; \n";
+    }
+    for($i = 1; $i <= $pages_c; $i++){
+        if($page == $i)
+            $out .= "$i ";
+        else
+            $out .= "<a href=\"{$href}?page=$i&{$query}\">$i</a>\n";
+    }
+    if($page < $pages_c){
+        $next_page = $page + 1;
+        $out .= " <a href=\"{$href}?page={$next_page}&{$query}\">&gt;&gt;</a> \n";
+    }else{
+        $out .= " &gt;&gt; \n";
+    }
+    $out .= "<a href=\"{$href}?page=$pages_c&{$query}\">末页</a>\n</span>\n";
+    return $out;
+}
+
 ?>

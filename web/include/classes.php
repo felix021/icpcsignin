@@ -29,7 +29,8 @@ function getQuery($conn, $query){
     $result = $conn->query($query);
     if($conn->errno){
         ob_clean();
-        msgbox($conn->error);
+        //msgbox($conn->error);
+        msgbox($conn->error . "\n" . $query);
     }
     return $result;
 }
