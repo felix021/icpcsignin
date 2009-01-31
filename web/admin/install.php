@@ -47,7 +47,7 @@ For PHP Mailer<br/>
         foreach($_POST as &$value)
             $value = addslashes($value);
     }
-    extract($_POST);
+    extract($_POST, EXTR_SKIP);
     $config = <<<eot
 <?php
     \$adminpass = "$adminpass";
@@ -73,7 +73,7 @@ eot;
 
     foreach($_POST as &$value)
         $value = stripslashes($value);
-    extract($_POST);
+    extract($_POST, EXTR_SKIP);
     if($conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname)){
         include("database.php");
         $query = split(";", $query);

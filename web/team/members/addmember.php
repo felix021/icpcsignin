@@ -1,15 +1,8 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
+include("../verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
-$a = new team($team_id);
-if($a->errno){
-    msgbox($a->error);
-}
-if($a->vcode != ""){
-    msgbox("请先验证邮箱后再进行此操作");
-}
 
 $m = new member;
 
@@ -18,7 +11,7 @@ if(get_magic_quotes_gpc()){
         $value = stripslashes($value);
     }
 }
-extract($_POST, EXTR_OVERWRITE);
+extract($_POST, EXTR_SKIP);
 
 $type = (int) $_GET['type'];
 
@@ -54,5 +47,5 @@ if($m->insert()){
     msgbox("添加失败: " . $a->error);
 }
 
-include("../include/footer.php");
+include("../../include/footer.php");
 ?>

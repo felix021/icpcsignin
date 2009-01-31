@@ -3,7 +3,7 @@ session_start();
 ob_start();
 include("../include/config.php");
 if(isset($_POST['password'])){
-    extract($_POST);
+    extract($_POST, EXTR_SKIP);
     if($password == $adminpass && $vcode == $_SESSION['vcode']){
         $_SESSION['admin'] = true;
         ob_clean();
