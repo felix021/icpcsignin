@@ -1,5 +1,6 @@
 <?php
-include("inc.php");
+include("../include/header.php");
+include("../include/classes.php");
 ?>
 <script>
 function $(id) {return document.getElementById(id);}

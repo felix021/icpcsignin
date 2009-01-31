@@ -1,5 +1,6 @@
 <?php
-include("inc.php");
+include("../include/header.php");
+include("../include/classes.php");
 
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$value){

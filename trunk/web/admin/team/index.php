@@ -1,6 +1,8 @@
 <?php
 include("../inc.php");
 
+$itemsperpage = 5;
+
 $query = "SELECT COUNT(*) FROM `{tblprefix}_teams` ";
 
 if(!empty($_GET['keyword'])){
@@ -21,6 +23,7 @@ $teams_c = (int)$row[0];
 $pages_c = ceil($teams_c / $itemsperpage);
 
 $page = (int)$_GET['page'];
+
 if($page < 1) $page = 1;
 else if($page > $pages_c) $page = $pages_c;
 
@@ -50,30 +53,11 @@ $school_list
 <input type="button" value="取消筛选" onclick="javascript:window.location='index.php';"/>
 </form>
 
-<div>
-[<a href="index.php?keyword=$keyword_u&school_id={$_GET['school_id']}">首页</a>]
 eot;
-if($page > 1){
-    $pre_page = $page - 1;
-    echo " [<a href=\"index.php?page=$pre_page&keyword=$keyword_u&school_id={$_GET['school_id']}\">上一页</a>] \n";
-}else{
-    echo " [上一页] \n";
-}
 
-for($i = 1; $i <= $pages_c; $i++){
-    if($page == $i)
-        echo "[$i] ";
-    else
-        echo "[<a href=\"index.php?page=$i&keyword=$keyword_u&school_id={$_GET['school_id']}\">$i</a>]\n";
-}
-if($page < $pages_c){
-    $next_page = $page + 1;
-    echo " [<a href=\"index.php?page=$next_page&keyword=$keyword_u&school_id={$_GET['school_id']}\">下一页</a>] \n";
-}else{
-    echo " [下一页] \n";
-}
-echo "[<a href=\"index.php?page=$pages_c&keyword=$keyword_u&school_id={$_GET['school_id']}\">末页</a>]\n";
-echo "共{$pages_c}页{$teams_c}队</div>";
+echo "<div>共{$pages_c}页{$teams_c}队 ";
+echo get_listbar($page, $teams_c, $itemsperpage, "index.php", "keyword=$keyword_u&school_id={$_GET['school_id']}&");
+echo "</div>\n";
 
 if($teams_c > 0){
     echo <<<eot

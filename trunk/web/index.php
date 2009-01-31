@@ -39,45 +39,18 @@ $nowtime = time();
 $query = "SELECT COUNT(*) FROM `{tblprefix}_articles` WHERE `pub_time` < $nowtime";
 $res = getQuery($conn, $query);
 $row = $res->fetch_array();
-
 $articles_c = (int)$row[0];
-$pages_c = ceil($articles_c / $itemsperpage);
 
+$pages_c = ceil($articles_c / $itemsperpage);
 $page = (int)$_GET['page'];
-if($page < 1) $page = 1;
-else if($page > $pages_c) $page = $pages_c;
+
+$listbar = get_listbar($page, $articles_c, $itemsperpage, "index.php");
+echo <<<eot
+<div class="listbar">共{$pages_c}页{$articles_c}篇 $listbar</div>
+
+eot;
 
 $start = ($page - 1) * $itemsperpage;
-
-ob_start();
-echo <<<eot
-<div class="listbar">
-<a href="index.php">首页</a>
-eot;
-if($page > 1){
-    $pre_page = $page - 1;
-    echo " <a href=\"index.php?page=$pre_page\">&lt;&lt;</a> \n";
-}else{
-    echo " &lt;&lt; \n";
-}
-for($i = 1; $i <= $pages_c; $i++){
-    if($page == $i)
-        echo "$i ";
-    else
-        echo "<a href=\"index.php?page=$i\">$i</a>\n";
-}
-if($page < $pages_c){
-    $next_page = $page + 1;
-    echo " <a href=\"index.php?page=$next_page\">&gt;&gt;</a> \n";
-}else{
-    echo " &gt;&gt; \n";
-}
-echo "<a href=\"index.php?page=$pages_c\">末页</a>\n";
-echo "共{$pages_c}页{$articles_c}篇\n</div>\n";
-
-$bar = ob_get_contents();
-
-
 $query = "SELECT * FROM `{tblprefix}_articles` "
         ."  WHERE `pub_time` < $nowtime"
         ."  ORDER BY `priority` DESC, `pub_time` DESC"
@@ -116,7 +89,12 @@ while($row = $res->fetch_assoc()){
 eot;
 }
 
-echo $bar;
+if($articles_c > 0){
+    echo <<<eot
+<div class="listbar">共{$pages_c}页{$articles_c}篇 $listbar</div>
+
+eot;
+}
 
 echo <<<eot
         </div>
