@@ -13,7 +13,7 @@ if(get_magic_quotes_gpc()){
         $value = stripslashes($value);
     }
 }
-extract($_POST, EXTR_OVERWRITE);
+extract($_POST, EXTR_SKIP);
 
 $a->email = $email;
 $a->vcode = $vcode;

@@ -1,23 +1,15 @@
 <?php
-include("inc.php");
-include("verify.php");
+include("../inc.php");
+include("../verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
-$a = new team($team_id);
-if($a->errno){
-    msgbox($a->error);
-}
-if($a->vcode != ""){
-    msgbox("请先验证邮箱后再进行此操作");
-}
-
 
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$value){
         $value = stripslashes($value);
     }
 }
-extract($_POST, EXTR_OVERWRITE);
+extract($_POST, EXTR_SKIP);
 
 $m = new member($member_id);
 if($m->errno) msgbox($m->error);
@@ -42,5 +34,5 @@ if($m->update()){
     msgbox("更新失败: " . $m->error);
 }
 
-include("../include/footer.php");
+include("../../include/footer.php");
 ?>

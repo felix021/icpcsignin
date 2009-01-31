@@ -155,5 +155,15 @@ class message extends table{
         $this->errno = 0;
         return true;
     }
+
+    public function teamsend($team_id, $content){
+        $this->pub_time = time();
+        $this->from_id = $team_id;
+        $this->to_id = -1;
+        $this->message_content = $content;
+        $this->read = 0;
+        $this->replied = 0;
+        return $this->insert();
+    }
 }
 ?>

@@ -6,7 +6,7 @@ if(get_magic_quotes_gpc()){
         $value = stripslashes($value);
     }
 }
-extract($_POST);
+extract($_POST, EXTR_SKIP);
 $team_name = $conn->real_escape_string($team_name);
 $password = $conn->real_escape_string($password);
 $query = "SELECT `team_id` FROM {tblprefix}_teams "

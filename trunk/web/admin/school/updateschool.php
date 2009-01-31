@@ -6,7 +6,7 @@ if(get_magic_quotes_gpc()){
     }
 }
 
-extract($_POST);
+extract($_POST, EXTR_SKIP);
 
 $links = '<a href="school.php">学校管理</a>';
 

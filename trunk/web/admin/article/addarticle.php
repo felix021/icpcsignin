@@ -6,7 +6,7 @@ if(get_magic_quotes_gpc()){
     foreach($_POST as &$v)
         $v = stripslashes($v);
 }
-extract($_POST, EXTR_OVERWRITE);
+extract($_POST, EXTR_SKIP);
 
 $a = new article;
 

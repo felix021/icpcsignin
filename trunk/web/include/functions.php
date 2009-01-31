@@ -108,7 +108,7 @@ function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 
     return $out;
 }
 
-function time2str($timestamp = -1, $format = "Y-m-d H:i:s"){
+function time2str($timestamp = -1, $format = "Y-m-d H:i"){
     if($timestamp == -1) $timestamp = time();
     return date($format, $timestamp);
 }
@@ -205,6 +205,34 @@ function upload_file($postfile, &$res){
             $res[4] = "请指定上传文件";
             return false;
     }
+}
+
+function cutstr($str, $length = 60){
+    if(strlen($str) < $length) return $str;
+    $length -= 4;
+    $pos = 0;
+    $cutlen = 0;
+    while (1){
+        $char = substr($str, $pos, 1);
+        if(ord($char) > 127){
+            $cutlen += 2;
+            $pos += 3;
+            if($cutlen > $length){
+                $pos -= 3;
+                break;
+            }
+        }else{
+            $cutlen += 1;
+            $pos += 1;
+            if($cutlen > $length){
+                $pos -= 1;
+                break;
+            }
+        } 
+    }
+    $t = substr($str, 0, $pos) . " ...";
+    return $t;
+
 }
 
 ?>

@@ -12,7 +12,7 @@ if(get_magic_quotes_gpc()){
         $value = stripslashes($value);
     }
 }
-extract($_POST, EXTR_OVERWRITE);
+extract($_POST, EXTR_SKIP);
 
 $m = new member($member_id);
 if($m->errno) msgbox($m->error);
