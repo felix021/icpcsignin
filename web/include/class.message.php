@@ -165,5 +165,18 @@ class message extends table{
         $this->replied = 0;
         return $this->insert();
     }
+
+    public static function process($content){
+        $pattern = array(
+            "/回复(\\d+?):/is",
+            "/追加(\\d+?):/is"
+        );
+        $replace = array(
+            "回复<a href=\"javascript:readmsg(\\1,'send')\"><b>\\1</b></a>:",
+            "追加<a href=\"javascript:readmsg(\\1,'recv')\"><b>\\1</b></a>:"
+        );
+        $t = preg_replace($pattern, $replace, $content);
+        return $t;
+    }
 }
 ?>

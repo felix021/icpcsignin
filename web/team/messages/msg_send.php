@@ -33,31 +33,35 @@ eot;
 <table>
 <tr class="tblhead">
 <td>编号</td>
-<td width="400">内容</td>
 <td>时间</td>
+<td width="400">内容</td>
 <td>状态</td>
+<td>操作</td>
 </tr>
 
 eot;
     $i = 0;
     while ($row = $res_send->fetch_assoc()){
-        $trclass = $i & 1 ? "tre" : "tro";
+        $trclass = $i++ & 1 ? "tre" : "tro";
         encodeObject($row);
         extract($row);
         $message_content = cutstr($message_content);
         $read = $read == 1 ? "checked=\"checked\"" : "";
         $replied = $replied == 1 ? "checked=\"checked\"" : "";
         $pubtime = time2str($pub_time);
+        $content = message::process($message_content);
         echo <<<eot
 <tr class="$trclass">
 <td>$message_id</td>
-<td class="samewidth">
-<a href="javascript:readmsg($message_id, 'send')">$message_content</a>
-</td>
 <td>$pubtime</td>
+<td class="samewidth">$content</td>
 <td>
 <input type="checkbox" id="{$message_id}_read" $read disabled/>已读
 <input type="checkbox" id="{$message_id}_replied" $checked disabled/>已回复
+</td>
+<td>
+<input type="button" value="查看" onclick="javascript:readmsg($message_id, 'send')"/>
+<input type="button" value="删除" onclick="javascript:delmsg($message_id)"/>
 </td>
 </tr>
 
