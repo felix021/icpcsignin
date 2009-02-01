@@ -3,8 +3,8 @@ include("../inc.php");
 include("../verifiedmail.php");
 if(!isset($_GET['msg_id'])){
     echo <<<eot
-查看消息内容:<br/>
-请点击下面的链接查看消息.
+<p>查看消息内容</p>
+<p>请点击上面的"查看"按钮查看消息.</p>
 eot;
 }else{
     $team_id = (int)$_SESSION['team_id'];
@@ -16,11 +16,14 @@ eot;
 eot;
     }
     encodeObject($a);
+    $type = $a->to_id == $team_id ? "reply" : "cont";
+    $disp = $a->to_id == $team_id ? "回复" : "追加";
     echo <<<eot
 <script src="msgfunc.js"></script>
-阅读消息内容<br/>
-<textarea cols="40" rows="5">$a->message_content</textarea><br/>
-<input type="button" value="回复" onclick="javascript:reply({$a->message_id})"/>
+阅读消息内容 
+<input type="button" value="{$disp}" onclick="javascript:reply({$a->message_id}, '$type')"/>
+<br/>
+<textarea cols="40" rows="5" readonly border="0" style="border-style:none;">$a->message_content</textarea>
 eot;
     if($a->to_id == $team_id){
         $a->read = 1;
