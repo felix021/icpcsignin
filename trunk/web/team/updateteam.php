@@ -45,7 +45,11 @@ case "email":
     $a->vcode = rndstr();
     if($a->update()){
         //send verify mail
-        msgbox("更改成功，请到邮箱查看验证码重新验证!");
+        if(sendvcode($a->team_id, $info)){
+            msgbox("更改成功，请前往注册邮箱查收验证码");
+        }else{
+            msgbox("更改成功，但验证码发送失败: $info");
+        }
     }else{
         msgbox($a->error);
     }

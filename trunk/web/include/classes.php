@@ -5,8 +5,6 @@
 $includeDir = dirname(__FILE__);
 include_once("$includeDir/config.php");
 
-include_once("$includeDir/phpmailer/class.mailer.php");
-
 date_default_timezone_set("PRC");
 
 /*
@@ -59,6 +57,9 @@ include_once("$includeDir/class.article.php");
 include_once("$includeDir/class.message.php");
 // 住宿表
 include_once("$includeDir/class.hotel.php");
+
+//邮件发送类
+include_once("$includeDir/phpmailer/class.mailer.php");
 
 //其他函数
 include_once("$includeDir/functions.php");

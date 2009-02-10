@@ -10,7 +10,7 @@ class mailer extends PHPMailer{
     public $From        = 'acm@whu.edu.cn';
     public $FromName    = 'whuacm';
 
-    public function email($address, $name, $subject, $body){
+    public function email($name, $address, $subject, $body){
         $this->IsSMTP();
         $this->AddReplyTo('acm@whu.edu.cn', 'whuacm');
         $this->Subject = $subject;
