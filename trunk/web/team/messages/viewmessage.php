@@ -14,20 +14,21 @@ eot;
         echo <<<eot
 消息id错误，请不要恶意提交，谢谢.
 eot;
-    }
-    encodeObject($a);
-    $type = $a->to_id == $team_id ? "reply" : "cont";
-    $disp = $a->to_id == $team_id ? "回复" : "追加";
-    echo <<<eot
+    }else{
+        encodeObject($a);
+        $type = $a->to_id == $team_id ? "reply" : "cont";
+        $disp = $a->to_id == $team_id ? "回复" : "追加";
+        echo <<<eot
 <script src="msgfunc.js"></script>
 阅读消息内容 
 <input type="button" value="{$disp}" onclick="javascript:reply({$a->message_id}, '$type')"/>
 <br/>
 <textarea cols="40" rows="5" readonly border="0" style="border-style:none;">$a->message_content</textarea>
 eot;
-    if($a->to_id == $team_id){
-        $a->read = 1;
-        $a->update();
+        if($a->to_id == $team_id){
+            $a->read = 1;
+            $a->update();
+        }
     }
 }
 include("../../include/footer.php");

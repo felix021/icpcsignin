@@ -12,7 +12,8 @@ try{
     viewmsg.focus();
 }catch(e){alert(e);}
 }
-function reply(msg_id, type){
+
+function reply(msg_id, type, team_id){
 try{
     var sendmsg = parent.document.getElementById("sendmsg");
     var msg = sendmsg.contentWindow.document.getElementById('msg');

@@ -166,6 +166,16 @@ class message extends table{
         return $this->insert();
     }
 
+    public function adminsend($team_id, $content){
+        $this->pub_time = time();
+        $this->from_id = -1;
+        $this->to_id = $team_id;
+        $this->message_content = $content;
+        $this->read = 0;
+        $this->replied = 0;
+        return $this->insert();
+    }
+
     public static function process($content){
         $pattern = array(
             "/回复(\\d+?):/is",
