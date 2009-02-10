@@ -5,6 +5,8 @@
 $includeDir = dirname(__FILE__);
 include_once("$includeDir/config.php");
 
+include_once("$includeDir/phpmailer/class.mailer.php");
+
 date_default_timezone_set("PRC");
 
 /*

@@ -17,6 +17,7 @@ li{
     <li><a href="school/school.php" target="display">学校管理</a></li>
     <li><a href="team/index.php" target="display">队伍管理</a></li>
     <li><a href="article/index.php" target="display">通知管理</a></li>
+    <li><a href="messages/index.php" target="display">信息管理</a></li>
     <li>....</li>
     <li><a href="sqlquery/" target="display">自定义查询</a></li>
     <li><a href="files.php" target="display">文件管理</a></li>
