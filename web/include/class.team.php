@@ -207,7 +207,7 @@ class team extends table{
         $school_id	=	(int)$this->school_id;      
         $team_name	=	$conn->real_escape_string($this->team_name);      
         $password	=	$conn->real_escape_string($this->password);      
-        $this->vcode=   $this->rndstr(); //生成随机验证码
+        $this->vcode=   $this->rndstr(6); //生成随机验证码
         $vcode	    =	$conn->real_escape_string($this->vcode);          
         $email	    =	$conn->real_escape_string($this->email);          
         $address	=	$conn->real_escape_string($this->address);        

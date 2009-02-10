@@ -34,7 +34,8 @@ if(isset($valid_for_final)){
     $a->valid_for_final = 0;
 }
 if($a->insert()){
-    msgbox("队伍注册成功，请前往注册邮箱查收验证码。<br/><a href=\"index.php\">返回首页</a>", false);
+    $info = sendvcode($a->team_id);
+    msgbox("<p>队伍注册成功，请前往注册邮箱查收验证码。</p><p><a href=\"index.php\">返回首页</a></p>", false);
 }else{
     msgbox($a->error);
 }

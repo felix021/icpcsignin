@@ -119,8 +119,29 @@ function str2time($str){
 }
 
 
-function sendmail($email, $content, $mode = 0){
-    ;
+function sendvcode($team_id, &$info = NULL){
+    $t = new team($team_id);
+    if($t->errno)msgbox($t->error);
+    $name = $t->team_name;
+    $email = $t->email;
+    $title = "acm/icpc比赛注册系统 - 邮箱验证";
+    $content = <<<eot
+{$name} 队:
+    感谢注册我们的报名系统，贵队的邮箱验证码是 {$t->vcode}，请登录报名系统输入验证码。
+
+--
+此邮件为系统自动发出，不必回复；有疑问可直接回复。
+若此邮件被投递至"垃圾箱"，请将此邮件地址加入通讯录(或白名单)，以免后续邮件被忽略。
+eot;
+    $content = nl2br(htmlspecialchars($content));
+    $m = new mailer;
+    if($m->email($name, $email, $title, $content)){
+        $info = $m->ErrorInfo;
+        return true;
+    }else{
+        $info = $m->ErrorInfo;
+        return false;
+    }
 }
 
 function ubb2html($str){
