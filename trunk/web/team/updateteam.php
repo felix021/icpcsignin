@@ -42,6 +42,7 @@ case "basicinfo":
     break;
 
 case "email":
+    $a->email = $email;
     $a->vcode = rndstr();
     if($a->update()){
         //send verify mail
