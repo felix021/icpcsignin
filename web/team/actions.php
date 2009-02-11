@@ -18,6 +18,7 @@ li{
     <li><a href="members/members.php" target="display">成员管理</a></li>
     <li><a href="messages/messages.php" target="display">信息管理</a></li>
     <li>....</li>
+    <li><a href="unsetteam.php" target="display">删除队伍</a></li>
     <li><a href="../team_logout.php" target="_top">退出登陆</a></li>
 </ul>
 <?php include("../include/footer.php"); ?>

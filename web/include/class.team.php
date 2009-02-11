@@ -174,6 +174,8 @@ class team extends table{
         if($conn->affected_rows == 0){
             return false;
         }else{
+            $query = "DELETE FROM `{tblprefix}_messages` WHERE `to_id`={$id} OR `from_id`={$id}";
+            getQuery($conn, $query);
             return true;
         }
     }
