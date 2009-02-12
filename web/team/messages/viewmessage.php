@@ -1,6 +1,9 @@
 <?php
-include("../inc.php");
-include("../verifiedmail.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verifiedmail.php");
 if(!isset($_GET['msg_id'])){
     echo <<<eot
 <p>查看消息内容</p>
@@ -31,5 +34,5 @@ eot;
         }
     }
 }
-include("../../include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>

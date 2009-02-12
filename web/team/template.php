@@ -1,6 +1,10 @@
 <?php
-include("inc.php");
-include("verify.php");
+
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verify.php");
 
 $team_id = (int)$_SESSION['team_id'];
 $a = new team($team_id);
@@ -20,5 +24,5 @@ if($conn->affected_rows == 0){
 eot;
 }
 
-include("../include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>

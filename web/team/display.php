@@ -1,6 +1,9 @@
 <?php
-include_once("verify.php");
-include_once("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."team/verify.php");
+include_once(APP_ROOT."team/inc.php");
 
 $a = new team($_SESSION['team_id']);
 
@@ -71,5 +74,5 @@ $school_list
 </form>
 eot;
 
-include_once("../include/footer.php");
+include_once(APP_ROOT."include/footer.php");
 ?>

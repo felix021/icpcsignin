@@ -1,5 +1,8 @@
 <?php
-include_once("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."inc.php");
 
 if(isset($_SESSION['team_id'])){
     $team_id = (int) $_SESSION['team_id'];

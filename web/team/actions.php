@@ -1,6 +1,9 @@
 <?php
-include_once("verify.php");
-include_once("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."team/verify.php");
+include_once(APP_ROOT."team/inc.php");
 ?>
 <style type="text/css">
 li{
@@ -21,4 +24,4 @@ li{
     <li><a href="unsetteam.php" target="display">删除队伍</a></li>
     <li><a href="../team_logout.php" target="_top">退出登陆</a></li>
 </ul>
-<?php include("../include/footer.php"); ?>
+<?php include(APP_ROOT."include/footer.php"); ?>

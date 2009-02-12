@@ -5,7 +5,7 @@
 $relpath = dirname(__FILE__);
 include($relpath."/def.php");
 
-include_once(APP_PATH."include/config.php");
+include_once(APP_ROOT."include/config.php");
 
 date_default_timezone_set("PRC");
 
@@ -64,5 +64,6 @@ include_once("$relpath/class.hotel.php");
 include_once("$relpath/phpmailer/class.mailer.php");
 
 //其他函数
+$relpath = dirname(__FILE__);
 include_once("$relpath/functions.php");
 ?>

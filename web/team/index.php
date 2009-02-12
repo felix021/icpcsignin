@@ -1,5 +1,8 @@
 <?php
-include_once("verify.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."team/verify.php");
 ?>
 <html>
 <head>

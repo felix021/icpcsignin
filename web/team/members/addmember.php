@@ -1,6 +1,9 @@
 <?php
-include("../inc.php");
-include("../verifiedmail.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
 
@@ -44,8 +47,8 @@ $m->remark = $remark;
 if($m->insert()){
     msgbox("添加成功!");
 }else{
-    msgbox("添加失败: " . $a->error);
+    msgbox("添加失败: " . $m->error);
 }
 
-include("../../include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>

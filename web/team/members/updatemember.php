@@ -1,6 +1,9 @@
 <?php
-include("../inc.php");
-include("../verifiedmail.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
 
@@ -33,6 +36,4 @@ if($m->update()){
 }else{
     msgbox("更新失败: " . $m->error);
 }
-
-include("../../include/footer.php");
 ?>
