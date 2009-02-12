@@ -1,5 +1,6 @@
 <?php
-include_once("include/classes.php");
+include("def.php");
+include_once(APP_ROOT."include/classes.php");
 if(!isset($_SESSION['team_id'])) exit();
 
 $a = new team($_SESSION['team_id']);

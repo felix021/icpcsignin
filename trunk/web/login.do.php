@@ -1,6 +1,7 @@
 <?php
-include("include/header.php");
-include("include/classes.php");
+include("def.php");
+include(APP_ROOT."include/header.php");
+include(APP_ROOT."include/classes.php");
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$value){
         $value = stripslashes($value);
