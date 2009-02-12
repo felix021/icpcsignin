@@ -1,6 +1,9 @@
 <?php
-include("../inc.php");
-include("../verifiedmail.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verifiedmail.php");
 echo <<<eot
 <form action="sendmessage.do.php" method="post" style="display:inline;">
 向管理员发送信息(1000字以内)
@@ -9,5 +12,5 @@ echo <<<eot
 <textarea name="message_content" id="msg" cols="40" rows="5"></textarea>
 </form>
 eot;
-include("../../include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>

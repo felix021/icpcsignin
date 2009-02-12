@@ -1,7 +1,9 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
-include("../verify.php");
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verify.php");
 ob_clean();
 
 $team_id = (int)$_SESSION['team_id'];
@@ -17,5 +19,4 @@ if($a->from_id == $team_id || $a->to_id == $team_id){
 }else{
     echo 2;
 }
-
 ?>

@@ -1,6 +1,9 @@
 <?php
-include("../include/header.php");
-include("../include/classes.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."include/header.php");
+include(APP_ROOT."include/classes.php");
 
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$value){
@@ -35,10 +38,12 @@ if(isset($valid_for_final)){
 }
 if($a->insert()){
     $info = sendvcode($a->team_id);
-    msgbox("<p>队伍注册成功，请前往注册邮箱查收验证码。</p><p><a href=\"../index.php\">返回首页</a></p>", false);
+    $msg = <<<eot
+<p>队伍注册成功，请前往注册邮箱查收验证码。</p>
+<p><a href="../index.php">返回首页</a></p>
+eot;
+    msgbox($msg, false);
 }else{
     msgbox($a->error);
 }
-
-include("../include/footer.php");
 ?>

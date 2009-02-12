@@ -1,7 +1,9 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
-include("../verifiedmail.php");
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
 $query = "SELECT * FROM `{tblprefix}_messages`"
@@ -70,6 +72,6 @@ eot;
     echo "</table></div>\n";
 }
 
-include("../../include/footer.php");
+include(APP_ROOT."include/footer.php");
 
 ?>

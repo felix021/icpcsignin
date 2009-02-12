@@ -1,6 +1,9 @@
 <?php
-include("../include/header.php");
-include("../include/classes.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."include/header.php");
+include(APP_ROOT."include/classes.php");
 ?>
 <script>
 function $(id) {return document.getElementById(id);}
@@ -11,7 +14,7 @@ function verify(){
 }
 </script>
 <form action="register.do.php" method="post">
-<fieldset style="margin:10px;text-align:left;">
+<fieldset>
 <legend>队伍注册 [<a href="index.php">返回首页</a>]</legend>
 选择队伍类型: 
 <input type="radio" name="team_type" checked="checked" value="1"/>武汉大学队伍 

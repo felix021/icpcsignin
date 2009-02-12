@@ -1,5 +1,8 @@
 <?php
-include("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."team/inc.php");
 ?>
 <p>注意：注销后队伍信息不可恢复！</p>
 <script language="javascript">
@@ -23,5 +26,5 @@ function unsetteam(){
 <input type="text" size="5" onkeyup="javascript:change(this)"/>
 <input type="button" value="确认删除" id="delbtn" disabled onclick="unsetteam()"/>
 <?php
-include("../include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>

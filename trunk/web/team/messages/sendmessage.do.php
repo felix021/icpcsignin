@@ -1,7 +1,9 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
-include("../verify.php");
+include(APP_ROOT."team/inc.php");
+include(APP_ROOT."team/verify.php");
 
 if (get_magic_quotes_gpc()){
     foreach($_POST as &$v) 
