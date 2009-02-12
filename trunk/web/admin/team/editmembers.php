@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
@@ -187,5 +190,5 @@ eot;
 }
 echo "</fieldset>\n";
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 ?>

@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 $query = "SELECT * FROM `{tblprefix}_messages`"
         ."  WHERE `to_id`=-1";
@@ -75,6 +77,6 @@ eot;
     echo "</table></div>\n";
 }
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

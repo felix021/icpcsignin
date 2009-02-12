@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$v)
@@ -24,9 +26,13 @@ if($_GET['action'] == "all"){
 }
 
 if($a->update()){
-    msgbox("更新成功!");
+    $msg = <<<eot
+<p>更新成功!</p>
+<p><a href="index.php">返回文章管理</a></p>
+eot;
+    msgbox($msg, false);
 }else{
-    msgbix($a->error);
+    msgbox($a->error);
 }
 
 ?>

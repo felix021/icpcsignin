@@ -1,7 +1,7 @@
 <?php
-
-include("../inc.php");
-include("select_priority.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+include(APP_ROOT."admin/inc.php");
 
 echo <<<eot
 <p><a href="newarticle.php">发布新通知</a></p>
@@ -14,7 +14,7 @@ $res = getQuery($conn, $query);
 
 if($conn->affected_rows == 0){
     echo "尚无通知";
-    include("../footer.php");
+    include(APP_ROOT."admin/footer.php");
     exit();
 }
 
@@ -73,6 +73,6 @@ while($row = $res->fetch_assoc()){
 eot;
 }
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

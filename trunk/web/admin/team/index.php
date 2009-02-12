@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $itemsperpage = 5;
 
@@ -124,5 +127,5 @@ eot;
     echo "<div>无队伍</div>\n";
 }
 
-
+include(APP_ROOT."admin/footer.php");
 ?>

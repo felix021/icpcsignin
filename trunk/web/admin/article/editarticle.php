@@ -1,7 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
-include("select_priority.php");
+include(APP_ROOT."admin/inc.php");
 
 $a = new article($_GET['article_id']);
 if($a->errno){
@@ -23,6 +24,28 @@ echo <<<eot
 
 eot;
 
+if(isset($a)){
+    $content = $a->content;
+
+    switch($a->content_type){
+    case 0:
+        $plain = "checked=\"checked\"";
+        $display = "none";
+        break;
+    case 1:
+        $html = "checked=\"checked\"";
+        $display = "none";
+        break;
+    default:
+    case 2:
+        $ubb = "checked=\"checked\"";
+        $display = "block;";
+        break;
+    }
+}else{
+    $ubb = "checked=\"checked\"";
+    $display = "block;";
+}
 include('editor.php');
 
 echo <<<eot
@@ -30,6 +53,6 @@ echo <<<eot
 
 eot;
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

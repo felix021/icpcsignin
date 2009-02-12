@@ -1,7 +1,10 @@
 <?php
 session_start();
 ob_start();
-include("../include/config.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."include/config.php");
 if(isset($_POST['password'])){
     extract($_POST, EXTR_SKIP);
     if($password == $adminpass && $vcode == $_SESSION['vcode']){

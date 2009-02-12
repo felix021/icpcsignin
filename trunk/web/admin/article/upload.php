@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 ob_clean();
 echo <<<eot
 <html>
@@ -20,7 +23,7 @@ function insertLink(name){
     cont.value += '[a href="attachments/' + name + '"]' + name + '[/a]';
 }
 </script>
-文件 <a href="../../attachments/{$res[2]}" target="_blank">attachments/{$res[2]}</a> 上传成功!
+文件 <a href="{$installDir}/attachments/{$res[2]}" target="_blank">{$installDir}/attachments/{$res[2]}</a> 上传成功!
 <input type="button" value="将链接插入文章" onclick="javascript:insertLink('{$file_slash}')"/>
 <input type="button" onclick="javascript:history.back(1);" value="返回继续上传"/>
 eot;

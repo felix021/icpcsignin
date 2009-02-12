@@ -1,7 +1,7 @@
 <?php
-
-include("../inc.php");
-include("select_priority.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+include(APP_ROOT."admin/inc.php");
 
 $priority_list = select_priority();
 
@@ -13,6 +13,8 @@ echo <<<eot
 
 eot;
 
+$ubb = "checked=\"checked\"";
+$display = "block";
 include('editor.php');
 
 echo <<<eot
@@ -20,6 +22,6 @@ echo <<<eot
 
 eot;
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

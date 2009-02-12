@@ -1,7 +1,10 @@
 <?php
-include("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-$dirname = "../attachments";
+include(APP_ROOT."admin/inc.php");
+
+$dirname = APP_ROOT . "attachments";
 $dir = scandir($dirname);
 
 ob_start();
@@ -51,4 +54,4 @@ if($i == 0){
 <input name="userfile" type="file"/>
 <input type="submit" value="上传"/>
 </form>
-<?php include("footer.php"); ?>
+<?php include(APP_ROOT."admin/footer.php"); ?>

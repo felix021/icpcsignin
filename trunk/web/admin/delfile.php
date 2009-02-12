@@ -1,5 +1,8 @@
 <?php
-include("inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $file = basename($_GET['file']);
 if($file == "index.php") msgbox("不能删除 index.php");

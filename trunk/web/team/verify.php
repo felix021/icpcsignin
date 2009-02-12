@@ -12,5 +12,6 @@ alert("请先登录后再进入管理!");
 window.top.location = '../index.php';
 </script>
 eot;
+        include("../include/footer.php");
     }
 ?>

@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 ?>
 <script>
 function autofit(iframeobj){
@@ -18,4 +21,4 @@ function autofit(iframeobj){
 </table>
 <hr/>
 <iframe src="msg_send.php" id="msg_send" width="800" height="190" frameborder="0" scrolling="none" style="scrolling:none;" onload="javascript: autofit(this);"></iframe>
-<?php include("../footer.php");
+<?php include(APP_ROOT."admin/footer.php");

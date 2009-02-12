@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 echo <<<eot
 <form action="sendmessage.do.php" method="post" style="display:inline;">
 <input type="hidden" name="rep_id" id="rep_id" value="" />
@@ -8,5 +11,5 @@ echo <<<eot
 <textarea name="message_content" id="msg" cols="40" rows="5"></textarea>
 </form>
 eot;
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 ?>

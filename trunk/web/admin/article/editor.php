@@ -1,29 +1,3 @@
-<?php
-
-if(isset($a)){
-    $content = $a->content;
-
-    switch($a->content_type){
-    case 0:
-        $plain = "checked=\"checked\"";
-        $display = "none";
-        break;
-    case 1:
-        $html = "checked=\"checked\"";
-        $display = "none";
-        break;
-    default:
-    case 2:
-        $ubb = "checked=\"checked\"";
-        $display = "block;";
-        break;
-    }
-}else{
-    $ubb = "checked=\"checked\"";
-    $display = "block;";
-}
-
-?>
 <style type="text/css">
 .actions a{text-decoration:none;}
 .actions a:hover{background-color: #8080ff;}

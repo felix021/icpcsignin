@@ -1,6 +1,9 @@
 <?php
-include("inc.php");
-$notice = file_get_contents("../include/notice.txt");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
+$notice = file_get_contents(APP_ROOT."include/notice.txt");
 $notice_e = htmlspecialchars($notice);
 echo <<<eot
 <fieldset>
@@ -16,5 +19,5 @@ $notice
 </form>
 </fieldset>
 eot;
-include("footer.php");
+include(APP_ROOT."admin/footer.php");
 ?>
