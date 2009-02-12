@@ -1,3 +1,9 @@
+<?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+include_once(APP_ROOT."include/config.php");
+
+?>
 <style type="text/css">
 .actions a{text-decoration:none;}
 .actions a:hover{background-color: #8080ff;}
@@ -51,7 +57,7 @@ function addimg(){ //添加图片
         if(url.substring(0, 3) == "www.")
             url = "http://" + url;
     }
-    if(confirm("是否要置顶图像显示的大小?")){
+    if(confirm("是否要指定图像的大小?")){
         var width = window.prompt("图像宽度(留空则不指定)", "640");
         if(width != "" && width != null) property += ' width="'+width+'"';
         var height = window.prompt("图像高度(留空则不指定)", "480");
@@ -137,16 +143,16 @@ function disp(id){
 <input type="radio" <?php echo $ubb;?> onclick="javascript:disp('actions');" name="content_type" value="2">UBB代码
 </div>
 <div id="actions" class="actions" style="display:<?php echo $display;?>;">
-<a href="javascript:addtag('b');" title="粗体"><img src="imgs/bold.gif" border="0"/></a>
-<a href="javascript:addtag('i');" title="斜体"><img src="imgs/italic.gif" border="0"/></a>
-<a href="javascript:addtag('u');" title="下划线"><img src="imgs/underline.gif" border="0"/></a>
-<a href="javascript:addtag('sup');" title="上标"><img src="imgs/superscript.gif" border="0"/></a>
-<a href="javascript:addtag('sub');" title="下标"><img src="imgs/subscript.gif" border="0"/></a>
-<a href="javascript:addtag('center');" title="居中"><img src="imgs/center.gif" border="0"/></a>
-<a href="javascript:addlink();" title="插入链接"><img src="imgs/link.gif" border="0"/></a>
-<a href="javascript:addimg();" title="插入图片"><img src="imgs/img.gif" border="0"/></a>
-<a href="javascript:addtag('code');" title="插入代码"><img src="imgs/code.gif" border="0"/></a>
-<a href="javascript:addtag('quote');" title="插入引用"><img src="imgs/quote.gif" border="0"/></a>
+<a href="javascript:addtag('b');" title="粗体"><img src="<?php echo $installDir;?>/editor/imgs/bold.gif" border="0"/></a>
+<a href="javascript:addtag('i');" title="斜体"><img src="<?php echo $installDir;?>/editor/imgs/italic.gif" border="0"/></a>
+<a href="javascript:addtag('u');" title="下划线"><img src="<?php echo $installDir;?>/editor/imgs/underline.gif" border="0"/></a>
+<a href="javascript:addtag('sup');" title="上标"><img src="<?php echo $installDir;?>/editor/imgs/superscript.gif" border="0"/></a>
+<a href="javascript:addtag('sub');" title="下标"><img src="<?php echo $installDir;?>/editor/imgs/subscript.gif" border="0"/></a>
+<a href="javascript:addtag('center');" title="居中"><img src="<?php echo $installDir;?>/editor/imgs/center.gif" border="0"/></a>
+<a href="javascript:addlink();" title="插入链接"><img src="<?php echo $installDir;?>/editor/imgs/link.gif" border="0"/></a>
+<a href="javascript:addimg();" title="插入图片"><img src="<?php echo $installDir;?>/editor/imgs/img.gif" border="0"/></a>
+<a href="javascript:addtag('code');" title="插入代码"><img src="<?php echo $installDir;?>/editor/imgs/code.gif" border="0"/></a>
+<a href="javascript:addtag('quote');" title="插入引用"><img src="<?php echo $installDir;?>/editor/imgs/quote.gif" border="0"/></a>
 <select id="fontname">
 <option value="" selected>字体</option>
 <option value="宋体">宋体</option>
@@ -185,4 +191,4 @@ function disp(id){
 <textarea name="content" id="content" cols="80" rows="20"><?php echo $content; ?></textarea>
 <br/>
 <input type="submit" value="提交"/>
-<iframe style="scrolling:none;" src="uploadform.html" frameborder="0" width="600" height="25" scrolling="none"></iframe>
+<iframe style="scrolling:none;" src="<?php echo $installDir;?>/editor/uploadform.php" frameborder="0" width="600" height="25" scrolling="none"></iframe>
