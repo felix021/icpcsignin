@@ -15,7 +15,7 @@ eot;
 
 $ubb = "checked=\"checked\"";
 $display = "block";
-include('editor.php');
+include(APP_ROOT.'editor/editor.php');
 
 echo <<<eot
 </form>
