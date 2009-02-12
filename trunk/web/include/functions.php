@@ -186,6 +186,21 @@ function ubb2html($str){
     return nl2br($str);
 }
 
+function symbol2value($str){
+    $t = new team((int)$_SESSION['team_id']);
+    if($t->errno){
+        return "Forbidden: 此日志需要登录后才能查看。";
+    }
+    $str = str_replace('{team_id}', $t->team_id, $str);
+    $str = str_replace('{team_name}', $t->team_name, $str);
+    $str = str_replace('{password}', $t->password, $str);
+    $str = str_replace('{telephone}', $t->telephone, $str);
+    $sch = school::getNameByTeamId($t->team_id);
+    $str = str_replace('{school}', $sch, $str);
+
+    return $str;
+}
+
 function upload_judge($name){
     $forbidden_exts = array("php", "php3", "asp", "jsp", "aspx");
     $pos = strrpos($name, ".");

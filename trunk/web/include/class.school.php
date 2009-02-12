@@ -153,5 +153,30 @@ class school extends table{
         $this->school_type |= 4;
         if(!$set) $this->school_type ^= 4;
     }
+    public static function getNameByTeamId($team_id){
+        $t = new team($team_id);
+        if($t->errno) msgbox($t->error);
+        if($t->school_id == -1){//高中队伍
+            $name = "高中队伍";
+            $query = "SELECT `school_name_cn` FROM `{tblprefix}_members` "
+                    ."  WHERE `team_id`={$t->team_id} AND `type`>0"
+                    ."  ORDER BY `type` ASC";
+            $res = getQuery($conn, $query);
+            if($conn->affected_rows == 0){
+                $name .= "(暂无队员)";
+            }else{
+                $sch = "(";
+                while ($row = $res->fetch_assoc()){
+                    $sch .= $row['school_name_cn'] . " ";
+                }
+                $sch = trim($sch) . ")";
+                return ($name . $sch);
+            }
+        }else{
+            $s = new school($t->school_id);
+            if($s->errno) msgbox($s->error);
+            return $s->school_name_cn;
+        }
+    }
 }
 ?>

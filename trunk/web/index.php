@@ -71,6 +71,7 @@ while($row = $res->fetch_assoc()){
     if($permission == 0 && !isset($_SESSION['team_id']))
         $content = 'Forbidden: <i>本文需要登陆后才可查看</i>';
     else{
+        $content = symbol2value($content);
         switch($content_type){
         case 0: //PLAIN
             $content = htmlspecialchars($content);

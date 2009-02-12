@@ -8,134 +8,7 @@ include_once(APP_ROOT."include/config.php");
 .actions a{text-decoration:none;}
 .actions a:hover{background-color: #8080ff;}
 </style>
-<script language="javascript">
-/*
- * Simple PHP UBB Editor By Felix021 
- * 2009-01-29 @ http://www.felix021.com
- */
-
-var textarea_id = "content";
-
-function $(id){return document.getElementById(id);}
-
-function addtag(tag){ //普通html标签
-    add(tag, "", false);
-}
-
-function addlink(){ //添加链接
-    var sel = "", url = "", newsel = false;
-    sel = getSelectedText();
-	url = sel;
-    if(sel == "") newsel = true;
-    if(newsel){
-        url = window.prompt("请输入链接地址:", "http://");
-        if(url == null) return;
-		sel = window.prompt("请输入链接文字:", url);
-    }else{
-        if(url.substring(0, 3) == "www.")
-            url = "http://" + url;
-		url = window.prompt("请输入链接地址:", url);
-		if(url == null) return;
-    }
-    if(newsel){
-        $(textarea_id).value += '[a href="'+url+'"]'+sel+'[/a]';
-    }else{
-        add('a', 'href="'+url+'"', false);
-    }
-}
-
-function addimg(){ //添加图片 
-    var url;
-    var newurl = false;
-    url = getSelectedText();
-    if(url == "") newurl = true;
-    var property = "";
-    if(newurl){
-        url = window.prompt("请输入链接:", "http://");
-        if(url == null) return;
-    }else{
-        if(url.substring(0, 3) == "www.")
-            url = "http://" + url;
-    }
-    if(confirm("是否要指定图像的大小?")){
-        var width = window.prompt("图像宽度(留空则不指定)", "640");
-        if(width != "" && width != null) property += ' width="'+width+'"';
-        var height = window.prompt("图像高度(留空则不指定)", "480");
-        if(height != "" && height != null) property += ' height="'+height+'"';
-    }
-    if(newurl){
-        $(textarea_id).value += '[img src="'+url+'"'+property+']';
-    }else{
-        add('img', 'src="'+url+'"'+property, true);
-    }
-}
-
-function addfontcolor(){
-    var name = $('fontname').value;
-    var size = $('fontsize').value;
-    var color = $('fontcolor').value;
-	if(name == "" && size == "" && color == "") return;
-    var style = 'style="';
-    if(name != "") style += "font-family:" + name + ";";
-    if(size != "") style += "font-size:" + size + ";";
-    if(color != "") style += "color:" + color + ";";
-    style += '"';
-    add('span', style);
-}
-
-function getSelectedText(){
-    if(document.selection){ //IE
-        var sel = document.selection;
-        var range = sel.createRange();
-        if(sel.type == "Text" && range.parentElement().id==textarea_id)
-            return range.text;
-        else
-            return "";
-    }else{ //FireFox
-        var obj = $(textarea_id);
-        var selStart = obj.selectionStart;
-        var selEnd = obj.selectionEnd;
-        if(selStart == selEnd) return false;
-        else return obj.value.substring(selStart, selEnd);
-    }
-}
-
-function add(tag, property, closetag, encodeHTML){
-    if(property != "") property = " " + property;
-    if(document.selection){ //IE
-        var sel = document.selection;
-        var range = sel.createRange();
-        if(sel.type == "Text" && range.parentElement().id==textarea_id) {
-            text = range.text;
-            if(!closetag)
-                range.text = "["+tag+property+"]"+text+"[/"+tag+"]";
-            else
-                range.text = "["+tag+property+"]";
-        }
-    }else{ //FireFox
-        var obj = $(textarea_id);
-        var selStart = obj.selectionStart;
-        var selEnd = obj.selectionEnd;
-        if(selStart == selEnd) return;
-        var a = obj.value.substring(0, selStart);
-        var b = obj.value.substring(selStart, selEnd);
-        var c = obj.value.substring(selEnd, obj.value.length);
-        if(!closetag)
-            obj.value=a+"["+tag+property+"]"+b+"[/"+tag+"]"+c;
-        else
-            obj.value=a+"["+tag+property+"]";
-    }
-}
-
-
-function hide(id){
-    $(id).style.display = "none";
-}
-function disp(id){
-    $(id).style.display = "block";
-}
-
-</script>
+<script language="javascript" src="<?php echo $installDir;?>/editor/myubb.js"></script>
 <div>
 内容类型:
 <input type="radio" <?php echo $plain;?> onclick="javascript:hide('actions');" name="content_type" value="0">纯文本
@@ -187,6 +60,14 @@ function disp(id){
 <option value="#800080" style="color:#800080">紫色</option>
 </select>
 <input type="button" value="字体&颜色属性" onclick="javascript:addfontcolor()"/>
+</div>
+<div>
+加入符号: 
+<input type="button" value="队名" onclick="javascript:addsymbol('team_name');"/>
+<input type="button" value="学校" onclick="javascript:addsymbol('school');"/>
+<input type="button" value="编号" onclick="javascript:addsymbol('team_id');"/>
+<input type="button" value="密码" onclick="javascript:addsymbol('password');"/>
+<input type="button" value="电话" onclick="javascript:addsymbol('telephone');"/>
 </div>
 <textarea name="content" id="content" cols="80" rows="20"><?php echo $content; ?></textarea>
 <br/>
