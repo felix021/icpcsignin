@@ -154,13 +154,16 @@ class school extends table{
         if(!$set) $this->school_type ^= 4;
     }
     public static function getNameByTeamId($team_id){
+        global $conn;
         $t = new team($team_id);
         if($t->errno) msgbox($t->error);
         if($t->school_id == -1){//高中队伍
             $name = "高中队伍";
-            $query = "SELECT `school_name_cn` FROM `{tblprefix}_members` "
-                    ."  WHERE `team_id`={$t->team_id} AND `type`>0"
-                    ."  ORDER BY `type` ASC";
+            $query = "SELECT `school_name_cn` "
+                    ."  FROM `{tblprefix}_members` a JOIN `{tblprefix}_schools` b"
+                    ."  ON a.`school_id` = b.`school_id`"
+                    ."  WHERE a.`team_id`={$t->team_id} AND a.`type`>0"
+                    ."  ORDER BY a.`type` DESC";
             $res = getQuery($conn, $query);
             if($conn->affected_rows == 0){
                 $name .= "(暂无队员)";
@@ -172,6 +175,7 @@ class school extends table{
                 $sch = trim($sch) . ")";
                 return ($name . $sch);
             }
+            return $name;
         }else{
             $s = new school($t->school_id);
             if($s->errno) msgbox($s->error);

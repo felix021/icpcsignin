@@ -1,6 +1,7 @@
 <?php
 $relpath = dirname(__FILE__);
 include($relpath."/def.php");
+include_once(APP_ROOT."include/config.php");
 
     session_start();
     ob_start();
@@ -10,7 +11,7 @@ include($relpath."/def.php");
         echo <<<eot
 <script>
 alert("请先登录后再进入管理!");
-window.top.location = 'index.php';
+window.top.location = '$installDir/admin/index.php';
 </script>
 eot;
         include(APP_ROOT."include/footer.php");
