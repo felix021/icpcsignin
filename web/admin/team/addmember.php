@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
@@ -50,5 +53,4 @@ if($m->insert()){
     msgbox("添加失败: " . $a->error);
 }
 
-include("../include/footer.php");
 ?>

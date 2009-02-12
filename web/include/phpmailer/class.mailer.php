@@ -1,7 +1,7 @@
 <?php
-$include_dir = dirname(__FILE__) . "/";
-include_once($include_dir . "class.smtp.php");
-include_once($include_dir . "class.phpmailer.php");
+$relpath = dirname(__FILE__) . "/";
+include_once($relpath . "class.smtp.php");
+include_once($relpath . "class.phpmailer.php");
 
 class mailer extends PHPMailer{
     public $Encoding    = 'base64';

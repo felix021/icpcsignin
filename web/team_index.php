@@ -1,5 +1,7 @@
 <?php
-include("def.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
 include_once(APP_ROOT."include/classes.php");
 if(!isset($_SESSION['team_id'])) exit();
 

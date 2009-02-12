@@ -1,5 +1,8 @@
 <?php
-include_once("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."admin/inc.php");
 
 $a = new team($_GET['team_id']);
 if($a->errno){
@@ -53,5 +56,5 @@ $school_list
 </form>
 eot;
 
-include_once("../footer.php");
+include_once(APP_ROOT."admin/footer.php");
 ?>

@@ -1,5 +1,7 @@
 <?php
-include("def.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
 include(APP_ROOT."include/header.php");
 include(APP_ROOT."include/classes.php");
 if(get_magic_quotes_gpc()){

@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$v)
@@ -19,7 +21,11 @@ $a->permission = $permission;
 $a->views = 0;
 
 if($a->insert()){
-    msgbox("发布成功!");
+    $msg = <<<eot
+<p>发布成功!</p>
+<p><a href="index.php">返回文章管理</a></p>
+eot;
+    msgbox($msg, false);
 }else{
     msgbox($a->error);
 }

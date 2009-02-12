@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 if (get_magic_quotes_gpc()){
     foreach($_POST as &$v) 

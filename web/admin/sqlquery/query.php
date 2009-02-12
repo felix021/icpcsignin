@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 $query = $_POST['query'];
 if(get_magic_quotes_gpc()){
@@ -61,7 +63,7 @@ function addfield(a){
 eot;
 echo $tblhead, $out;
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 
 ?>

@@ -2,8 +2,10 @@
 /*
  * 包含配置文件
  */
-$includeDir = dirname(__FILE__);
-include_once("$includeDir/config.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_PATH."include/config.php");
 
 date_default_timezone_set("PRC");
 
@@ -46,21 +48,21 @@ abstract class table{
 }
 
 // 学校表
-include_once("$includeDir/class.school.php");
+include_once("$relpath/class.school.php");
 // 队伍表
-include_once("$includeDir/class.team.php");
+include_once("$relpath/class.team.php");
 // 成员表
-include_once("$includeDir/class.member.php");
+include_once("$relpath/class.member.php");
 // 文章表
-include_once("$includeDir/class.article.php");
+include_once("$relpath/class.article.php");
 // 消息表
-include_once("$includeDir/class.message.php");
+include_once("$relpath/class.message.php");
 // 住宿表
-include_once("$includeDir/class.hotel.php");
+include_once("$relpath/class.hotel.php");
 
 //邮件发送类
-include_once("$includeDir/phpmailer/class.mailer.php");
+include_once("$relpath/phpmailer/class.mailer.php");
 
 //其他函数
-include_once("$includeDir/functions.php");
+include_once("$relpath/functions.php");
 ?>

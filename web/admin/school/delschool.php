@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 $id = (int)$_GET['school_id'];
 
 if(school::delById($id)){
@@ -10,5 +13,5 @@ if(school::delById($id)){
 }
 echo '<a href="school.php">返回</a>';
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 ?>

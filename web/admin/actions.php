@@ -1,6 +1,8 @@
 <?php
-include("verify.php");
-include("header.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+include(APP_ROOT."admin/verify.php");
+include(APP_ROOT."admin/header.php");
 ?>
 <style>
 li{
@@ -23,4 +25,4 @@ li{
     <li><a href="files.php" target="display">文件管理</a></li>
     <li><a href="index.php" target="_top">退出登陆</a></li>
 </ul>
-<?php include("footer.php"); ?>
+<?php include(APP_ROOT."admin/footer.php"); ?>

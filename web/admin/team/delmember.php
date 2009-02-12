@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $team_id = (int)$_SESSION['team_id'];
 $a = new team($team_id);
@@ -22,6 +25,4 @@ if(member::delById($m->member_id)){
 }else{
     msgbox("删除失败!");
 }
-
-include("../include/footer.php");
 ?>

@@ -1,6 +1,8 @@
 <?php
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
 
-include("../inc.php");
+include(APP_ROOT."admin/inc.php");
 
 echo <<<eot
 <p style="text-align:left;">
@@ -25,6 +27,6 @@ echo <<<eot
 
 eot;
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

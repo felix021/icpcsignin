@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 ?>
 <script language="javascript">
 function delschool(id, name){
@@ -86,7 +89,7 @@ echo <<<eot
 <td>
 <input type="checkbox" name="isOurSchool" value="1"/>本校
 <input type="checkbox" name="isOurCity" value="2"/>本市
-<input type="checkbox" name="isUniversity" value="4"/>高校
+<input type="checkbox" checked="checked" name="isUniversity" value="4"/>高校
 </td>
 <td><input type="submit" name="add" value="新增"/></td>
 </tr>
@@ -94,6 +97,6 @@ echo <<<eot
 </table>
 eot;
 
-include("../footer.php");
+include(APP_ROOT."admin/footer.php");
 
 ?>

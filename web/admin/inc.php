@@ -1,6 +1,8 @@
 <?php
-include_once("verify.php");
-$includedir = dirname(dirname(__FILE__))."/include/";
-include_once($includedir."/header.php");
-include_once($includedir."classes.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include_once(APP_ROOT."admin/verify.php");
+include_once(APP_ROOT."include/header.php");
+include_once(APP_ROOT."include/classes.php");
 ?>

@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $team_id = (int)$_GET['team_id'];
 
@@ -51,7 +54,4 @@ if($a->update()){
 }else{
     msgbox($a->error);
 }
-
-
-include("../include/footer.php");
 ?>

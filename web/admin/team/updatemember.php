@@ -1,5 +1,8 @@
 <?php
-include("../inc.php");
+$relpath = dirname(__FILE__);
+include($relpath."/def.php");
+
+include(APP_ROOT."admin/inc.php");
 
 $team_id = (int)$_GET['team_id'];
 $a = new team($team_id);
@@ -36,6 +39,4 @@ if($m->update()){
 }else{
     msgbox("更新失败: " . $m->error);
 }
-
-include("../footer.php");
 ?>
