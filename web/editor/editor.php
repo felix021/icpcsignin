@@ -143,16 +143,16 @@ function disp(id){
 <input type="radio" <?php echo $ubb;?> onclick="javascript:disp('actions');" name="content_type" value="2">UBB代码
 </div>
 <div id="actions" class="actions" style="display:<?php echo $display;?>;">
-<a href="javascript:addtag('b');" title="粗体"><img src="<?php echo $installDir;?>/editor/imgs/bold.gif" border="0"/></a>
-<a href="javascript:addtag('i');" title="斜体"><img src="<?php echo $installDir;?>/editor/imgs/italic.gif" border="0"/></a>
-<a href="javascript:addtag('u');" title="下划线"><img src="<?php echo $installDir;?>/editor/imgs/underline.gif" border="0"/></a>
-<a href="javascript:addtag('sup');" title="上标"><img src="<?php echo $installDir;?>/editor/imgs/superscript.gif" border="0"/></a>
-<a href="javascript:addtag('sub');" title="下标"><img src="<?php echo $installDir;?>/editor/imgs/subscript.gif" border="0"/></a>
-<a href="javascript:addtag('center');" title="居中"><img src="<?php echo $installDir;?>/editor/imgs/center.gif" border="0"/></a>
-<a href="javascript:addlink();" title="插入链接"><img src="<?php echo $installDir;?>/editor/imgs/link.gif" border="0"/></a>
-<a href="javascript:addimg();" title="插入图片"><img src="<?php echo $installDir;?>/editor/imgs/img.gif" border="0"/></a>
-<a href="javascript:addtag('code');" title="插入代码"><img src="<?php echo $installDir;?>/editor/imgs/code.gif" border="0"/></a>
-<a href="javascript:addtag('quote');" title="插入引用"><img src="<?php echo $installDir;?>/editor/imgs/quote.gif" border="0"/></a>
+<a href="javascript:addtag('b');" title="粗体"><img src="<?php echo $installDir;?>/editor/images/bold.gif" border="0"/></a>
+<a href="javascript:addtag('i');" title="斜体"><img src="<?php echo $installDir;?>/editor/images/italic.gif" border="0"/></a>
+<a href="javascript:addtag('u');" title="下划线"><img src="<?php echo $installDir;?>/editor/images/underline.gif" border="0"/></a>
+<a href="javascript:addtag('sup');" title="上标"><img src="<?php echo $installDir;?>/editor/images/superscript.gif" border="0"/></a>
+<a href="javascript:addtag('sub');" title="下标"><img src="<?php echo $installDir;?>/editor/images/subscript.gif" border="0"/></a>
+<a href="javascript:addtag('center');" title="居中"><img src="<?php echo $installDir;?>/editor/images/center.gif" border="0"/></a>
+<a href="javascript:addlink();" title="插入链接"><img src="<?php echo $installDir;?>/editor/images/link.gif" border="0"/></a>
+<a href="javascript:addimg();" title="插入图片"><img src="<?php echo $installDir;?>/editor/images/img.gif" border="0"/></a>
+<a href="javascript:addtag('code');" title="插入代码"><img src="<?php echo $installDir;?>/editor/images/code.gif" border="0"/></a>
+<a href="javascript:addtag('quote');" title="插入引用"><img src="<?php echo $installDir;?>/editor/images/quote.gif" border="0"/></a>
 <select id="fontname">
 <option value="" selected>字体</option>
 <option value="宋体">宋体</option>
