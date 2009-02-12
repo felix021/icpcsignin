@@ -1,7 +1,8 @@
 <?php
-include("include/header.php");
-include("include/classes.php");
-include("include/config.php");
+include("def.php");
+include(APP_ROOT."include/header.php");
+include(APP_ROOT."include/classes.php");
+include(APP_ROOT."include/config.php");
 echo <<<eot
 <table width="1024" align="center">
 <tr>
@@ -116,7 +117,7 @@ eot;
 
 //右列表
 if(isset($_SESSION['team_id'])){
-    include("team_index.php");
+    include(APP_ROOT."team_index.php");
 }else{
     echo <<<eot
         <div class="textbox">
@@ -146,7 +147,7 @@ if(isset($_SESSION['team_id'])){
 eot;
 }
 
-include("include/links.html");
+include(APP_ROOT."include/links.html");
 
 echo <<<eot
         </div>
@@ -161,5 +162,5 @@ echo <<<eot
 highlighter();
 </script>
 eot;
-include("include/footer.php");
+include(APP_ROOT."include/footer.php");
 ?>
