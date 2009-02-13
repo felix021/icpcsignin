@@ -186,8 +186,10 @@ function ubb2html($str){
     return nl2br($str);
 }
 
-function symbol2value($str){
-    $t = new team((int)$_SESSION['team_id']);
+function symbol2value($str, $team_id = -1){
+    if($team_id == -1)
+        $team_id = (int)$_SESSION['team_id'];
+    $t = new team($team_id);
     if($t->errno){
         return "Forbidden: 此日志需要登录后才能查看。";
     }
@@ -198,6 +200,26 @@ function symbol2value($str){
     $sch = school::getNameByTeamId($t->team_id);
     $str = str_replace('{school}', $sch, $str);
 
+    return $str;
+}
+
+function fixurl_callback($matches){
+    global $installDir;
+    $url = "";
+    if(!ereg("(http|ftp)://", $matches[2])){
+        $scheme_host = "http://" . $_SERVER['SERVER_NAME'];
+        if(strpos($matches[2], $installDir) === 0){
+            $url = $scheme_host . $matches[2];
+        }else{
+            $url = $scheme_host . $installDir ."/". $matches[2];
+        }
+    }
+    return "{$matches[1]}=\"$url\"";
+}
+
+function fixurl($str){
+    $pattern = "/(src|href)=\"(.*?)\"/is";
+    $str = preg_replace_callback($pattern, "fixurl_callback", $str);
     return $str;
 }
 
