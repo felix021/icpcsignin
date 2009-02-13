@@ -76,6 +76,9 @@ function delTeam(id, name){
         window.location = "delteam.php?team_id=" + id;
     }
 }
+function email(id){
+    window.location = "sendmail.php?team_id="+id;
+}
 </script>
 <table>
 <tr class="tblhead">
@@ -116,6 +119,7 @@ eot;
 <td>
 <input type="button" value="详细" onclick="javascript:editTeam($team_id);"/>
 <input type="button" value="成员" onclick="javascript:editMembers($team_id);"/>
+<input type="button" value="发送邮件" onclick="javascript:email($team_id);"/>
 <input type="button" value="删除" onclick="javascript:delTeam($team_id, '$team_name_slash');"/>
 </td>
 </tr>
