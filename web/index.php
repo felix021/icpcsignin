@@ -69,7 +69,7 @@ while($row = $res->fetch_assoc()){
     if(time() - $pub_time < 3 * 86400) $newsign = '<span style="color:red;">[NEW!]</span>';
     else $newsign = "";
     if($permission == 0 && !isset($_SESSION['team_id']))
-        $content = 'Forbidden: <i>本文需要登陆后才可查看</i>';
+        $content = 'Forbidden: 本文需要登陆后才可查看';
     else{
         $content = symbol2value($content);
         switch($content_type){

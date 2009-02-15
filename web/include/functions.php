@@ -191,7 +191,10 @@ function symbol2value($str, $team_id = -1){
         $team_id = (int)$_SESSION['team_id'];
     $t = new team($team_id);
     if($t->errno){
-        return "Forbidden: 此日志需要登录后才能查看。";
+        if(ereg("\{(team_id|team_name|password|telephone|school)\}", $str))
+            return "Forbidden: 此日志需要登录后才能查看。";
+        else
+            return $str;
     }
     $str = str_replace('{team_id}', $t->team_id, $str);
     $str = str_replace('{team_name}', $t->team_name, $str);
