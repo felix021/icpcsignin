@@ -12,7 +12,7 @@ if(get_magic_quotes_gpc()){
 extract($_POST, EXTR_SKIP);
 $team_name = $conn->real_escape_string($team_name);
 $password = $conn->real_escape_string($password);
-$query = "SELECT `team_id` FROM {tblprefix}_teams "
+$query = "SELECT `team_id` FROM `{tblprefix}_teams` "
         ." WHERE `team_name`='$team_name' AND `password`='$password'";
 $res = getQuery($conn, $query);
 if($conn->affected_rows == 1){

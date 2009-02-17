@@ -10,7 +10,7 @@ if($a->errno){
     msgbox($a->error);
 }
 
-$query = "SELECT * FROM {tblprefix}_members WHERE `team_id`={$team_id}";
+$query = "SELECT * FROM `{tblprefix}_members` WHERE `team_id`={$team_id}";
 $res = getQuery($conn, $query);
 
 $member_c = 0;
