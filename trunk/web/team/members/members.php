@@ -163,7 +163,8 @@ eot;
 }
 if($member_c < 2){
     $school_list = select_school($a->school_id);
-    echo <<<eot
+    for($i = 0; $i < 2 - $member_c; $i++){
+        echo <<<eot
 <fieldset>
 <legend>新增</legend>
 <form action="addmember.php?type=1" method="post">
@@ -184,6 +185,7 @@ if($member_c < 2){
 </form>
 </fieldset>
 eot;
+    }
 }
 echo "</fieldset>\n";
 
