@@ -21,7 +21,7 @@ extract($_POST, EXTR_SKIP);
 
 $type = (int) $_GET['type'];
 
-$query = "SELECT * FROM {tblprefix}_members WHERE `team_id`={$_GET['team_id']} AND `type`={$type}";
+$query = "SELECT * FROM `{tblprefix}_members` WHERE `team_id`={$_GET['team_id']} AND `type`={$type}";
 $res = getQuery($conn, $query);
 if($type == 0 || $type == 2){
     if($conn->affected_rows >= 1)

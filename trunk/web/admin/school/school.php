@@ -22,7 +22,7 @@ echo <<<eot
 </form>
 eot;
 
-$query = "SELECT * FROM {tblprefix}_schools";
+$query = "SELECT * FROM `{tblprefix}_schools`";
 if(isset($_GET['school_name'])){
     if(get_magic_quotes_gpc()) 
         $school_name = stripslashes($_GET['school_name']);

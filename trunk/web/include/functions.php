@@ -72,7 +72,7 @@ eot;
 
 function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 0){
     global $conn;
-    $query = "SELECT * FROM {tblprefix}_schools";
+    $query = "SELECT * FROM `{tblprefix}_schools` ";
     switch($type){
     case 1: //高校
         $query .= " WHERE `school_type` & 4 = 4 ";

@@ -11,7 +11,7 @@ if(get_magic_quotes_gpc()){
 
 $query = trim($query);
 
-$pattern = "/^(select|describe|show)/is";
+$pattern = "/^(select.*FROM|describe)\\s* (`?$dbname`?\.)?`?($tblprefix|\{tblprefix\})/is";
 if(preg_match($pattern, $query) == 0){
     msgbox("SQL查询中包含不被允许的查询语句");
 }
