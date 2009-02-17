@@ -107,7 +107,6 @@ if(isset($_SESSION['team_id'])){
                 </tr>
                 </table>
                 </form>
-                <div><a href="admin/">管理入口</a></div>
             </div>
         </div>
 eot;

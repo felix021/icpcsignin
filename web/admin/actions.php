@@ -24,6 +24,7 @@ li{
     <li>....</li>
     <li><a href="sqlquery/" target="display">自定义查询</a></li>
     <li><a href="files.php" target="display">文件管理</a></li>
+    <li><a href="editconfig.php" target="display">系统设置</a></li>
     <li><a href="index.php" target="_top">退出登陆</a></li>
 </ul>
 <?php include(APP_ROOT."admin/footer.php"); ?>
