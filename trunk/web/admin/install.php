@@ -9,6 +9,20 @@ if(file_exists(APP_ROOT.'admin/lock.txt')){
 }
 if(!isset($_POST['adminpass'])){
     include(APP_ROOT."include/config.php");
+    $adminpass = htmlspecialchars($adminpass);
+    $dbhost = htmlspecialchars($dbhost);
+    $dbuser = htmlspecialchars($dbuser);
+    $dbpass = htmlspecialchars($dbpass);
+    $dbname = htmlspecialchars($dbname);
+    $tblprefix = htmlspecialchars($tblprefix);
+    $contestname = htmlspecialchars($contestname);
+    $sponsor = htmlspecialchars($sponsor);
+    $signinbegin = htmlspecialchars($signinbegin);
+    $signinend = htmlspecialchars($signinend);
+    $prebegin = htmlspecialchars($prebegin);
+    $finalbegin = htmlspecialchars($finalbegin);
+    $installDir = htmlspecialchars($installDir);
+    $itemsperpage = htmlspecialchars($itemsperpage);
 ?>
 <html>
 <head>
