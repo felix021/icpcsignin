@@ -29,9 +29,14 @@ echo <<<eot
 <li><a href="http://acm.whu.edu.cn/woj" target="_blank">WOJ</a></li>
 <li><a href="index.php?page=hotel">宾馆</a></li>
 <li><a href="index.php?page=faq">FAQ</a></li>
-<li><a href="http://www.baidu.com/home.html" target="_blank">关于百度</a></li>
+<li><a href="index.php?page=sponsor">关于百度</a></li>
 
         </ul>
+<form style="display:inline" method="get" action="http://www.baidu.com/s">
+<input type="hidden" name="ie" value="utf-8"/>
+<input type="text" value="" name="word" style="width:150px;"/>
+<input type="submit" value="百度一下" style="margin-top:3px;"/>
+</form>
     </div>
 </div>
 <div id="wrapper">
@@ -51,6 +56,10 @@ case 'map':
 
 case 'faq':
     require_once('faq.php');
+    break;
+
+case 'sponsor':
+    require_once('sponsor.php');
     break;
 
 case 'article':
