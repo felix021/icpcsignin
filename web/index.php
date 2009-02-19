@@ -18,7 +18,7 @@ echo <<<eot
 eot;
 
 if(!isset($_SESSION['team_id'])){
-    echo '<li><a href="team/register.php">注册</a></li>';
+    echo '<li><a href="index.php?page=register">注册</a></li>';
 }else{
     echo '<li><a href="team/index.php">管理</a></li>';
 }
@@ -45,6 +45,10 @@ echo <<<eot
 eot;
 
 switch($_GET['page']){
+case 'register':
+    require_once("team/register.php");
+    break;
+
 
 case 'hotel':
     require_once("hotel.php");
