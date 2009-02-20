@@ -1,2 +1,2 @@
-Just a test<br/>
-Mailto: <a href="mailto:acm@whu.edu.cn">acm@whu.edu.cn</a>
+有问题请联系:<br/>
+<a href="whuacm2009@gmail.com">whuacm2009@gmail.com</a>
