@@ -13,19 +13,11 @@ function verify(){
     submitbtn.click();
 }
 </script>
-<style>
-#tblreg tr{
-text-align:left;
-}
-#tblreg td{
-text-align:left;
-}
-</style>
 <form action="team/register.do.php" method="post">
 <div class="textbox" style="margin-top:8px;">
 <div class="textbox-title">队伍注册</div>
 <div class="textbox-content">
-<table id="tblreg" border="0" style="text-align:left;">
+<table class="tblleft" border="0" style="text-align:left;">
 <tr>
     <td colspan="2">
         选择队伍类型: 

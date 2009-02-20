@@ -18,7 +18,7 @@ $res = getQuery($conn, $query);
 if($conn->affected_rows == 1){
     $row = $res->fetch_assoc();
     $_SESSION['team_id'] = $row['team_id'];
-    header('location: index.php');
+    header('location: index.php?page=team_info');
 }else{
     session_destroy();
     msgbox("队名或密码错误!");

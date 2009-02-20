@@ -60,7 +60,7 @@ function msgbox($msg, $htmlencode = true){
     <div class="msgbox-content">{$msg}</div>
     <div class="msgbox-bottom">
         {$links}
-        <a href="javascript:history.back(1)">返回上一页</a>
+        <a href="{$_SERVER['HTTP_REFERER']}">返回上一页</a>
     </div>
 </div>
 </center>

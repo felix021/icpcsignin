@@ -6,32 +6,28 @@ include_once(APP_ROOT."include/classes.php");
 if(!isset($_SESSION['team_id'])) exit();
 
 $a = new team($_SESSION['team_id']);
+if($a->errno) msgbox($a->error);
+
+if(!empty($a->vcode)){
+    $verifyinfo = <<<eot
+<span style="color:red;">(邮箱未验证!)</span>
+eot;
+}
 
 encodeObject($a);
 
 echo <<<eot
 <div class="textbox">
-<div class="textbox-title" style="text-align:center;">队伍基本信息</div>
+<div class="textbox-title" style="text-align:center;">队伍管理</div>
 <div class="textbox-content">
-队伍编号: {$a->team_id}<br/>
-队名: {$a->team_name}<br/>
-
-eot;
-
-if(!empty($a->vcode)){
-    echo <<<eot
-<form action="team/vcodeverify.php" method="get">
-请输入<span style="text-decoration:underline;color:blue;" title="请打开注册邮箱查看">邮箱验证码</span>:
-<input type="text" size="10" name="vcode"/>
-<input type="submit" value="验证邮箱"/>
-</form>
-
-eot;
-}
-
-echo <<<eot
-<a href="team/index.php">进入队伍管理界面</a><br/>
-<a href="team_logout.php">注销登陆</a>
+<ul>
+<li><a href="index.php?page=team_info">队伍信息</a>{$verifyinfo}</li>
+<li><a href="index.php?page=team_member">成员管理</a></li>
+<!-- <li><a href="index.php?page=team_message">消息管理</a></li> -->
+<li><a href="index.php?page=team_hotel">住宿信息</a></li>
+<li><a href="index.php?page=team_del">删除队伍</a></li>
+<li><a href="team_logout.php">注销登陆</a></li>
+</ul>
 </div>
 </div>
 
