@@ -66,6 +66,18 @@ case 'sponsor':
     require_once('sponsor.php');
     break;
 
+case 'team_info':
+    require_once('team/teaminfo.php');
+    break;
+
+case 'team_member':
+    require_once('team/members/members.php');
+    break;
+
+case 'team_del':
+    require_once('team/unsetteam.php');
+    break;
+
 case 'article':
 default:
     require_once("article.php");    
@@ -115,7 +127,7 @@ if(isset($_SESSION['team_id'])){
                 <tr>
                     <td colspan="2">
                     <input type="submit" value="登陆"/>
-                    <a href="team/register.php">注册新队伍!</a>
+                    <a href="index.php?page=register">注册新队伍!</a>
                     </td>
                 </tr>
                 </table>
@@ -149,5 +161,4 @@ highlighter();
 </body>
 </html>
 eot;
-include(APP_ROOT."include/footer.php");
 ?>
