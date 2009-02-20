@@ -20,15 +20,15 @@ eot;
 if(!isset($_SESSION['team_id'])){
     echo '<li><a href="index.php?page=register">注册</a></li>';
 }else{
-    echo '<li><a href="team/index.php">管理</a></li>';
+    echo '<li><a href="team_logout.php">注销</a></li>';
 }
 
 echo <<<eot
 
-<li><a href="http://acm.whu.edu.cn/" target="_blank">WHUACM</a></li>
+<li><a href="http://acm.whu.edu.cn/" target="_blank">whuacm</a></li>
 <li><a href="http://acm.whu.edu.cn/woj" target="_blank">WOJ</a></li>
-<li><a href="index.php?page=hotel">宾馆</a></li>
-<li><a href="index.php?page=faq">FAQ</a></li>
+<li><a href="index.php?page=hotel">住宿信息</a></li>
+<li><a href="index.php?page=faq">使用说明</a></li>
 <li><a href="index.php?page=sponsor">关于百度</a></li>
 
         </ul>
