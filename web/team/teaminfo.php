@@ -94,7 +94,7 @@ echo <<<eot
 
 <a name="email"></a>
 <div class="textbox">
-    <div class="textbox-title">修改邮箱</div>
+    <div class="textbox-title">修改邮箱 (请尽量使用gmail/qq/163/sina等邮箱, yahoo邮箱无法收到此邮件。邮件可能会出现在收件箱。)</div>
     <div class="textbox-content">
         <form action="team/updateteam.php?action=email" method="post" style="display:inline;">
         新邮箱: <input type="text" name="email" />
