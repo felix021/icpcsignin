@@ -12,6 +12,12 @@ function verify(){
     var submitbtn = $('submitbtn');
     submitbtn.click();
 }
+function select_other_high(){
+    try{
+        var other_high = $('other_high');
+        if(other_high) other_high.checked = true;
+    }catch(e){alert(e);}
+}
 </script>
 <form action="team/register.do.php" method="post">
 <div class="textbox" style="margin-top:8px;">
@@ -22,7 +28,7 @@ function verify(){
     <td colspan="2">
         选择队伍类型: 
         <input type="radio" name="team_type" checked="checked" value="1"/>武汉大学队伍 
-        <input type="radio" name="team_type" value="2"/>其他高校队伍 
+        <input type="radio" name="team_type" id="other_high" value="2"/>其他高校队伍 
 <?php
 echo select_school(-1, 2);
 ?>
