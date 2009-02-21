@@ -23,14 +23,23 @@ if(isset($_POST['password'])){
     }
 }
 
-session_destroy();
+unset($_SESSION['admin']);
 
 echo <<<eot
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>后台登录</title>
-<style>a{color:blue;text-decoration:none;} a:hover{color:red;text-decoration:underline;}</style>
+<style>
+a{color:blue;text-decoration:none;} 
+a:hover{color:red;text-decoration:underline;}
+body{padding-top:100px;text-align:center;}
+td{text-align:center;}
+#msg{width:400px; color:red; border:1px solid #ddd;}
+#logintbl{
+    border:1px solid #00a7dd;
+}
+</style>
 <script language="javascript">
 function change(){ 
 try{
@@ -40,13 +49,23 @@ try{
 }
 </script>
 </head>
-<body>
-<p>{$msg}</p>
-<form method="post">
-password(123456): <input type="password" name="password" size="8"/><br/>
-vcode: <input type="text" name="vcode" size="4"/>
-<img id="vcode" src="vcode.php" style="cursor:hand;" onclick="change()"/><br/>
-<input type="submit" value="login"/>
+<body align="center">
+<form method="post" style="display:inline;">
+<table align="center" id="logintbl">
+<tr><td colspan="2">管理登录</td></tr>
+<tr><td colspan="2"> <p id="msg">{$msg}</p> </td></tr>
+<tr>
+<td width="80">密　码</td>
+<td><input type="password" name="password" style="width:200px;"/></td>
+</tr>
+<tr>
+<td>验证码</td>
+<td><input type="text" name="vcode" style="width:160px;"/><img id="vcode" src="vcode.php" style="cursor:hand;" onclick="change()"/></td>
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="登录"/></td>
+</tr>
+</table>
 </form>
 </body>
 </html>

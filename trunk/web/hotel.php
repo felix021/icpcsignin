@@ -1,4 +1,5 @@
 <?php
+if(isset($_SESSION['team_id'])){
     $team_id = (int)$_SESSION['team_id'];
     $t = new team($team_id);
     encodeObject($t);
@@ -13,7 +14,9 @@
 </form>
 </div>
 </div>
-
+<?php
+}
+?>
 <div class="textbox">
 <div class="textbox-title">住宿信息</div>
 <div class="textbox-content">(暂无)</div>
