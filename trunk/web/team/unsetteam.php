@@ -1,8 +1,6 @@
 <?php
-$relpath = dirname(__FILE__);
-include($relpath."/def.php");
-
-include(APP_ROOT."team/inc.php");
+include_once("def.php");
+include_once(APP_ROOT."team/inc.php");
 ?>
 <script language="javascript">
 function unsetteam(){
@@ -22,6 +20,3 @@ function unsetteam(){
 </form>
 </div>
 </div>
-<?php
-include(APP_ROOT."include/footer.php");
-?>

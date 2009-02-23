@@ -1,10 +1,8 @@
 <?php
-$relpath = dirname(__FILE__);
-include($relpath."/def.php");
-
-include(APP_ROOT."include/header.php");
-include(APP_ROOT."include/classes.php");
-include(APP_ROOT."include/config.php");
+include_once("def.php");
+include_once(APP_ROOT."include/header.php");
+include_once(APP_ROOT."include/classes.php");
+include_once(APP_ROOT."include/config.php");
 echo <<<eot
 <table width="1024" align="center">
 <tr>
@@ -78,6 +76,10 @@ case 'team_del':
     require_once('team/unsetteam.php');
     break;
 
+case 'contest_info':
+    require_once('team/contestinfo.php');
+    break;
+
 case 'article':
 default:
     require_once("article.php");    
@@ -102,7 +104,9 @@ $notice = @file_get_contents("include/notice.txt");
 echo <<<eot
 <div class="textbox">
 <div class="textbox-title" style="text-align:center;">公告</div>
-<div class="textbox-content">$notice</div>
+<div class="textbox-content">
+$notice
+</div>
 </div>
 
 eot;
@@ -134,8 +138,28 @@ if(isset($_SESSION['team_id'])){
                 </form>
             </div>
         </div>
+
 eot;
 }
+
+$signinbegin = time2str(str2time($signinbegin), "m月d日H:i");
+$signinend = time2str(str2time($signinend), "m月d日H:i");
+$prebegin = time2str(str2time($prebegin), "m月d日H:i");
+$finalbegin = time2str(str2time($finalbegin), "m月d日H:i");
+echo <<<eot
+<div class="textbox">
+<div class="textbox-title">大赛各阶段时间安排</div>
+<div class="textbox-content">
+<table algin="center" width="200">
+<tr><td>报名开始</td><td>{$signinbegin}</td></tr>
+<tr><td>报名结束</td><td>{$signinend}</td></tr>
+<tr><td>预赛</td><td>{$prebegin}</td></tr>
+<tr><td>决赛</td><td>{$finalbegin}</td></tr>
+</table>
+</div>
+</div>
+
+eot;
 
 include(APP_ROOT."include/links.html");
 

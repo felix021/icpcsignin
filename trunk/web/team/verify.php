@@ -1,7 +1,7 @@
 <?php
     session_start();
     $relpath = dirname(__FILE__);
-    include($relpath."/def.php");
+    include_once("def.php");
     include_once(APP_ROOT."include/config.php");
     if(!isset($_SESSION['team_id'])){
         ob_end_clean();

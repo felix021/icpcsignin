@@ -1,8 +1,7 @@
-
 <style>
 p{text-indent:2em;}
 </style>
-<div class="textbox" style="margin-top:8px;">
+<div class="textbox">
     <div class="textbox-title">关于百度</div>
     <div class="textbox-content">
 <p>

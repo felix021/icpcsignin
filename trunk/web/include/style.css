@@ -79,7 +79,7 @@ hr {
 }
 #wrapper {
     float:right;
-    margin:0 auto;
+    margin:0;
     width: 800px;
     /*position: relative;*/
     text-align: left;
@@ -122,8 +122,8 @@ border-right: 1px solid #fff; /****************/
 
 /****** Content Layout ******/
 #mainWrapper {
-	margin-left: 20px;
-	margin-right: 40px;
+	margin-left: 3px;
+	margin-right: 0px;
 }
 /* sidebar */
 .sidebar {
@@ -157,4 +157,17 @@ border-right: 1px solid #fff; /****************/
 }
 .tblleft td{
     text-align:left;
+}
+.membertbl{
+    width: 375px;
+    height: 440px;
+    margin-right: 2px;
+}
+.tdl{
+    width: 60px;
+    text-align: right;
+}
+.tdr{
+    width: 310px;
+    text-align: left;
 }
