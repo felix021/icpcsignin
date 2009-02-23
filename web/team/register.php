@@ -1,10 +1,3 @@
-<?php
-$relpath = dirname(__FILE__);
-include($relpath."/def.php");
-
-include_once(APP_ROOT."include/header.php");
-include_once(APP_ROOT."include/classes.php");
-?>
 <script>
 function $(id) {return document.getElementById(id);}
 function verify(){
@@ -70,6 +63,3 @@ echo select_school(-1, 2);
 </div>
 </div>
 </form>
-<?php
-include(APP_ROOT."include/footer.php");
-?>

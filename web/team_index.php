@@ -34,7 +34,7 @@ echo <<<eot
 <ul id="ctrlpanel">
 <li><a href="index.php?page=team_info">队伍信息</a>{$verifyinfo}</li>
 <li><a href="index.php?page=team_member">成员管理</a></li>
-<li><a href="index.php?page=contest">比赛成绩</a>(暂未完成)</li>
+<li><a href="index.php?page=contest_info">比赛成绩</a></li>
 <!-- <li><a href="index.php?page=team_message">消息管理</a></li> -->
 <li><a href="index.php?page=hotel">住宿管理</a></li>
 <li><a href="index.php?page=team_del">删除队伍</a></li>
