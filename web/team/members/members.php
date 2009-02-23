@@ -65,7 +65,7 @@ if(!isset($members['coach'])){
 </tr>
 <tr>
     <td class="tdl">性别</td>
-    <td class="tdr"><select name="gender"><option selected="selected" value="1">GG</option><option value="0">MM</option></select></td>
+    <td class="tdr"><select name="gender"><option selected="selected" value="1">男</option><option value="0">女</option></select></td>
 </tr>
 <tr>
     <td class="tdl">邮箱</td>
@@ -109,7 +109,7 @@ eot;
 </tr>
 <tr>
     <td class="tdl">性别</td>
-    <td class="tdr"><select name="gender"><option $gender_GG value="1">GG</option><option $gender_MM value="0">MM</option></select></td>
+    <td class="tdr"><select name="gender"><option $gender_GG value="1">男</option><option $gender_MM value="0">女</option></select></td>
 </tr>
 <tr>
     <td class="tdl">邮箱</td>
@@ -165,7 +165,7 @@ if(!isset($members['master'])){
 </tr>
 <tr>
 	<td class="tdl">性别</td>
-	<td class="tdr"><select name="gender"><option selected="selected" value="1">GG</option> <option value="0">MM</option></select></td>
+	<td class="tdr"><select name="gender"><option selected="selected" value="1">男</option> <option value="0">女</option></select></td>
 </tr>
 <tr>
 	<td class="tdl">学校</td>
@@ -222,7 +222,7 @@ eot;
 </tr>
 <tr>
 	<td class="tdl">性别</td>
-	<td class="tdr"><select name="gender"><option $gender_GG value="1">GG</option><option $gender_MM value="0">MM</option></select></td>
+	<td class="tdr"><select name="gender"><option $gender_GG value="1">男</option><option $gender_MM value="0">女</option></select></td>
 </tr>
 <tr>
 	<td class="tdl">学校</td>
@@ -304,7 +304,7 @@ for($i = 0; $i < $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">性别</td>
-            <td class="tdr"><select name="gender"><option $gender_GG value="1">GG</option><option $gender_MM value="0">MM</option></select></td>
+            <td class="tdr"><select name="gender"><option $gender_GG value="1">男</option><option $gender_MM value="0">女</option></select></td>
         </tr>
         <tr>
             <td class="tdl">学校</td>
@@ -366,7 +366,7 @@ for($i = 0; $i < 2 - $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">性别</td>
-            <td class="tdr"><select name="gender"><option selected="selected" value="1">GG</option><option value="0">MM</option></select></td>
+            <td class="tdr"><select name="gender"><option selected="selected" value="1">男</option><option value="0">女</option></select></td>
         </tr>
         <tr>
             <td class="tdl">学校</td>
