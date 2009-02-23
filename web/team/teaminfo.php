@@ -11,12 +11,13 @@ encodeObject($a);
 if(!empty($a->vcode)){
     echo <<<eot
 <div class="textbox" style="margin-top:8px;">
-<div class="textbox-title">验证邮箱</div>
+<div class="textbox-title">验证邮箱(请查收邮件，可能在垃圾邮件中)</div>
 <div class="textbox-content">
 <form action="team/vcodeverify.php" method="get" style="display:inline">
 请输入邮箱验证码:
 <input type="text" size="10" name="vcode"/>
-<input type="submit" value="验证邮箱"/>
+<input type="submit" value="验证邮箱"/> <br/>
+如未收到，请<a href="#email">修改</a>为gmail/qq/163/sina等邮箱。请不要使用yahoo邮箱。
 </form>
 </div>
 </div>

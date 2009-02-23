@@ -27,6 +27,9 @@ input.text{
     width: 160px;
     display:inline;
 }
+select{
+    width:160px;
+}
 </style>
 
 <script>
@@ -73,7 +76,7 @@ if(!isset($members['coach'])){
 </tr>
 <tr>
     <td class="tdl">学校</td>
-    <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
+    <td class="tdr">$school_list  若无贵校请联系管理员</td>
 </tr>
 <tr>
     <td class="tdl">院系</td>
@@ -117,7 +120,7 @@ eot;
 </tr>
 <tr>
     <td class="tdl">学校</td>
-    <td class="tdr">$school_list 若列表中无贵校请联系管理员</td>
+    <td class="tdr">$school_list 若无贵校请联系管理员</td>
 </tr>
 <tr>
     <td class="tdl">院系</td>
@@ -169,7 +172,7 @@ if(!isset($members['master'])){
 </tr>
 <tr>
 	<td class="tdl">学校</td>
-	<td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
+	<td class="tdr">$school_list  若无贵校请联系管理员</td>
 </tr>
 <tr>
 	<td class="tdl">院系专业</td>
@@ -226,7 +229,7 @@ eot;
 </tr>
 <tr>
 	<td class="tdl">学校</td>
-	<td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
+	<td class="tdr">$school_list  若无贵校请联系管理员</td>
 </tr>
 <tr>
 	<td class="tdl">院系专业</td>
@@ -308,7 +311,7 @@ for($i = 0; $i < $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">学校</td>
-            <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
+            <td class="tdr">$school_list  若无贵校请联系管理员</td>
         </tr>
         <tr>
             <td class="tdl">院系专业</td>
@@ -348,7 +351,7 @@ for($i = 0; $i < 2 - $member_c; $i++){
     }
     echo <<<eot
     <div class="textbox">
-    <div class="textbox-title">新增</div>
+    <div class="textbox-title">新增队员</div>
     <div class="textbox-content">
         <form action="team/members/addmember.php?type=1" method="post">
         <table class="membertbl">
@@ -370,7 +373,7 @@ for($i = 0; $i < 2 - $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">学校</td>
-            <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
+            <td class="tdr">$school_list  若无贵校请联系管理员</td>
         </tr>
         <tr>
             <td class="tdl">院系专业</td>

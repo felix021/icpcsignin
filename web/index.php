@@ -26,6 +26,7 @@ echo <<<eot
 <li><a href="http://acm.whu.edu.cn/" target="_blank">whuacm</a></li>
 <li><a href="http://acm.whu.edu.cn/woj" target="_blank">WOJ</a></li>
 <li><a href="index.php?page=hotel">住宿信息</a></li>
+<li><a href="index.php?page=map">赛场地图</a></li>
 <li><a href="index.php?page=faq">使用说明</a></li>
 <li><a href="index.php?page=sponsor">关于百度</a></li>
 

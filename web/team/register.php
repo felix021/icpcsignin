@@ -26,7 +26,7 @@ function select_other_high(){
 echo select_school(-1, 2);
 ?>
         <input type="radio" name="team_type" value="3"/>高中队伍
-  (若"其他高校队伍"列表中无贵校请联系管理员)
+  (若列表中无贵校请联系管理员)
     </td>
 </tr>
 <tr>
@@ -40,7 +40,7 @@ echo select_school(-1, 2);
 <tr>
     <td>邮箱</td>
     <td><input type="text" name="email" value=""/> 务必正确填写此邮箱! 系统将向此邮箱发送验证码<br/>
-请尽量使用gmail, qq, 163, sina邮箱(若未在收件箱，请查看垃圾邮件)。yahoo邮箱无法收到验证邮件。
+<span style="color:red;font-weight:bold;">请尽量使用gmail, qq, 163, sina邮箱(若未在收件箱，请查看垃圾邮件)。yahoo邮箱无法收到验证邮件。</span>
     </td>
 </tr>
 <tr>
