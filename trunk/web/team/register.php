@@ -26,6 +26,7 @@ function select_other_high(){
 echo select_school(-1, 2);
 ?>
         <input type="radio" name="team_type" value="3"/>高中队伍
+  (若"其他高校队伍"列表中无贵校请联系管理员)
     </td>
 </tr>
 <tr>
