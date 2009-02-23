@@ -50,6 +50,7 @@ echo <<<eot
                 <input type="radio" $school_o name="team_type" value="2"/>其他高校队伍
         $school_list
                 <input type="radio" $school_high name="team_type" value="3"/>高中队伍
+                (若列表中无贵校请联系管理员)
             </td>
         </tr>
         <tr>

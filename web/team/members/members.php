@@ -73,7 +73,7 @@ if(!isset($members['coach'])){
 </tr>
 <tr>
     <td class="tdl">学校</td>
-    <td class="tdr">$school_list </td>
+    <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
 </tr>
 <tr>
     <td class="tdl">院系</td>
@@ -117,7 +117,7 @@ eot;
 </tr>
 <tr>
     <td class="tdl">学校</td>
-    <td class="tdr">$school_list</td>
+    <td class="tdr">$school_list 若列表中无贵校请联系管理员</td>
 </tr>
 <tr>
     <td class="tdl">院系</td>
@@ -169,7 +169,7 @@ if(!isset($members['master'])){
 </tr>
 <tr>
 	<td class="tdl">学校</td>
-	<td class="tdr">$school_list </td>
+	<td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
 </tr>
 <tr>
 	<td class="tdl">院系专业</td>
@@ -226,7 +226,7 @@ eot;
 </tr>
 <tr>
 	<td class="tdl">学校</td>
-	<td class="tdr">$school_list </td>
+	<td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
 </tr>
 <tr>
 	<td class="tdl">院系专业</td>
@@ -308,7 +308,7 @@ for($i = 0; $i < $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">学校</td>
-            <td class="tdr">$school_list </td>
+            <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
         </tr>
         <tr>
             <td class="tdl">院系专业</td>
@@ -370,7 +370,7 @@ for($i = 0; $i < 2 - $member_c; $i++){
         </tr>
         <tr>
             <td class="tdl">学校</td>
-            <td class="tdr">$school_list </td>
+            <td class="tdr">$school_list  若列表中无贵校请联系管理员</td>
         </tr>
         <tr>
             <td class="tdl">院系专业</td>
