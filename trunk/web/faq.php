@@ -1,4 +1,20 @@
 <div class="textbox">
-    <div class="textbox-title">FAQ</div>
-    <div class="textbox-content">(暂无)</div>
+    <div class="textbox-title">常见问题</div>
+    <div class="textbox-content">
+<p>
+问：学校列表里面没有我所在的学校如何注册？
+<br/>
+答：请联系 whuacm2009@gmail.com ，发送一封包含学校中文名和英文名的邮件，管理员会将学校添加至列表并回复通知。
+</p>
+<p>
+问：为什么没有收到验证邮件？
+<br/>
+答：原因可能包括 1. 被识别为垃圾邮件——将 whuacm2009@gmail.com 添加至联系人即可，以免后续邮件被忽略；2. 被邮件服务提供商拒收，如yahoo mail无法收取该邮件。请更换为其他邮件地址，测试显示gmail/qq/163/sina均可收到验证邮件，推荐使用。
+</p>
+<p>
+问：如何跨校组队？
+<br/>
+答：仅允许高中队伍跨校组队，在注册时队伍选类型择“高中”，之后在添加成员时分别选择相应的学校即可。
+</p>
+    </div>
 </div>

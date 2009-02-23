@@ -59,8 +59,13 @@ hr {
     word-wrap: break-all;
     padding-top: 2px;
 }
+
 .textbox-title a {
-    color: #000;
+    color: #666;
+
+}
+.textbox-title a:hover{
+    text-decoration: underline;
 }
 .textbox-content{
     text-align: left;
@@ -102,7 +107,7 @@ padding: 0px;
 }
 #menu li{
 list-style: none;
-width: 100px;
+width: 80px;
 float: left;
 text-align: center;
 padding: 0px;
@@ -160,7 +165,7 @@ border-right: 1px solid #fff; /****************/
 }
 .membertbl{
     width: 375px;
-    height: 440px;
+    height: 460px;
     margin-right: 2px;
 }
 .tdl{
