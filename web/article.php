@@ -12,10 +12,12 @@ $pages_c = ceil($articles_c / $itemsperpage);
 $page = (int)$_GET['page'];
 
 $listbar = get_listbar($page, $articles_c, $itemsperpage, "index.php");
+/*
 echo <<<eot
 <div class="listbar">共{$pages_c}页{$articles_c}篇 $listbar</div>
 
 eot;
+ */
 
 $start = ($page - 1) * $itemsperpage;
 $query = "SELECT * FROM `{tblprefix}_articles` "
