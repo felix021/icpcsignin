@@ -1,0 +1,72 @@
+北华大学|Beihua University|0|0|1
+北京工业大学|Beijing University of Technology|0|0|1
+北京航空航天大学|Beihang University|0|0|1
+北京化工大学|Beijing University of Chemical Technology|0|0|1
+北京交通大学|Beijing Jiaotong University|0|0|1
+北京理工大学|Beijing Institute of Technology|0|0|1
+北京邮电大学|Beijing University of Posts and Telecommunications|0|0|1
+成都东软信息技术职业学院|Chengdu Neusoft Institute of Information|0|0|1
+大连大学|Dalian University|0|0|1
+大连理工大学|Dalian University of Technology|0|0|1
+电子科技大学|University of Electronic Science and Technology of China|0|0|1
+东北大学|Northeastern University|0|0|1
+东北林业大学|Northeast Forestry University|0|0|1
+东北师范大学|Northeast Normal University|0|0|1
+东莞理工学院|Dongguan University of Technology|0|0|1
+福建师范大学|Fujian Normal University|0|0|1
+福州大学|Fuzhou University|0|0|1
+复旦大学|Fudan University|0|0|1
+哈尔滨工程大学|Harbin Engineering University|0|0|1
+哈尔滨工业大学|Harbin Institute of Technology|0|0|1
+杭州电子科技大学|Hangzhou Dianzi University|0|0|1
+合肥工业大学|Hefei University of Technology|0|0|1
+河北师范大学|Hebei Normal University|0|0|1
+湖北大学|Hubei University|0|1|1
+湖北工业大学|Hubei University of Technology|0|1|1
+湖南大学|Hunan University|0|0|1
+华东交通大学|East China Jiaotong University|0|0|1
+华东理工大学|East China University of Science and Technology|0|0|1
+华南理工大学|South China University of Technology|0|0|1
+华南农业大学|South China Agricultural University|0|0|1
+华中科技大学|Huazhong University of Science and Technology|0|1|1
+华中师范大学|Central China Normal University|0|1|1
+吉林大学|Jilin University|0|0|1
+吉林化工学院|Jilin Institute of Chemical Technology|0|0|1
+兰州大学|Lanzhou University|0|0|1
+兰州交通大学|Lanzhou Jiaotong University|0|0|1
+辽宁科技大学|University of Science and Technology Liaoning|0|0|1
+南京大学|Nanjing University|0|0|1
+南京航空航天大学|Nanjing University of Aeronautics and Astronautics|0|0|1
+南开大学|Nankai University|0|0|1
+内蒙古农业大学|Inner Mongolia Agricultural University|0|0|1
+清华大学|Tsinghua  University|0|0|1
+厦门大学|Xiamen University|0|0|1
+山东大学|Shandong University|0|0|1
+山东大学威海分校|Shandong University at Weihai|0|0|1
+上海大学|Shanghai University|0|0|1
+上海交通大学|Shanghai Jiao Tong University|0|0|1
+四川大学|Sichuan University|0|0|1
+苏州大学|Soochow University|0|0|1
+天津大学|Tianjin University|0|0|1
+同济大学|Tongji University|0|0|1
+武汉大学东湖分校|Donghu College, Wuhan University|0|1|1
+西安电子科技大学|Xidian University |0|0|1
+西安交通大学|Xi'an Jiaotong University|0|0|1
+西北工业大学|Northwestern Polytechnical University|0|0|1
+西北农林科技大学|Northwest Agricultural and Forestry University|0|0|1
+西南民族大学|Southwest University for Nationalities|0|0|1
+湘潭大学|Xiangtan University|0|0|1
+义乌工商职业技术学院|Yiwu Industrial and Commercial College|0|0|1
+云南大学|Yunnan University|0|0|1
+浙江大学|Zhejiang University|0|0|1
+浙江大学城市学院|Zhejiang University City College|0|0|1
+浙江大学宁波理工学院|Ningbo Institute of Technology, Zhejiang University|0|0|1
+浙江工业大学|Zhejiang University of Technology|0|0|1
+浙江理工大学|Zhejiang Sci-tech University|0|0|1
+浙江师范大学|Zhejiang Normal University|0|0|1
+郑州大学|Zhengzhou University|0|0|1
+中国地质大学（北京）|China University of Geosciences(Beijing)|0|0|1
+中国地质大学（武汉）|China University of Geosciences(Wuhan)|0|1|1
+中国科学技术大学|University of Science and Technology of China|0|0|1
+中国石油大学（华东）|China University of Petroleum(East China)|0|0|1
+中山大学|Zhongshan (Sun Yat-sen) University|0|0|1

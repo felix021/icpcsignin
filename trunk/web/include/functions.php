@@ -72,7 +72,7 @@ eot;
 
 function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 0){
     global $conn;
-    $query = "SELECT * FROM `{tblprefix}_schools` ";
+    $query = "SELECT * FROM `{tblprefix}_schools`";
     switch($type){
     case 1: //高校
         $query .= " WHERE `school_type` & 4 = 4 ";
@@ -86,13 +86,13 @@ function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 
     default:
         ;
     }
-    $query .= " ORDER BY `school_type` DESC";
+    $query .= " ORDER BY `school_id` ASC";
     $res = getQuery($conn, $query);
     $out =  "<select name=\"school_id\">\n";
     if($force_none == 1 || $school_id <= 0){
         if($school_id <= 0) $selected = "selected=\"selected\"";
         else $selected = "";
-        $out .= "<option $selected value=\"-1\">请选择学校</option>\n";
+        $out .= "<option $selected value=\"-1\">请选择学校(拼音顺序)</option>\n";
     }
     while($row = $res->fetch_assoc()){
         $id = $row['school_id'];

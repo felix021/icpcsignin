@@ -1,6 +1,6 @@
 <?php
-$relpath = dirname(__FILE__);
-include($relpath."/def.php");
+set_time_limit(0);
+include("def.php");
 
 include(APP_ROOT."admin/inc.php");
 
