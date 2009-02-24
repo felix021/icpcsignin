@@ -22,7 +22,7 @@ echo <<<eot
 </form>
 eot;
 
-$query = "SELECT * FROM `{tblprefix}_schools`";
+$query = "SELECT * FROM `{tblprefix}_schools` ";
 if(isset($_GET['school_name'])){
     if(get_magic_quotes_gpc()) 
         $school_name = stripslashes($_GET['school_name']);
@@ -32,6 +32,7 @@ if(isset($_GET['school_name'])){
                  ."    OR `school_name_en` LIKE '%$school_name%' ";
     }
 }
+$query .= " ORDER BY `school_id` ASC";
 
 //echo $query;//exit();
 $res = getQuery($conn, $query);
@@ -42,7 +43,7 @@ echo <<<eot
 <tr class="tblhead">
 <td>编号</td>
 <td>学校名称(中文)</td>
-<td>学校名称(英文)</td>
+<td style="width:310px;">学校名称(英文)</td>
 <td>学校类型</td>
 <td>操作</td>
 </tr>
@@ -64,7 +65,7 @@ while($row = $res->fetch_assoc()){
 <tr class="$trclass">
 <td>$school_id<input type="hidden" name="school_id" value="$school_id"/></td>
 <td><input type="text" size="15" name="school_name_cn" value="$school_name_cn"/></td>
-<td><input type="text" size="45" name="school_name_en" value="$school_name_en"/></td>
+<td><input type="text" style="width:300px;" name="school_name_en" value="$school_name_en"/></td>
 <td>
 <input type="checkbox" name="isOurSchool" $isOurSchool value="1"/>本校
 <input type="checkbox" name="isOurCity" $isOurCity value="2"/>本市
@@ -85,7 +86,7 @@ echo <<<eot
 <tr class="$trclass">
 <td>新增</td>
 <td><input type="text" size="15" name="school_name_cn"/></td>
-<td><input type="text" size="45" name="school_name_en"/></td>
+<td><input type="text" style="width:300px;" name="school_name_en"/></td>
 <td>
 <input type="checkbox" name="isOurSchool" value="1"/>本校
 <input type="checkbox" name="isOurCity" value="2"/>本市
