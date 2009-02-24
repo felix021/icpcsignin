@@ -2,11 +2,23 @@
 $t = new school;
 $data = split("\n", $content);
 include_once(APP_ROOT."admin/header.php");
+$i = 1;
+foreach($data as $line){
+    $line = trim($line);
+    if(empty($line)) continue;
+    if(!preg_match("/.*(\t|\|).*(\t|\|)[01](\t|\|)[01](\t|\|)[01]/", $line)){
+        msgbox("第{$i}行格式错误: {$line}");
+        exit;
+    }
+    $i++;
+}
+
+reset($data);
 foreach($data as $line){
     $line = trim($line);
     if(empty($line)) continue;
     else{
-        $s = explode("|", $line);
+        $s = preg_split("/\t|\|/is", $line);
         foreach($s as &$v) $v = trim($v);
         $t->school_name_cn = $s[0];
         $t->school_name_en = $s[1];

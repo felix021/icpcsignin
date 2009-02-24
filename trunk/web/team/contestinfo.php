@@ -8,17 +8,28 @@ $t = new team($team_id);
 if ($t->errno){
     msgbox($t->error);
 }
+
 if($t->pre_solved < 0) {
     $pre_solved = "暂缺";
     $pre_penalty = "暂缺";
     $pre_rank = "暂缺";
+}else{
+    $pre_solved = $t->pre_solved;
+    $pre_penalty = $t->pre_penalty;
+    $pre_rank = $t->pre_rank;
 }
+if($t->pre_rank < 0) $pre_rank = "暂缺";
 
 if($t->final_solved < 0) {
     $final_solved = "暂缺";
     $final_penalty = "暂缺";
     $final_rank = "暂缺";
+}else{
+    $final_solved = $t->final_solved;
+    $final_penalty = $t->final_penalty;
+    $final_rank = $t->final_rank;
 }
+if($t->final_rank < 0) $pre_rank = "暂缺";
 ?>
 <div class="textbox">
     <div class="textbox-title">预赛信息</div>
