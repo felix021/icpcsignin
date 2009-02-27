@@ -16,6 +16,7 @@ $perm = $a->permission ? "checked=\"checked\"" : "";
 encodeObject($a);
 
 echo <<<eot
+<div class="diveditor">
 <form action="updatearticle.php?article_id={$a->article_id}&action=all" method="post" style="text-align:left;">
 编号: {$a->article_id} <br/>
 标题: <input type="text" name="title" value="{$a->title}" /><br/>
@@ -50,6 +51,7 @@ include(APP_ROOT.'editor/editor.php');
 
 echo <<<eot
 </form>
+</div>
 
 eot;
 
