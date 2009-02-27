@@ -24,6 +24,7 @@ if(!isset($_SESSION['team_id'])){
 echo <<<eot
 
 <li><a href="index.php?page=intro">竞赛介绍</a></li>
+<li><a href="index.php?page=rule">竞赛规则</a></li>
 <!-- <li><a href="index.php?page=faq">使用说明</a></li> -->
 <li><a href="index.php?page=map">赛场地图</a></li>
 <li><a href="index.php?page=hotel">住宿信息</a></li>
@@ -51,6 +52,10 @@ case 'register':
 
 case 'intro':
     require_once("intro.php");
+    break;
+
+case 'rule':
+    require_once("rule.php");
     break;
 
 case 'hotel':

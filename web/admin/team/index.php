@@ -4,7 +4,7 @@ include($relpath."/def.php");
 
 include(APP_ROOT."admin/inc.php");
 
-$itemsperpage = 5;
+$itemsperpage = 15;
 
 $query = "SELECT COUNT(*) FROM `{tblprefix}_teams` ";
 
