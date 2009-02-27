@@ -7,7 +7,7 @@
     $dbname = "signin";
     $tblprefix = "2009";
 
-    $contestname = "第四届华中北区程序设计邀请赛";
+    $contestname = "百度杯 第四届华中北区程序设计邀请赛";
     $sponsor = "百度";
 
     $signinbegin = "2009-02-27 17:00:00";
