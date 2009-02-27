@@ -82,6 +82,9 @@ echo select_school(-1, 2);
 </form>
 </div>
 </div>
+<?php
+}
+?>
 
 <div class="textbox">
 <div class="textbox-title">竞赛报名说明</div>
@@ -143,6 +146,3 @@ c．是第整百支报名的队伍，如第100支报名队伍；<br/>
     </div>
 </div>
 
-<?php
-}
-?>
