@@ -7,15 +7,16 @@ include_once(APP_ROOT."include/config.php");
 <style type="text/css">
 .actions a{text-decoration:none;}
 .actions a:hover{background-color: #8080ff;}
+.diveditor {text-align:left;}
 </style>
 <script language="javascript" src="<?php echo $installDir;?>/editor/myubb.js"></script>
-<div>
+<div class="diveditor">
 内容类型:
 <input type="radio" <?php echo $plain;?> onclick="javascript:hide('actions');" name="content_type" value="0">纯文本
 <input type="radio" <?php echo $html;?> onclick="javascript:hide('actions');" name="content_type" value="1">HTML代码
 <input type="radio" <?php echo $ubb;?> onclick="javascript:disp('actions');" name="content_type" value="2">UBB代码
 </div>
-<div id="actions" class="actions" style="display:<?php echo $display;?>;">
+<div class="diveditor" id="actions" class="actions" style="display:<?php echo $display;?>;">
 <a href="javascript:addtag('b');" title="粗体"><img src="<?php echo $installDir;?>/editor/images/bold.gif" border="0"/></a>
 <a href="javascript:addtag('i');" title="斜体"><img src="<?php echo $installDir;?>/editor/images/italic.gif" border="0"/></a>
 <a href="javascript:addtag('u');" title="下划线"><img src="<?php echo $installDir;?>/editor/images/underline.gif" border="0"/></a>
@@ -61,15 +62,17 @@ include_once(APP_ROOT."include/config.php");
 </select>
 <input type="button" value="字体&颜色属性" onclick="javascript:addfontcolor()"/>
 </div>
-<div>
+<div class="diveditor">
 加入符号: 
 <input type="button" value="队名" onclick="javascript:addsymbol('team_name');"/>
-<input type="button" value="学校" onclick="javascript:addsymbol('school');"/>
+<!-- <input type="button" value="学校" onclick="javascript:addsymbol('school');"/> -->
 <input type="button" value="编号" onclick="javascript:addsymbol('team_id');"/>
 <input type="button" value="密码" onclick="javascript:addsymbol('password');"/>
 <input type="button" value="电话" onclick="javascript:addsymbol('telephone');"/>
 </div>
-<textarea name="content" id="content" cols="80" rows="20"><?php echo $content; ?></textarea>
+<div class="diveditor">
+<textarea name="content" id="content" style="width:640px;height:400px;"><?php echo $content; ?></textarea>
 <br/>
 <input type="submit" value="提交"/>
 <iframe style="scrolling:none;" src="<?php echo $installDir;?>/editor/uploadform.php" frameborder="0" width="600" height="25" scrolling="none"></iframe>
+</div>

@@ -1,10 +1,10 @@
 <?php
-$relpath = dirname(__FILE__);
-include($relpath."/def.php");
+include("def.php");
 
 include(APP_ROOT."admin/inc.php");
 
 ?>
+<div class="diveditor">
 <form action="sendmail.php" method="post" style="text-align:left">
 <p>
 给队伍发送邮件(发送到队伍邮箱):
@@ -15,13 +15,14 @@ include(APP_ROOT."admin/inc.php");
 </select>
 (给单个队伍发送邮件请在队伍管理界面找到该队伍，选择发送邮件)
 </p>
-邮件标题: <input type="text" name="title" value=""/><br/>
+<div>邮件标题: <input type="text" name="title" value=""/>(15字以内)</div>
 <?php
 $ubb = 'checked="checked"';
 $display = "block";
 include(APP_ROOT."editor/editor.php");
 ?>
 </form>
+</div>
 <?php
 include(APP_ROOT."admin/footer.php");
 ?>
