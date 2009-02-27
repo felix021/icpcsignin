@@ -59,8 +59,8 @@ function msgbox($msg, $htmlencode = true){
     <div class="msgbox-title">提示</div>
     <div class="msgbox-content">{$msg}</div>
     <div class="msgbox-bottom">
-        {$links}
-        <a href="{$_SERVER['HTTP_REFERER']}">返回上一页</a>
+        <a href="{$_SERVER['HTTP_REFERER']}">返回上一页</a> | 
+        <a href="{$installDir}/team_logout.php">注销并重新登录</a>
     </div>
 </div>
 </center>
