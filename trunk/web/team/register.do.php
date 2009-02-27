@@ -4,6 +4,15 @@ include("def.php");
 include(APP_ROOT."include/header.php");
 include(APP_ROOT."include/classes.php");
 
+$now = time();
+$signin_begin = str2time($signinbegin);
+$begin_time = time2str($signin_begin, "Y年m月d日 H时i分");
+
+if($now < $signin_begin){
+    $msg = "报名尚未开始，报名开始时间是：{$begin_time}。";
+    msgbox($msg);
+}
+
 if(get_magic_quotes_gpc()){
     foreach($_POST as &$value){
         $value = stripslashes($value);

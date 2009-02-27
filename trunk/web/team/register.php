@@ -1,3 +1,21 @@
+<?php
+include_once("def.php");
+include_once(APP_ROOT."include/config.php");
+$now = time();
+$signin_begin = str2time($signinbegin);
+$begin_time = time2str($signin_begin, "Y年m月d日 H时i分");
+
+if($now < $signin_begin){
+    echo <<<eot
+<div class="textbox">
+<div class="textbox-title">友情提示</div>
+<div class="textbox-content">
+报名尚未开始，报名开始时间是：{$begin_time}。
+</div>
+</div>
+eot;
+}else{
+?>
 <script>
 function $(id) {return document.getElementById(id);}
 function verify(){
@@ -64,3 +82,6 @@ echo select_school(-1, 2);
 </div>
 </div>
 </form>
+<?php
+}
+?>
