@@ -6,6 +6,7 @@ include(APP_ROOT."admin/inc.php");
 $priority_list = select_priority();
 
 echo <<<eot
+<div class="diveditor">
 <form action="addarticle.php" method="post" style="text-align:left;">
 标题: <input type="text" name="title" />
 优先级: $priority_list 
@@ -19,7 +20,7 @@ include(APP_ROOT.'editor/editor.php');
 
 echo <<<eot
 </form>
-
+</div>
 eot;
 
 include(APP_ROOT."admin/footer.php");

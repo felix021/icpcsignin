@@ -12,11 +12,18 @@ class mailer extends PHPMailer{
 
     public function email($name, $address, $subject, $body){
         $this->IsSMTP();
+        $this->ClearAll();
         $this->AddReplyTo('whuacm2009@gmail.com', 'whuacm');
         $this->Subject = $subject;
         $this->Body    = $body;
         $this->AddAddress($address, $name);
         return $this->Send();
+    }
+
+    public function ClearAll() {
+        $this->ClearAllRecipients();
+        $this->ClearReplyTos();
+        $this->ClearAttachments();
     }
 }
 

@@ -10,6 +10,7 @@ fieldset{margin:10px;text-align:left;padding:5px;}
 #links{margin:0px;margin-left:15px;padding-left:0;}
 #links li{margin:0px;}
 form{display:inline;}
+.diveditor {text-align:left;}
 
 /****** General Styles ******/
 body {

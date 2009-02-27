@@ -200,8 +200,8 @@ function symbol2value($str, $team_id = -1){
     $str = str_replace('{team_name}', $t->team_name, $str);
     $str = str_replace('{password}', $t->password, $str);
     $str = str_replace('{telephone}', $t->telephone, $str);
-    $sch = school::getNameByTeamId($t->team_id);
-    $str = str_replace('{school}', $sch, $str);
+    //$sch = school::getNameByTeamId($t->team_id);
+    //$str = str_replace('{school}', $sch, $str);
 
     return $str;
 }
