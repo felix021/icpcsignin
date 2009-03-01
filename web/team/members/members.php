@@ -208,7 +208,7 @@ eot;
     $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
     encodeObject($member);
     echo <<<eot
-<form action="updatemember.php?type=2" method="post">
+<form action="team/members/updatemember.php?type=2" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 <table class="membertbl">
 <tr>
@@ -290,7 +290,7 @@ for($i = 0; $i < $member_c; $i++){
         </form>
     </div>
     <div class="textbox-content">
-        <form action="updatemember.php?type=1" method="post">
+        <form action="team/members/updatemember.php?type=1" method="post">
         <input type="hidden" name="member_id" value="{$member->member_id}"/>
         <table class="membertbl">
         <tr>
