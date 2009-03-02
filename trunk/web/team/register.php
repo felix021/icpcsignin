@@ -4,6 +4,8 @@ include_once(APP_ROOT."include/config.php");
 $now = time();
 $signin_begin = str2time($signinbegin);
 $begin_time = time2str($signin_begin, "Y年m月d日 H时i分");
+$signin_end = str2time($signinend);
+$end_time = time2str($signin_end, "Y年m月d日 H时i分");
 
 if($now < $signin_begin){
     echo <<<eot
@@ -14,7 +16,16 @@ if($now < $signin_begin){
 </div>
 </div>
 eot;
-}else{
+}else if($now > $signin_end){
+    echo <<<eot
+<div class="textbox">
+<div class="textbox-title">友情提示</div>
+<div class="textbox-content">
+报名已经结束于{$begin_time}。
+</div>
+</div>
+eot;
+else{
 ?>
 <script>
 function $(id) {return document.getElementById(id);}
