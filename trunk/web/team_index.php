@@ -61,22 +61,6 @@ eot;
         
 }
 
-$now = time();
-$signin_end = str2time($signinend);
-$end_time = time2str($signin_end, "Y年m月d日 H时i分");
-if($now < $signin_end){
-    echo <<<eot
-<hr/>
-报名将结束于{$end_time}, 届时队伍信息将锁定，如有需要请在此时间之前修改。
-
-eot;
-}else{
-    echo <<<eot
-<hr/>
-报名结束, 队伍信息已锁定，如有需要请联系管理员修改。
-
-eot;
-}
 ?>
 
 </div>

@@ -3,12 +3,7 @@ include("def.php");
 
 include(APP_ROOT."team/inc.php");
 include(APP_ROOT."team/verify.php");
-$signin_end = str2time($signinend);
-$end_time = time2str($signin_end, "Y年m月d日 H时i分");
-$now = time();
-if($now > $end_time){
-    msgbox("报名已经结束，如需修改队伍信息请联系管理员");
-}
+include_once(APP_ROOT."include/config.php");
 
 $team_id = (int)$_SESSION['team_id'];
 $a = new team($team_id);
