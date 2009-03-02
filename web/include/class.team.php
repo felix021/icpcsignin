@@ -176,6 +176,8 @@ class team extends table{
         }else{
             $query = "DELETE FROM `{tblprefix}_messages` WHERE `to_id`={$id} OR `from_id`={$id}";
             getQuery($conn, $query);
+            $query = "DELETE FROM `{tblprefix}_members` WHERE `team_id`={$id}";
+            getQuery($conn, $query);
             return true;
         }
     }

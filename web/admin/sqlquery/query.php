@@ -57,8 +57,8 @@ function addfield(a){
 <form method="post">
 <textarea name="query" id="query" cols="60" rows="5">$query</textarea><br/>
 <input type="submit" value="继续查询"/>
-</form>
-查询结果如下(点击字段名 可加入查询语句) 
+</form><br/>
+查询结果如下(共{$conn->affected_row}条结果, 点击字段名 可加入查询语句) 
 <input type="button" onclick="window.location='index.php';" value="返回"/><br/>
 eot;
 echo $tblhead, $out;
