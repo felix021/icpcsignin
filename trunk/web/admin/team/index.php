@@ -86,6 +86,7 @@ function email(id){
 <td>队名</td>
 <td>学校</td>
 <td>邮箱</td>
+<td>验证</td>
 <td>预赛</td>
 <td>现场</td>
 <td>决赛</td>
@@ -107,12 +108,14 @@ eot;
         $for_final = $valid_for_final == 1 ? "Y" : "N";
         $final = $final_rank > 0 ? $final_rank : "-";
         $team_name_slash = str_replace("'", "\\'", $team_name);
+        $verified = empty($vcode) ? "Y" : "N";
         echo <<<eot
 <tr class="$trclass">
 <td>$team_id</td>
 <td>$team_name</td>
 <td>$school_name</td>
 <td>$email</td>
+<td>$verified</td>
 <td>$pre</td>
 <td>$for_final</td>
 <td>$final</td>
