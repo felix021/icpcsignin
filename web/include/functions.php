@@ -191,17 +191,18 @@ function symbol2value($str, $team_id = -1){
         $team_id = (int)$_SESSION['team_id'];
     $t = new team($team_id);
     if($t->errno){
-        if(ereg("\{(team_id|team_name|password|telephone|school)\}", $str))
+        if(ereg("\{(team_id|vcode|team_name|password|telephone|school)\}", $str))
             return "Forbidden: 此日志需要登录后才能查看。";
         else
             return $str;
     }
     $str = str_replace('{team_id}', $t->team_id, $str);
     $str = str_replace('{team_name}', $t->team_name, $str);
+    $str = str_replace('{vcode}', $t->vcode, $str);
     $str = str_replace('{password}', $t->password, $str);
     $str = str_replace('{telephone}', $t->telephone, $str);
-    //$sch = school::getNameByTeamId($t->team_id);
-    //$str = str_replace('{school}', $sch, $str);
+    $sch = school::getNameByTeamId($t->team_id);
+    $str = str_replace('{school}', $sch, $str);
 
     return $str;
 }
