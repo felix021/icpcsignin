@@ -56,6 +56,7 @@ try{
 <input type="hidden" name="export_type" value="for_oak"/>
 WOJ队伍ID前缀<input type="text" name="prefix" value="whu09_t"/>
 <input type="submit" value="生成oak队伍数据"/>
+导出的是：已经验证邮箱并且有至少一个非教练成员的队伍
 </form>
 </div>
 </div>

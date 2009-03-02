@@ -21,11 +21,11 @@ eot;
 <div class="textbox">
 <div class="textbox-title">友情提示</div>
 <div class="textbox-content">
-报名已经结束于{$begin_time}。
+报名已经结束于{$end_time}。
 </div>
 </div>
 eot;
-else{
+}else{
 ?>
 <script>
 function $(id) {return document.getElementById(id);}
