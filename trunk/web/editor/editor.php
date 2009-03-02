@@ -65,7 +65,8 @@ include_once(APP_ROOT."include/config.php");
 <div class="diveditor">
 加入符号: 
 <input type="button" value="队名" onclick="javascript:addsymbol('team_name');"/>
-<!-- <input type="button" value="学校" onclick="javascript:addsymbol('school');"/> -->
+<input type="button" value="验证码" onclick="javascript:addsymbol('vcode');"/>
+<input type="button" value="学校" onclick="javascript:addsymbol('school');"/>
 <input type="button" value="编号" onclick="javascript:addsymbol('team_id');"/>
 <input type="button" value="密码" onclick="javascript:addsymbol('password');"/>
 <input type="button" value="电话" onclick="javascript:addsymbol('telephone');"/>
