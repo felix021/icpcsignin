@@ -5,6 +5,7 @@ include($relpath."/def.php");
 include(APP_ROOT."admin/inc.php");
 
 echo <<<eot
+<div style="text-align:left">
 <p style="text-align:left;">
 本页面允许使用自定义的SELECT/DESCRIBE语句进行查询并显示查询结果。<br/>
 注意：一次只能运行一条语句.<br/><br/>
@@ -24,7 +25,28 @@ echo <<<eot
 <br/>
 <input type="submit" value="提交查询"/>
 </form>
+常用查询:<br/>
+<pre>
+查看高中队伍
+SELECT * FROM {tblprefix}_teams WHERE school_id=-1
 
+查看未验证邮箱的队伍
+SELECT * FROM {tblprefix}_teams WHERE vcode != ""
+
+查看队伍人数
+SELECT a.team_id as team_id, a.team_name as team_name, COUNT(b.`member_id`) as num
+  FROM `{tblprefix}_teams` a LEFT JOIN `{tblprefix}_members` b
+  ON a.team_id = b.team_id
+  GROUP BY a.team_id
+  # Having num = 0 #去掉行首井号则选择没有队员的队伍
+
+人员判重
+SELECT * FROM `{tblprefix}_members` a, `{tblprefix}_members` b 
+WHERE a.member_name = b.member_name 
+  and a.team_id <> b.team_id;
+
+</pre>
+</div>
 eot;
 
 include(APP_ROOT."admin/footer.php");
