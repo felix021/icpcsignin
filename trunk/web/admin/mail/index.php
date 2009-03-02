@@ -11,6 +11,8 @@ include(APP_ROOT."admin/inc.php");
 <select name="team_type">
 <option value="verified" selected>已验证邮箱队伍</option>
 <option value="final">晋级决赛队伍</option>
+<option value="notverified">未验证邮箱队伍</option>
+<option value="nomember">未添加成员队伍</option>
 <option value="all">所有队伍</option>
 </select>
 (给单个队伍发送邮件请在队伍管理界面找到该队伍，选择发送邮件)

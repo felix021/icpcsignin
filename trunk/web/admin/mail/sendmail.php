@@ -11,10 +11,24 @@ if (get_magic_quotes_gpc()){
 }
 extract($_POST, EXTR_SKIP);
 
-$query = "SELECT `team_id`, `email` FROM `{tblprefix}_teams` ";
+$query = "SELECT `team_id`, `team_name`, `email` FROM `{tblprefix}_teams` ";
 switch($team_type){
 case 'verified':
     $option = "  WHERE `vcode`=''";
+    break;
+case 'notverified':
+    $option = "  WHERE `vcode`!=''";
+    break;
+case 'nomember':
+    $query = <<<eot
+select a.`team_id` as team_id, a.`team_name` as `team_name`, a.email as email, count(b.member_id) as num 
+  from {tblprefix}_teams a left join {tblprefix}_members b 
+    on a.team_id=b.team_id 
+  group by a.team_id 
+  having num=0 
+  order by a.team_id asc
+eot;
+    $option = "";
     break;
 case 'final':
     $option = "  WHERE `final_id`>=0";
@@ -54,6 +68,7 @@ while($row = $res->fetch_assoc()){
         break;
     }
     $email = $row['email'];
+    echo "<div style=\"text-align:left;\">\n";
     echo "Send to {$row['team_name']}($email): ";
     if($m->email($row['team_name'], $email, $title, $content)){
         echo "OK<br/>\n";
