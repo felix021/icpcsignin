@@ -5,6 +5,20 @@ include_once(APP_ROOT."team/inc.php");
 include_once(APP_ROOT."team/verifiedmail.php");
 
 $team_id = (int)$_SESSION['team_id'];
+$now = time();
+$signin_end = str2time($signinend);
+$end_time = time2str($signin_end, "Y年m月d日 H时i分");
+if($now > $signin_end){
+    echo <<<eot
+<div class="textbox">
+<div class="textbox-title">友情提示</div>
+<div class="textbox-content">
+报名已经结束于{$end_time}，如需修改队伍信息请联系管理员。
+</div>
+</div>
+
+eot;
+}
 
 $query = "SELECT * FROM `{tblprefix}_members` WHERE `team_id`={$team_id}";
 $res = getQuery($conn, $query);
