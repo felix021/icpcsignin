@@ -183,7 +183,7 @@ echo <<<eot
 <div id="ft">
   <hr size="1" width="979">
   <a href="http://www.whu.edu.cn" tppabs="http://www.whu.edu.cn/" target="_blank"><img border="0" src="images/whu.gif" tppabs="http://acm.whu.edu.cn/08cc/images/whu.gif" alt="武汉大学" width="181" height="50"></a><br>
-  Copyright © 2008 ACM/ICPC Association of Wuhan University. All rights reserved.<br>
+  Copyright © 2009 ACM/ICPC Association of Wuhan University. All rights reserved.<br>
   Please <a class="link" href="mailto:acm@whu.edu.cn"><u><b>contact us</b></u><b></b></a> if you have any question.<br><br>
 </div>
 <hr width="1010"/>

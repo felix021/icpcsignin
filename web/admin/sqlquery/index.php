@@ -37,14 +37,20 @@ SELECT * FROM {tblprefix}_teams WHERE vcode != ""
 SELECT a.team_id as team_id, a.team_name as team_name, COUNT(b.`member_id`) as num
   FROM `{tblprefix}_teams` a LEFT JOIN `{tblprefix}_members` b
   ON a.team_id = b.team_id
+  # WHERE b.type > 0  # 教练type是0，队长是1，队员是2
   GROUP BY a.team_id
-  # Having num = 0 #去掉行首井号则选择没有队员的队伍
+  # Having num = 0 #去掉行首井号则选择没有队员的队伍, >0则是符合条件的队伍
 
 人员判重
 SELECT * FROM `{tblprefix}_members` a, `{tblprefix}_members` b 
 WHERE a.member_name = b.member_name 
   and a.team_id <> b.team_id;
 
+找出队伍学校与队员学校不符合的队伍(高中队伍除外)
+SELECT a.team_id, a.team_name, a.school_id as a_s, b.school_id as b_s
+  FROM 2009_teams a JOIN 2009_members b
+    ON a.team_id=b.team_id
+  WHERE a.school_id > 0 AND a.school_id != b.school_id
 </pre>
 </div>
 eot;
