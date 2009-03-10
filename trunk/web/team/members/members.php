@@ -46,30 +46,35 @@ select{
 }
 </style>
 
+<form action="team/members/delmember.php" method="get" style="display:none;">
+    <input type="hidden" id="form_member_id" name="member_id" value="{$member->member_id}"/>
+    <input type="submit" id="delsubmit" style="display:none;"/>
+</form>
+
 <script>
-function delmember(id, name){
-    if(confirm("确认要删除队员 ["+name+"] ?")){
+function delmember(id, name, type){
+    if(confirm("确认要删除" + type + " ["+name+"] ?")){
+        var mem_id = document.getElementById("form_member_id");
+        mem_id.value = id;
         var submitbtn = document.getElementById("delsubmit");
         if(submitbtn) submitbtn.click();
-        //window.location = "index.php?page=delmember&member_id=" + id;
     }
 }
 </script>
+
 <table>
 <tr>
 <td>
 
 eot;
 
-echo <<<eot
+if(!isset($members['coach'])){
+    $school_list = select_school($a->school_id);
+    echo <<<eot
 <div class="textbox">
 <div class="textbox-title">教练信息(非必需)</div>
 <div class="textbox-content">
 
-eot;
-if(!isset($members['coach'])){
-    $school_list = select_school($a->school_id);
-    echo <<<eot
 <form action="team/members/addmember.php?type=0" method="post">
 <table class="membertbl" border="0">
 <tr>
@@ -111,8 +116,16 @@ eot;
     $school_list = select_school($member->school_id);
     $gender_GG = $member->gender == 1 ? 'selected="selected"' : "";
     $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
+    $member_name_slash = str_replace("'", "\\'", $member->member_name);
     encodeObject($member);
     echo <<<eot
+<div class="textbox">
+<div class="textbox-title">[教练] 
+    {$member->member_name} 
+    [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}', '教练');">删除</a>]
+</div>
+<div class="textbox-content">
+
 <form action="team/members/updatemember.php?type=0" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 <table class="membertbl">
@@ -158,14 +171,15 @@ echo <<<eot
 </div>
 </td>
 <td>
-<div class="textbox">
-<div class="textbox-title">队长信息(必需)</div>
-<div class="textbox-content">
 
 eot;
 if(!isset($members['master'])){
     $school_list = select_school($a->school_id);
     echo <<<eot
+<div class="textbox">
+<div class="textbox-title">队长信息(必需)</div>
+<div class="textbox-content">
+
 <form action="team/members/addmember.php?type=2" method="post">
 <table class="membertbl">
 <tr>
@@ -220,8 +234,15 @@ eot;
     $school_list = select_school($member->school_id);
     $gender_GG = $member->gender == 1 ? 'selected="selected"' : "";
     $gender_MM = $member->gender == 0 ? 'selected="selected"' : "";
+    $member_name_slash = addslashes($member->member_name);
     encodeObject($member);
     echo <<<eot
+<div class="textbox">
+<div class="textbox-title"> [队长]
+        {$member->member_name}
+        [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}', '队长');">删除</a>]
+</div>
+<div class="textbox-content">
 <form action="team/members/updatemember.php?type=2" method="post">
 <input type="hidden" name="member_id" value="{$member->member_id}"/>
 <table class="membertbl">
@@ -297,11 +318,7 @@ for($i = 0; $i < $member_c; $i++){
 <div class="textbox">
     <div class="textbox-title">[队员] 
         {$member->member_name} 
-        <form action="team/members/delmember.php" method="get">
-        <input type="hidden" name="member_id" value="{$member->member_id}"/>
-        <input type="submit" id="delsubmit" style="display:none;"/>
-        [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}');">删除</a>]
-        </form>
+        [<a href="javascript:delmember({$member->member_id}, '{$member_name_slash}', '队员');">删除</a>]
     </div>
     <div class="textbox-content">
         <form action="team/members/updatemember.php?type=1" method="post">
