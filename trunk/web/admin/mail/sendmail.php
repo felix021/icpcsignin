@@ -16,9 +16,28 @@ switch($team_type){
 case 'verified':
     $option = "  WHERE `vcode`=''";
     break;
+
+case 'verified_with_members':
+    $query = <<<eot
+SELECT 
+    a.`team_id` AS team_id, 
+    a.`team_name` AS `team_name`, 
+    a.`email` AS `email`, 
+    COUNT(b.`member_id`) AS `num`
+  FROM `{tblprefix}_teams` a LEFT JOIN `{tblprefix}_members` b 
+    ON a.`team_id`=b.`team_id` 
+  WHERE b.`type`>0
+  GROUP BY a.`team_id`
+  HAVING `num`>0 
+  ORDER BY a.`team_id` ASC
+eot;
+    $option = "";
+    break;
+
 case 'notverified':
     $option = "  WHERE `vcode`!=''";
     break;
+
 case 'nomember':
     $query = <<<eot
 select a.`team_id` as team_id, a.`team_name` as `team_name`, a.email as email, count(b.member_id) as num 
@@ -30,14 +49,17 @@ select a.`team_id` as team_id, a.`team_name` as `team_name`, a.email as email, c
 eot;
     $option = "";
     break;
+
 case 'final':
     $option = "  WHERE `final_id`>=0";
     break;
+
 case 'all':
     $option = "";
     break;
 }
 $query .= $option;
+echo "<pre>{$query}</pre><br/>\n";
 
 $res = getQuery($conn, $query);
 if($conn->affected_rows == 0){
@@ -51,6 +73,7 @@ if($title_l > 15){
 
 $m = new mailer;
 $template = $content;
+echo "<div style=\"text-align:left;\">\n";
 while($row = $res->fetch_assoc()){
     $team_id = $row['team_id'];
     $content = symbol2value($template, $team_id);
@@ -68,14 +91,14 @@ while($row = $res->fetch_assoc()){
         break;
     }
     $email = $row['email'];
-    echo "<div style=\"text-align:left;\">\n";
-    echo "Send to {$row['team_name']}($email): ";
+    echo "Send to {$row['team_id']} {$row['team_name']}($email): ";
     if($m->email($row['team_name'], $email, $title, $content)){
         echo "OK<br/>\n";
     }else{
-        echo "Fail{$m->ErrorInfo}<br/>\n";
+        echo "<span style=\"color:red;\">Fail{$m->ErrorInfo}</span><br/>\n";
     }
 }
+echo "</div>\n";
 
 include(APP_ROOT."include/footer.php");
 ?>
