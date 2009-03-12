@@ -41,10 +41,10 @@ SELECT a.team_id as team_id, a.team_name as team_name, COUNT(b.`member_id`) as n
   GROUP BY a.team_id
   # Having num = 0 #去掉行首井号则选择没有队员的队伍, >0则是符合条件的队伍
 
-人员判重
+人员判重(仅依据姓名，可能不是同一个人)
 SELECT * FROM `{tblprefix}_members` a, `{tblprefix}_members` b 
 WHERE a.member_name = b.member_name 
-  and a.team_id <> b.team_id;
+  and a.team_id <> b.team_id # AND b.type >0 #(去掉AND前面的#则排除教练);
 
 找出队伍学校与队员学校不符合的队伍(高中队伍除外)
 SELECT a.team_id, a.team_name, a.school_id as a_s, b.school_id as b_s

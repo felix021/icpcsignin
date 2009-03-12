@@ -54,6 +54,8 @@ if($a->insert()){
     $info = sendvcode($a->team_id);
     $msg = <<<eot
 <p>队伍注册成功，请前往注册邮箱查收验证码。</p>
+<p>如果未收到验证码，请在队伍管理界面更换邮箱。</p>
+<p>如果重新注册队伍，请务必将旧队伍删除，以免造成不必要的麻烦。</p>
 <p><a href="../index.php">返回首页</a></p>
 eot;
     msgbox($msg, false);

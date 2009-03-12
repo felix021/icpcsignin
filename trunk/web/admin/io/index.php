@@ -54,9 +54,11 @@ try{
 <div class="textbox-content">
 <form method="post" action="export.php">
 <input type="hidden" name="export_type" value="for_oak"/>
-WOJ队伍ID前缀<input type="text" name="prefix" value="whu09_t"/>
+WOJ队伍ID前缀<input type="text" name="prefix" value="whu09cc_"/>
 <input type="submit" value="生成oak队伍数据"/>
-导出的是：已经验证邮箱并且有至少一个非教练成员的队伍
+导出：已验证邮箱并添加成员的队伍<br/>
+<input type="checkbox" name="include_no_member" value="1"/>
+包括未添加成员的队伍
 </form>
 </div>
 </div>
