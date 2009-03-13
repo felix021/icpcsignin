@@ -12,6 +12,7 @@ include(APP_ROOT."admin/inc.php");
 <option value="verified" selected>已验证邮箱队伍</option>
 <option value="verified_with_members">已验证邮箱并添加队员的队伍</option>
 <option value="final">晋级决赛队伍</option>
+<option value="high_school">有效高中队伍</option>
 <option value="notverified">未验证邮箱队伍</option>
 <option value="nomember">未添加成员队伍</option>
 <option value="all">所有队伍</option>
