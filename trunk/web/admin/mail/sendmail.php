@@ -38,6 +38,10 @@ case 'notverified':
     $option = "  WHERE `vcode`!=''";
     break;
 
+case 'high_school':
+    $option = "  WHERE `vcode`='' AND `school_id` < 0";
+    break;
+
 case 'nomember':
     $query = <<<eot
 select a.`team_id` as team_id, a.`team_name` as `team_name`, a.email as email, count(b.member_id) as num 
