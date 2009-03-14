@@ -45,6 +45,7 @@ $a->pre_rank = $pre_rank;
 $a->pre_solved = $pre_solved;
 $a->pre_penalty = $pre_penalty;
 $a->final_id = $final_id;
+$a->final_rank = $final_rank;
 $a->final_solved = $final_solved;
 $a->final_penalty = $final_penalty;
 

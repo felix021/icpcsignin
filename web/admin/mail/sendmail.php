@@ -55,7 +55,7 @@ eot;
     break;
 
 case 'final':
-    $option = "  WHERE `final_id`>=0";
+    $option = "  WHERE `final_rank`>=0";
     break;
 
 case 'all':
