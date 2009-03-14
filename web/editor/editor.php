@@ -70,6 +70,7 @@ include_once(APP_ROOT."include/config.php");
 <input type="button" value="编号" onclick="javascript:addsymbol('team_id');"/>
 <input type="button" value="密码" onclick="javascript:addsymbol('password');"/>
 <input type="button" value="电话" onclick="javascript:addsymbol('telephone');"/>
+<input type="button" value="决赛编号" onclick="javascript:addsymbol('final_id');"/>
 </div>
 <div class="diveditor">
 <textarea name="content" id="content" style="width:640px;height:400px;"><?php echo $content; ?></textarea>

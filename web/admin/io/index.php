@@ -38,6 +38,10 @@ try{
 Rank|队伍id|出题数量|罚时(H:m:s, oak格式)
 e.g. 20|1|3|6:23:13
 
+晋级决赛list：
+队伍id
+e.g. 218
+
 决赛结果：
 队伍id|出题数量|罚时(分钟, pc2格式)
 e.g. 20|1|3|456
@@ -47,6 +51,7 @@ e.g. 20|1|3|456
 </table>
 <input type="button" value="学校列表" onclick="javascript:import_data('school');"/>
 <input type="button" value="预赛结果" onclick="javascript:import_data('pre');"/>
+<input type="button" value="晋级决赛" onclick="javascript:import_data('to_final');"/>
 <input type="button" value="决赛结果" onclick="javascript:import_data('final');"/>
 </form>
 </div>
