@@ -19,7 +19,7 @@ if($_POST['attend_pre']){
     $name .= "_attendpre";
 }
 if($_POST['attend_final']){
-    $cond .= "AND `final_rank` > 0 ";
+    $cond .= "AND `final_id` > 0 ";
     $name .= "_attendfinal";
 }
 $query = <<<eot
