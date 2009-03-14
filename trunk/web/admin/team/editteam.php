@@ -43,10 +43,12 @@ $school_list
 <fieldset>
 <legend>比赛信息</legend>
 (-1)表示没有相应信息<br/>
+预赛排名: <input type="text" name="pre_rank" value="{$a->pre_rank}"/><br/>
 预赛出题数: <input type="text" name="pre_solved" value="{$a->pre_solved}"/><br/>
-预赛罚时: <input type="text" name="pre_penalty" value="{$a->pre_penalty}"/><br/>
+预赛罚时: <input type="text" name="pre_penalty" value="{$a->pre_penalty}"/>秒<br/>
+决赛编号: <input type="text" name="final_id" value="{$a->final_id}"/><br/>
 决赛出题数: <input type="text" name="final_solved" value="{$a->final_solved}"/><br/>
-决赛罚时: <input type="text" name="final_penalty" value="{$a->final_penalty}"/><br/>
+决赛罚时: <input type="text" name="final_penalty" value="{$a->final_penalty}"/>秒<br/>
 </fieldset>
 住宿要求: <textarea name="requirement" cols="50" rows="3">{$a->requirement}</textarea><br/>
 备注: <textarea name="remark" cols="50" rows="3">{$a->remark}</textarea><br/>
