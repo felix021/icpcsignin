@@ -1,4 +1,5 @@
 <?php
+
 function rndstr($length = 6){
     $str = "";
     while($length > 0){
@@ -118,6 +119,18 @@ function str2time($str){
     return mktime($H, $i, $s, $m, $d, $Y);
 }
 
+function timestr2int($str){
+    list($h, $m, $s) = split(":", $str);
+    return ($h*3600 + $m*60 + $s);
+}
+
+function int2timestr($tm){
+    $h = (int)($tm / 3600);
+    $tm = $tm % 3600;
+    $m = (int)($tm / 60);
+    $s = $tm % 60;
+    return "$h:$m:$s";
+}
 
 function sendvcode($team_id, &$info = NULL){
     $t = new team($team_id);
