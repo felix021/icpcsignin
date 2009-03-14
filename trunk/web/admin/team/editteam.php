@@ -47,6 +47,7 @@ $school_list
 预赛出题数: <input type="text" name="pre_solved" value="{$a->pre_solved}"/><br/>
 预赛罚时: <input type="text" name="pre_penalty" value="{$a->pre_penalty}"/>秒<br/>
 决赛编号: <input type="text" name="final_id" value="{$a->final_id}"/><br/>
+决赛排名: <input type="text" name="final_rank" value="{$a->final_rank}"/><br/>
 决赛出题数: <input type="text" name="final_solved" value="{$a->final_solved}"/><br/>
 决赛罚时: <input type="text" name="final_penalty" value="{$a->final_penalty}"/>秒<br/>
 </fieldset>

@@ -23,6 +23,7 @@ CREATE TABLE `teams`(
     `final_id` int DEFAULT -1,  
     `final_solved` int,
     `final_penalty` int,
+    `final_rank` int DEFAULT -1,  
     `hotel_id` int DEFAULT -1, 
     `hotel_id1` int DEFAULT -1, 
     `hotel_id2` int DEFAULT -1,  

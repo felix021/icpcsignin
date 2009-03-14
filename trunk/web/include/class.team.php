@@ -23,6 +23,7 @@ class team extends table{
     public $final_id = -1;       //决赛编号
     public $final_solved  = -1;  //决赛出题数
     public $final_penalty = -1;  //决赛罚时
+    public $final_rank = -1;     //决赛排名
 
     public $hotel_id = -1;  //住宿点
     public $hotel_id1 = -1; //首选注册点
@@ -154,6 +155,7 @@ class team extends table{
             $this->final_id	    =	$result['final_id'];       
             $this->final_solved	=	$result['final_solved'];   
             $this->final_penalty=	$result['final_penalty'];  
+            $this->final_rank	=	$result['final_rank'];       
             $this->hotel_id	    =	$result['hotel_id'];       
             $this->hotel_id1	=	$result['hotel_id1'];      
             $this->hotel_id2	=	$result['hotel_id2'];      
@@ -225,6 +227,7 @@ class team extends table{
         $final_id	=	(int)$this->final_id;	
         $final_solved	=	(int)$this->final_solved;	
         $final_penalty	=	(int)$this->final_penalty;  
+        $final_rank	=	(int)$this->final_rank;	
         $hotel_id	=	(int)$this->hotel_id;	
         $hotel_id1	=	(int)$this->hotel_id1;	
         $hotel_id2	=	(int)$this->hotel_id2;	
@@ -248,6 +251,7 @@ class team extends table{
                 ."  $final_id, "
                 ."  $final_solved, "
                 ."  $final_penalty, "
+                ."  $final_rank, "
                 ."  $hotel_id, "
                 ."  $hotel_id1, "
                 ."  $hotel_id2, "
@@ -291,6 +295,7 @@ class team extends table{
         $final_id	=	(int)$this->final_id;       
         $final_solved	=	(int)$this->final_solved;   
         $final_penalty  =	(int)$this->final_penalty;  
+        $final_rank	=	(int)$this->final_rank;       
         $hotel_id	=	(int)$this->hotel_id;       
         $hotel_id1	=	(int)$this->hotel_id1;      
         $hotel_id2	=	(int)$this->hotel_id2;      
@@ -313,6 +318,7 @@ class team extends table{
                 ."  `final_id`=$final_id, "
                 ."  `final_solved`=$final_solved, "
                 ."  `final_penalty`=$final_penalty, "
+                ."  `final_rank`=$final_rank, "
                 ."  `hotel_id`=$hotel_id, "
                 ."  `hotel_id1`=$hotel_id1, "
                 ."  `hotel_id2`=$hotel_id2, "

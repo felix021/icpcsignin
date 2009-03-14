@@ -29,7 +29,12 @@ if($t->final_solved < 0) {
     $final_penalty = int2timestr($t->final_penalty);
     $final_rank = $t->final_rank;
 }
-if($t->final_rank < 0) $pre_rank = "暂缺";
+if($t->final_id < 0){
+    $final_id = "暂缺";
+}else{
+    $final_id = $t->final_id;
+}
+if($t->final_rank < 0) $final_rank = "暂缺";
 ?>
 <div class="textbox">
     <div class="textbox-title">预赛信息</div>
@@ -47,6 +52,7 @@ if($t->final_rank < 0) $pre_rank = "暂缺";
     <div class="textbox-content">
     <table>
     <tr><td class="tdl">开始时间</td><td class="tdr"><?php echo $finalbegin;?></td></tr>
+    <tr><td class="tdl">决赛编号</td><td class="tdr"><?php echo $final_id;?></td></tr>
     <tr><td class="tdl">决赛题数</td><td class="tdr"><?php echo $final_solved;?></td></tr>
     <tr><td class="tdl">总罚时</td><td class="tdr"><?php echo $final_penalty;?></td></tr>
     <tr><td class="tdl">决赛排名</td><td class="tdr"><?php echo $final_rank;?></td></tr>

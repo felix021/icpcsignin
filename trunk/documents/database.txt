@@ -27,6 +27,7 @@
 决赛编号    final_id int default -1,  # id=(-1)表示未晋级
 决赛出题数  final_solved int,
 决赛罚时    final_penalty int,
+决赛排名    final_rank int,
 宾馆        hotel_id int, # 确定下来的住宿点 对应 hotels 表中的hotel_id,
 宾馆1       hotel_id1 int, # 首选住宿点 对应 hotels 表中的hotel_id,
 宾馆2       hotel_id2 int, # 备选住宿点 对应 hotels 表中的hotel_id,
