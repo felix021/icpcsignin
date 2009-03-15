@@ -16,6 +16,7 @@ function encodeObject(&$a, $quote = ENT_COMPAT){
 }
 
 function msgbox($msg, $htmlencode = true){
+    global $installDir;
     @ob_clean();
     @ob_clean();
     if($htmlencode){
@@ -89,7 +90,15 @@ function select_school($school_id = 0, $type = -1, $force_none = 0, $add_high = 
     }
     $query .= " ORDER BY `school_id` ASC";
     $res = getQuery($conn, $query);
-    $out =  "<select name=\"school_id\">\n";
+    $out =  <<<eot
+<script language="javascript">
+function select_other(){
+    var t = document.getElementById("other_high");
+    if(t) t.checked = true;
+}
+</script>
+<select name="school_id" onchange="javascript:select_other()">
+eot;
     if($force_none == 1 || $school_id <= 0){
         if($school_id <= 0) $selected = "selected=\"selected\"";
         else $selected = "";

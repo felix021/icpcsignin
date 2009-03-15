@@ -11,6 +11,8 @@ case "high":
     $cond .= "AND `school_id` < 0 ";
     break;
 case "all":
+default:
+    break;
 }
 $query = <<<eot
 SELECT * FROM `{tblprefix}_teams`
