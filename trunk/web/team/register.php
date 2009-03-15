@@ -31,6 +31,15 @@ eot;
 function $(id) {return document.getElementById(id);}
 function verify(){
     //check for null input
+    var whu = $('whu');
+    var other_high = $('other_high');
+    var high = $('high');
+    if(whu.checked == false && 
+       other_high.checked==false && 
+       high.checked==false){
+           alert("请选择队伍类型!");
+           return false;
+    }
     var submitbtn = $('submitbtn');
     submitbtn.click();
 }
@@ -49,12 +58,12 @@ function select_other_high(){
 <tr>
     <td colspan="2">
         选择队伍类型: 
-        <input type="radio" name="team_type" checked="checked" value="1"/>武汉大学队伍 
+        <input type="radio" name="team_type" id="whu" value="1"/>武汉大学队伍 
         <input type="radio" name="team_type" id="other_high" value="2"/>其他高校队伍 
 <?php
 echo select_school(-1, 2);
 ?>
-        <input type="radio" name="team_type" value="3"/>高中队伍
+        <input type="radio" name="team_type" id="high" value="3"/>高中队伍
   (若列表中无贵校请联系管理员)
     </td>
 </tr>
