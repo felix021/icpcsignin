@@ -107,8 +107,8 @@ class team extends table{
             return false;
         }
         $a = strlen($this->requirement);
-        if($a > 100){
-            $this->error = "住宿要求 过长(100字以内)";
+        if($a > 1000){
+            $this->error = "住宿要求 过长(1000字以内)";
             return false;
         }
         $a = strlen($this->remark);
