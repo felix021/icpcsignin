@@ -87,9 +87,10 @@ function email(id){
 <td>学校</td>
 <td>邮箱</td>
 <td>验证</td>
-<td>预赛</td>
+<td>预赛rank</td>
 <td>现场</td>
-<td>决赛</td>
+<td>决赛id</td>
+<td>决赛rank</td>
 <td>操作</td>
 </tr>
 eot;
@@ -106,7 +107,8 @@ eot;
         $school_name = htmlspecialchars($school_name);
         $pre = $pre_rank > 0 ? $pre_rank : "-";
         $for_final = $valid_for_final == 1 ? "Y" : "N";
-        $final = $final_rank > 0 ? $final_rank : "-";
+        $finalrank = $final_rank > 0 ? $final_rank : "-";
+        $finalid = $final_id > 0 ? $final_id : "-";
         $team_name_slash = str_replace("'", "\\'", $team_name);
         $verified = empty($vcode) ? "Y" : "N";
         echo <<<eot
@@ -118,7 +120,8 @@ eot;
 <td>$verified</td>
 <td>$pre</td>
 <td>$for_final</td>
-<td>$final</td>
+<td>$finalid</td>
+<td>$finalrank</td>
 <td>
 <input type="button" value="详细" onclick="javascript:editTeam($team_id);"/>
 <input type="button" value="成员" onclick="javascript:editMembers($team_id);"/>
