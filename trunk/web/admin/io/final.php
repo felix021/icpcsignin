@@ -22,7 +22,7 @@ foreach($data as $line){
     else{
         $s = preg_split("/\t|\|/is", $line);
         foreach($s as &$v) $v = trim($v);
-        $t->getById((int)$s[1]);
+        $t->getByFinalId((int)$s[1]);
         if($t->errno){
             echo "<div style=\"color:red;\">导入失败: $line({$t->error})</div>\n";
         }else{
