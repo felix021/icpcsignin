@@ -166,6 +166,50 @@ class team extends table{
     }
 
     /*
+     * 根据决赛id读取队伍信息
+     * 若不存在该队伍，则返回false
+     */
+    public function getByFinalId($final_id){
+        global $conn;
+        $final_id = (int) $final_id;
+        $query = "SELECT * FROM `{tblprefix}_teams`"
+                ." WHERE `final_id`={$final_id}";
+        $res = getQuery($conn, $query);
+        if($conn->affected_rows != 1){
+            $this->errno = 1;
+            $this->error = "无效的决赛id({$final_id})";
+            return false;
+        }else{
+            $this->errno = 0;
+            $result = $res->fetch_assoc();
+            $this->team_id	    =	$result['team_id'];        
+            $this->school_id	=	$result['school_id'];      
+            $this->team_name	=	$result['team_name'];      
+            $this->password	    =	$result['password'];      
+            $this->vcode	    =	$result['vcode'];          
+            $this->email	    =	$result['email'];          
+            $this->address	    =	$result['address'];        
+            $this->postcode	    =	$result['postcode'];       
+            $this->telephone	=	$result['telephone'];      
+            $this->contact	    =	$result['contact'];        
+            $this->valid_for_final	=	$result['valid_for_final'];
+            $this->pre_solved	=	$result['pre_solved'];     
+            $this->pre_penalty	=	$result['pre_penalty'];    
+            $this->pre_rank	    =	$result['pre_rank'];       
+            $this->final_id	    =	$result['final_id'];       
+            $this->final_solved	=	$result['final_solved'];   
+            $this->final_penalty=	$result['final_penalty'];  
+            $this->final_rank	=	$result['final_rank'];       
+            $this->hotel_id	    =	$result['hotel_id'];       
+            $this->hotel_id1	=	$result['hotel_id1'];      
+            $this->hotel_id2	=	$result['hotel_id2'];      
+            $this->requirement	=	$result['requirement'];    
+            $this->remark	    =	$result['remark'];         
+            return true;
+        }
+    }
+
+    /*
      * 从表中删除指定id的队伍数据
      */
     public static function delById($id){

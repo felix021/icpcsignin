@@ -31,7 +31,7 @@ foreach($data as $line){
             if($t->errno){
                 echo "<div style=\"color:red;\">导入失败: $line($t->error)</div>\n";
             }else{
-                echo "<div>导入成功: $line</div>\n";
+                echo "<div>导入成功: $line(final_id={$t->final_id})</div>\n";
             }
         }
     }
