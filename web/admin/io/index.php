@@ -89,6 +89,12 @@ WOJ队伍ID前缀<input type="text" name="prefix" value="whu09cc_"/>
 <input type="checkbox" name="attend_final" value="1"/>参加决赛
 <input type="submit" value="导出"/>
 </form>
+<hr/>
+<form method="post" action="export.php">
+晋级决赛队伍的住宿要求：
+<input type="hidden" name="export_type" value="hotel_requirements"/>
+<input type="submit" value="导出"/>
+</form>
 </div>
 </div>
 <?php

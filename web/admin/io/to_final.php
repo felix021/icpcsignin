@@ -1,6 +1,7 @@
 <?php
 $t = new team;
 $data = split("\n", $content);
+array_unique($data);
 shuffle($data);
 include_once(APP_ROOT."admin/header.php");
 
