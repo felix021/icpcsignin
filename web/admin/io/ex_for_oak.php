@@ -46,5 +46,4 @@ while($row = $res->fetch_assoc()){
 eot;
 }
 echo "</textarea>\n";
-include_once(APP_ROOT."admin/footer.php");
 ?>
