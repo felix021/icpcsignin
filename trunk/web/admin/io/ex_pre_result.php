@@ -80,6 +80,7 @@ eot;
 
 $out .= <<<eot
 </table>
+</center>
 </body>
 </html>
 eot;
@@ -92,4 +93,5 @@ header("Accept-Length: ".strlen($out));
 header("Content-Disposition: attachment;filename=pre_result_{$_POST['type']}.html");
 echo $out;
 
+exit();
 ?>

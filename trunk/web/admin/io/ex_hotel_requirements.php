@@ -61,6 +61,7 @@ eot;
 
 $out .= <<<eot
 </table>
+</center>
 </body>
 </html>
 eot;
@@ -73,4 +74,5 @@ header("Accept-Length: ".strlen($out));
 header("Content-Disposition: attachment;filename=hotel_requirements.html");
 echo $out;
 
+exit;
 ?>
