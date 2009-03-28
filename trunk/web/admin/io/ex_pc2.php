@@ -5,7 +5,7 @@ SELECT
     `team_name`, #队名
     `final_id` #决赛编号
   FROM `{tblprefix}_teams`
-  WHERE `vcode` = "" AND `final_id` > 0
+  WHERE `final_id` > 0
   ORDER BY `final_id` ASC
 eot;
 
