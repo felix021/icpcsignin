@@ -82,16 +82,21 @@ WOJ队伍ID前缀<input type="text" name="prefix" value="whu09cc_"/>
 </form>
 <hr/>
 <form method="post" action="export.php">
-完整队伍信息：
+队伍信息：
 <input type="hidden" name="export_type" value="full_teaminfo"/>
+<br/>学校：
 <input type="radio" name="type" value="all" checked="checked"/>全部
 <input type="radio" name="type" value="whu"/>本校
+<input type="radio" name="type" value="notwhu"/>非本校
 <input type="radio" name="type" value="col"/>其他高校
 <input type="radio" name="type" value="high"/>高中
+<br/>类型
 <input type="checkbox" name="attend_pre" value="1"/>参加预赛
 <input type="checkbox" name="attend_final" value="1"/>参加决赛
-<input type="checkbox" name="sort_by_final_rank" value="1"/>按决赛排名顺序
+<br/>附加要求
+<input type="checkbox" name="final_info" value="1"/>包括决赛信息
 <input type="checkbox" checked="checked" name="mem_info" value="1"/>包括成员信息
+<br/>
 <input type="submit" value="导出"/>
 </form>
 <hr/>
