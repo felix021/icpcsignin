@@ -1,7 +1,6 @@
 <?php
 $relpath = dirname(__FILE__);
 include($relpath."/def.php");
-
 include(APP_ROOT."admin/verify.php");
 ?>
 <html>
