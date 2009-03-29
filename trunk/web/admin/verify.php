@@ -1,10 +1,11 @@
 <?php
+session_start();
+ob_start();
+header("Content-Type: text/html;charset=utf-8");
 $relpath = dirname(__FILE__);
 include($relpath."/def.php");
 include_once(APP_ROOT."include/config.php");
 
-    session_start();
-    ob_start();
     if($_SESSION['admin'] != true){
         //header("location: index.php");
         include(APP_ROOT."include/header.php");

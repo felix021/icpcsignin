@@ -61,6 +61,7 @@ td{text-align:center;}
     <td>顺序</td>
     <td>编号</td>
     <td>队名</td>
+    <td>学校名</td>
     <td>决赛id</td>
     <td>决赛排名</td>
     <td>邮箱</td>
@@ -131,11 +132,14 @@ eot;
 
 eot;
     }
+    $school_name = school::getNameByTeamId($team_id);
+    $school_name = htmlspecialchars($school_name);
     $out .= <<<eot
 <tr class="{$trclass}">
     <td>{$i}</td>
     <td>{$team_id}</td>
     <td>{$team_name}</td>
+    <td>{$school_name}</td>
     <td>{$final_id}</td>
     <td>{$final_rank}</td>
     <td>{$email}</td>
