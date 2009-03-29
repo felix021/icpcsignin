@@ -43,12 +43,15 @@ e.g. 20|1|3|6:23:13
 e.g. 218
 
 决赛结果：
-<span style="color:red;">决赛</span>id|出题数量|罚时(分钟, pc2格式)
+Rank|<span style="color:red;">决赛</span>id|出题数量|罚时(分钟, pc2格式)
 e.g. 20|1|3|456
 </pre>
 </td>
 </tr>
 </table>
+p.s. (针对PC2的summary数据)VIM替换规则为
+:%s/\(.\{-}\)\tteam\(\d\{-}\) - .\{-}\t\(.\{-}\)\t\(.\{-}\)\t.*/\1|\2|\3|\4/g<br/>
+PC2的显示昵称必须以"teamID - "开头<br/>
 <input type="button" value="学校列表" onclick="javascript:import_data('school');"/>
 <input type="button" value="预赛结果" onclick="javascript:import_data('pre');"/>
 <input type="button" value="晋级决赛" onclick="javascript:import_data('to_final');"/>
@@ -87,6 +90,7 @@ WOJ队伍ID前缀<input type="text" name="prefix" value="whu09cc_"/>
 <input type="radio" name="type" value="high"/>高中
 <input type="checkbox" name="attend_pre" value="1"/>参加预赛
 <input type="checkbox" name="attend_final" value="1"/>参加决赛
+<input type="checkbox" name="sort_by_final_rank" value="1"/>按决赛排名顺序
 <input type="checkbox" checked="checked" name="mem_info" value="1"/>包括成员信息
 <input type="submit" value="导出"/>
 </form>

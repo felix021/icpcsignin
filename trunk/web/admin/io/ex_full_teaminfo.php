@@ -25,8 +25,16 @@ if($_POST['attend_final']){
 $query = <<<eot
 SELECT * FROM `{tblprefix}_teams`
     WHERE vcode = "" {$cond}
+eot;
+if ($_POST['sort_by_final_rank']){
+    $query .= <<<eot
+    ORDER BY `final_rank` ASC
+eot;
+}else{
+    $query .= <<<eot
     ORDER BY `team_id` ASC
 eot;
+}
 
 $res = getQuery($conn, $query);
 
@@ -50,9 +58,11 @@ td{text-align:center;}
 <center>
 <table align="center">
 <tr class="tro">
+    <td>顺序</td>
     <td>编号</td>
     <td>队名</td>
     <td>决赛id</td>
+    <td>决赛排名</td>
     <td>邮箱</td>
     <td>队伍类型</td>
     <td>电话</td>
@@ -123,9 +133,11 @@ eot;
     }
     $out .= <<<eot
 <tr class="{$trclass}">
+    <td>{$i}</td>
     <td>{$team_id}</td>
     <td>{$team_name}</td>
     <td>{$final_id}</td>
+    <td>{$final_rank}</td>
     <td>{$email}</td>
     <td>{$school_t}</td>
     <td>{$telephone}</td>
