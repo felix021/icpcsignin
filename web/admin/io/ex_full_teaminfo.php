@@ -125,9 +125,14 @@ eot;
             }
             $sch = new school($row1['school_id']);
             $gender = $row1['gender'] ? "男" : "女";
+            $whu_info = "";
+            if ($_POST['type'] == 'whu'){
+                $whu_info = "<td>{$row1['stu_number']}</td>";
+            }
             $memberinfo .= <<<eot
         <td>{$row1['member_name']}</td>
         <td>{$gender}</td>
+        {$whu_info}
         <td>{$row1['email']}</td>
         <td>{$row1['telephone']}</td>
         <td>{$sch->school_name_cn}</td>
