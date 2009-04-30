@@ -107,7 +107,12 @@ eot;
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>安装成功!</title>
 </head>
-<body>安装成功! <a href="index.php">管理员登录&gt;&gt;</a></body></html>
+<body>
+安装成功! 
+<p>
+<span style="color:red">请注意:</span> 此脚本会在admin目录下自动生成空文件lock.txt，以防别人再次运行此脚本。建议检查是否已经生成这个文件，最好能重命名本脚本(install.php)，或者直接删除之 :)
+</p>
+<a href="index.php">管理员登录&gt;&gt;</a></body></html>
 <?php
     }else{
         ob_clean();
