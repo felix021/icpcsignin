@@ -19,7 +19,7 @@ include(APP_ROOT."admin/inc.php");
 </select>
 (给单个队伍发送邮件请在队伍管理界面找到该队伍，选择发送邮件)
 </p>
-<div>邮件标题: <input type="text" name="title" value=""/>(15字以内)</div>
+<div>邮件标题: <input type="text" name="title" value=""/></div>
 <?php
 $ubb = 'checked="checked"';
 $display = "block";

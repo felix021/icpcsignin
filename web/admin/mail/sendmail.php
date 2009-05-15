@@ -70,10 +70,13 @@ if($conn->affected_rows == 0){
     msgbox("没有符合指定条件的队伍");
 }
 
+/*
+ * @ 2009-05-15 phpmailer降级为2.0，不存在此问题了
 $title_l = mb_strlen($title, "UTF-8");
 if($title_l > 15){
     msgbox("邮件标题太长（不能超过15字）");
 }
+ */
 
 $m = new mailer;
 $template = $content;
