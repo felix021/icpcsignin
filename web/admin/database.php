@@ -25,7 +25,7 @@ CREATE TABLE `{$tblprefix}_teams`(
     `valid_for_final` int DEFAULT 1,  
     `pre_solved` int DEFAULT -1,
     `pre_penalty` int DEFAULT -1,
-    `pre_rank` int, DEFAULT -1
+    `pre_rank` int DEFAULT -1,
     `final_id` int DEFAULT -1,  
     `final_solved` int DEFAULT -1,
     `final_penalty` int DEFAULT -1,
