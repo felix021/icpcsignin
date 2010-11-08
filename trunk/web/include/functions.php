@@ -210,7 +210,11 @@ function ubb2html($str){
 
 function symbol2value($str, $team_id = -1){
     if($team_id == -1)
-        $team_id = (int)$_SESSION['team_id'];
+    {
+        $team_id = 0;
+        if (isset($_SESSION['team_id']))
+            $team_id = (int)$_SESSION['team_id'];
+    }
     $t = new team($team_id);
     if($t->errno){
         if(ereg("\{(team_id|vcode|team_name|password|telephone|school|final_id)\}", $str))

@@ -45,6 +45,8 @@ echo <<<eot
 
 eot;
 
+if (!isset($_GET['page'])) $_GET['page'] = null;
+
 switch($_GET['page']){
 case 'register':
     require_once("team/register.php");
