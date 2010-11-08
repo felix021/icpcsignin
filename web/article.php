@@ -9,7 +9,9 @@ $row = $res->fetch_array();
 $articles_c = (int)$row[0];
 
 $pages_c = ceil($articles_c / $itemsperpage);
-$page = (int)$_GET['page'];
+$page = 0;
+if (isset($_GET['page']))
+    $page = (int)$_GET['page'];
 
 $listbar = get_listbar($page, $articles_c, $itemsperpage, "index.php");
 /*
